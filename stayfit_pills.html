@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayFit Pills — Evolución Directa y Control Total</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: rgba(28, 28, 30, 0.7);
+            --surface-heavy: rgba(44, 44, 46, 0.8);
+            --accent: #ff2d55;
+            --accent-glow: rgba(255, 45, 85, 0.3);
+            --text: #ffffff;
+            --text-muted: #8e8e93;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(20, 20, 20, 0.7);
+            --glass-blur: blur(20px) saturate(180%);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-main: 'Inter', system-ui, sans-serif;
+            --font-headers: 'Outfit', sans-serif;
+        }
+
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --surface: rgba(242, 242, 247, 0.7);
+            --surface-heavy: rgba(242, 242, 247, 0.9);
+            --text: #000000;
+            --text-muted: #3c3c43;
+            --border: rgba(0, 0, 0, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease;
+            padding-top: 120px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+        }
+
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1152px;
+            padding: 0 32px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 80px; }
+            header {
+                padding: 0 16px;
+                height: 54px;
+                top: 10px;
+                width: calc(100% - 20px);
+                border-radius: 27px;
+            }
+            .logo { height: 22px; }
+            .hero-title { font-size: clamp(2rem, 8vw, 2.8rem); letter-spacing: -1px; }
+            .price-tag { font-size: 2rem; margin-bottom: 28px; }
+
+            /* Product grid: stack vertically on mobile */
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .product-image-container {
+                position: relative;
+                top: 0;
+                min-height: 300px;
+                padding: 24px;
+                border-radius: 28px;
+            }
+            .product-image { max-width: 280px; }
+
+            /* Info cards */
+            .info-card { padding: 24px; border-radius: 20px; }
+            .info-card h2 { font-size: 1.4rem; }
+            .warning-box { padding: 24px; border-radius: 20px; }
+            .warning-box h3 { font-size: 1.4rem; }
+
+            /* Buy button full width */
+            #buy-btn-pills {
+                height: 60px !important;
+                font-size: 1.05rem !important;
+                border-radius: 20px !important;
+                margin-bottom: 36px !important;
+            }
+
+            /* Floating button */
+            .floating-container { bottom: 16px; right: 12px; gap: 8px; }
+            .float-btn { width: 50px; height: 50px; }
+        }
+
+
+        .logo { height: 32px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-family: var(--font-headers);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px var(--accent-glow);
+            filter: brightness(1.1);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 64px;
+            align-items: start;
+            margin-bottom: 64px;
+        }
+
+        .product-image-container {
+            position: sticky;
+            top: 120px;
+            border-radius: 40px;
+            overflow: hidden;
+            background: radial-gradient(circle at center, var(--surface-heavy), transparent);
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            transition: var(--transition);
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 24px;
+            display: block;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6));
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-title {
+            font-family: var(--font-headers);
+            font-size: 4rem;
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-tag {
+            font-family: var(--font-headers);
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 40px;
+            font-weight: 700;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .price-tag span { font-size: 1rem; color: var(--text-muted); text-decoration: line-through; margin-right: 10px; }
+
+        .info-card {
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 32px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover { border-color: var(--accent); transform: scale(1.02); }
+
+        .info-card h2 {
+            font-family: var(--font-headers);
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accent);
+        }
+
+        .list-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .list-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .warning-box {
+            border-radius: 28px;
+            padding: 40px;
+            background: rgba(255, 59, 48, 0.05);
+            border: 1px solid rgba(255, 59, 48, 0.1);
+            color: #ff453a;
+        }
+
+        .warning-box h3 {
+            font-family: var(--font-headers);
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: 1fr; gap: 40px; }
+            .product-image-container { position: relative; top: 0; min-height: auto; padding: 20px; }
+            .hero-title { font-size: 3rem; letter-spacing: -1px; }
+            .container { padding: 0 20px; }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            background: var(--accent);
+            color: #fff;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 2000;
+        }
+
+        .float-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            text-decoration: none;
+        }
+
+        .float-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px;
+        }
+
+        .float-whatsapp svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+
+        [data-theme="light"] .hero-title { background: linear-gradient(to right, #000, #3c3c43); -webkit-background-clip: text; background-clip: text; }
+        [data-theme="light"] .product-details p { color: #1c1c1e; }
+        [data-theme="light"] .info-card p { color: #3c3c43; }
+        [data-theme="light"] .info-card h2 { color: var(--accent); }
+        [data-theme="light"] .list-item span { color: #1c1c1e; }
+    </style>
+</head>
+<body data-theme="dark">
+
+    <header class="glass">
+        <a href="stayfit_landing.html"><img id="nav-logo" src="./Media/Logos/logo blanco.svg" class="logo" alt="StayFit Logo"></a>
+        <a href="stayfit_landing.html" class="btn glass" style="border-radius: 16px; padding: 8px 20px; font-size: 0.85rem;">← Volver</a>
+    </header>
+
+    <main class="container">
+        <div class="product-grid">
+            <div class="product-image-container glass">
+                <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" class="product-image" alt="StayFit Pills">
+            </div>
+
+            <div class="product-details">
+                <div class="badge">SISTEMA CORE / EVOLUCIÓN</div>
+                <h1 class="hero-title">StayFit Pills</h1>
+                <p style="font-size: 1.25rem; opacity: 0.9; margin-bottom: 32px; line-height: 1.6;">
+                    Nuestra fórmula insigne diseñada para un control metabólico integral. Más que un suplemento, es tu aliado para suprimir la ansiedad y acelerar la quema de grasa de forma natural.
+                </p>
+                <div class="price-tag" id="pills-price">
+                    <span id="pills-old-price">$260.000</span> $210.000 COP
+                </div>
+                
+                <a id="buy-btn-pills" href="https://wa.me/573103296863?text=Hola, quiero pedir StayFit Pills 💊" class="btn btn-primary" style="width: 100%; height: 70px; font-size: 1.2rem; border-radius: 24px; margin-bottom: 56px;">
+                    Comprar Ahora — Envío Gratis
+                </a>
+
+                <div class="info-card glass">
+                    <h2>✨ Beneficios Principales</h2>
+                    <div class="list-item"><i>✓</i> <span><strong>Supresión de Ansiedad:</strong> Reduce drásticamente el deseo de carbohidratos y dulces desde el primer día.</span></div>
+                    <div class="list-item"><i>✓</i> <span><strong>Energía Sostenida:</strong> Brinda vitalidad explosiva durante todo el día sin el efecto rebote o 'crash' energético.</span></div>
+                    <div class="list-item"><i>✓</i> <span><strong>Foco Metabólico:</strong> Facilita la oxidación de grasa localizada preservando tu masa muscular.</span></div>
+                </div>
+
+                <div class="info-card glass">
+                    <h2>📋 Protocolo de Uso</h2>
+                    <p style="margin-bottom: 24px; opacity: 0.9; font-weight: 500;">Sigue este protocolo para maximizar tu transformación:</p>
+                    <div class="list-item"><i>•</i> <span><strong>La Regla de Oro:</strong> Tomar 1 cápsula diaria 30-45 min antes de tu primera comida.</span></div>
+                    <div class="list-item"><i>•</i> <span><strong>Hidratación Pro:</strong> Incrementa el consumo de agua a 3-4 litros al día para facilitar la termogénesis.</span></div>
+                    <div class="list-item"><i>•</i> <span><strong>Vitalidad:</strong> Evita alcohol y cafeína excesiva para mantener tu sistema en balance total.</span></div>
+                </div>
+
+                <div class="warning-box">
+                    <h3>🚫 Qué Debes Saber</h3>
+                    <ul style="padding-left: 20px; opacity: 0.9; font-size: 1rem; line-height: 1.8;">
+                        <li>No apto para mujeres embarazadas o en periodo de lactancia.</li>
+                        <li>No recomendado para menores de 18 años ni mayores de 60 años.</li>
+                        <li>Evitar si tienes hipertensión no controlada o problemas cardíacos crónicos.</li>
+                        <li>Consulta a tu médico si tienes afecciones renales o hepáticas agudas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="floating-container">
+        <a href="https://wa.me/573103296863" class="float-btn float-whatsapp whatsapp-link" data-msg="Hola, quiero pedir StayFit Pills 💊" target="_blank" title="WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
+        </a>
+    </div>
+
+
+    <footer style="padding: 64px 0; text-align: center; opacity: 0.5; font-size: 0.85rem;">
+        StayFit © 2026 — Bienestar Natural de Evolución Directa
+    </footer>
+
+    <script>
+        const data = {
+            CO: { currency: 'COP', symbol: '$', pills: '210.000', pillsOld: '260.000', waSuffix: '🇨🇴' },
+            US: { currency: 'USD', symbol: '$', pills: '130', pillsOld: '160', waSuffix: '🇺🇸' }
+        };
+
+        function updateUI() {
+            // Restore from localStorage
+            const savedRegion = localStorage.getItem('stayfit_region') || 'CO';
+            const savedTheme = localStorage.getItem('stayfit_theme') || 'dark';
+            
+            document.body.setAttribute('data-theme', savedTheme);
+            const info = data[savedRegion];
+            
+            const priceEl = document.getElementById('pills-price');
+            const buyBtn = document.getElementById('buy-btn-pills');
+            const waLinks = document.querySelectorAll('.whatsapp-link');
+
+            if(priceEl) priceEl.innerHTML = `<span>${info.symbol}${info.pillsOld}</span> ${info.symbol}${info.pills} ${info.currency}`;
+            
+            const baseMsg = "Hola, quiero pedir StayFit Pills 💊";
+            const finalMsg = `📲 *Consulta StayFit* \n\nHola, soy de ${info.waSuffix} y me interesa: ${baseMsg}. Me gustaría recibir más información.`;
+            
+            if(buyBtn) buyBtn.href = `https://wa.me/573103296863?text=${encodeURIComponent(finalMsg)}`;
+            
+            waLinks.forEach(link => {
+                const linkMsg = link.getAttribute('data-msg') || baseMsg;
+                const linkFinalMsg = `📲 *Consulta StayFit* \n\nHola, soy de ${info.waSuffix} y me interesa: ${linkMsg}.`;
+                link.href = `https://wa.me/573103296863?text=${encodeURIComponent(linkFinalMsg)}`;
+            });
+
+            // Update logo based on theme
+            const logo = document.getElementById('nav-logo');
+            if (logo) logo.src = savedTheme === 'dark' ? './Media/Logos/logo blanco.svg' : './Media/Logos/Logo negro.svg';
+        }
+
+        window.onload = updateUI;
+    </script>
+</body>
+</html>

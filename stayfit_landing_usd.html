@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayFit — Transforma tu figura con suplementos naturales</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --surface-hover: #1f1f1f;
+            --accent: #ff4d82;
+            --accent-hover: #e03c6b;
+            --text: #ffffff;
+            --text-muted: #999999;
+            --border: #2a2a2a;
+            --whatsapp-green: #25D366;
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Utilidades */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 77, 130, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 77, 130, 0.4);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20bd5a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./Media/Fotos publicitarias/Keep_the_product_from_the_reference_image_exactly__delpmaspu (2).png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        /* Products Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--surface);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .card .btn {
+            width: 100%;
+        }
+
+        /* Features/Ingredientes section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background-color: var(--surface);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            background-color: var(--surface-hover);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Steps */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background-color: var(--surface);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 300px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--surface);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 30px;
+            margin-bottom: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <img src="./Media/Logos/logo blanco.svg" alt="StayFit Logo" class="logo">
+            <a href="#productos" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1rem;">Comprar ahora</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforma tu figura con el poder de la naturaleza</h1>
+                <p>Suplementos premium diseñados para maximizar la pérdida de peso de forma segura y sostenible. Únete a miles de personas que ya lograron su meta.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#productos" class="btn btn-primary">Ver Catálogo</a>
+                    <!-- Mayoristas -->
+                    <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20precios%20mayoristas" target="_blank" class="btn btn-whatsapp" style="background-color: var(--surface); color: var(--text); border: 1px solid var(--border); box-shadow: none;">
+                        Ventas al por mayor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Nuestros <span>Productos Base</span></h2>
+            
+            <div class="grid" style="justify-content: center;">
+                <!-- Product 1: StayFit Pills -->
+                <div class="card">
+                    <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" alt="StayFit Pills" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">StayFit Pills</h3>
+                        <p class="card-desc">Frasco con 30 pastillas de alta concentración para acelerar tu metabolismo de forma natural y controlada.</p>
+                        <div class="card-price">$130 USD</div>
+                        <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20pedir%20StayFit%20Pills%20%F0%9F%92%8A" target="_blank" class="btn btn-whatsapp">
+                            Comprar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2: StayFit Tea -->
+                <div class="card">
+                    <img src="./Media/Fotos de producto/imagen con todos los productos.png" alt="StayFit Tea" class="card-img" style="object-position: top;">
+                    <div class="card-body">
+                        <h3 class="card-title">StayFit Tea</h3>
+                        <p class="card-desc">Caja con 15 sobres para detox e hidratación. Sabores: Naranja, Piña, Frutos Rojos, Limón, Uva.</p>
+                        <div class="card-price">$80 USD</div>
+                        <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20pedir%20StayFit%20Tea%20%F0%9F%8D%B5" target="_blank" class="btn btn-whatsapp">
+                            Comprar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combos Section -->
+    <section id="combos" class="section-padding" style="background-color: var(--surface);">
+        <div class="container">
+            <h2 class="section-title text-center">Mejores Resultados <span>En Combos</span></h2>
+            
+            <div class="grid">
+                <!-- Combo 1 -->
+                <div class="card" style="background-color: var(--bg);">
+                    <img src="./Media/Fotos publicitarias/CC por Antarctica Films Argentina.png" alt="Combo 1" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Combo 1: Rutina Completa</h3>
+                        <p class="card-desc">1 Frasco de StayFit Pills + 1 Caja de StayFit Tea. La combinación perfecta para lograr resultados rápidos. ¡Ahorras $10 USD!</p>
+                        <div class="card-price">$200 USD</div>
+                        <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20el%20Combo%201%3A%20Pills%20%2B%20Tea" target="_blank" class="btn btn-primary">
+                            Pedir Combo 1
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Combo 2 -->
+                <div class="card" style="background-color: var(--bg);">
+                    <img src="./Media/Fotos de producto/te rojo.png" alt="Combo 2" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Combo 2: Doble Detox</h3>
+                        <p class="card-desc">2 Cajas de StayFit Tea del sabor que prefieras. Ideal para mantener un metabolismo activo por un mes entero. ¡Ahorras $20 USD!</p>
+                        <div class="card-price">$140 USD</div>
+                        <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20el%20Combo%202%3A%202%20T%C3%A9s" target="_blank" class="btn btn-primary">
+                            Pedir Combo 2
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Combo 3 -->
+                <div class="card" style="background-color: var(--bg); border-color: var(--accent);">
+                    <img src="./Media/Fotos de producto/Te naranja.png" alt="Combo 3" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Combo 3: Pack Mensual Te</h3>
+                        <p class="card-desc">3 Cajas de StayFit Tea. Variedad de sabores para todos los días y máxima depuración. ¡Ahorras $60 USD!</p>
+                        <div class="card-price">$180 USD</div>
+                        <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20el%20Combo%203%3A%203%20T%C3%A9s" target="_blank" class="btn btn-primary">
+                            Pedir Combo 3
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredientes Section -->
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Ingredientes <span>100% Naturales</span></h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🌿</div>
+                    <h3 class="feature-title">Té Verde y Matcha</h3>
+                    <p class="card-desc">Potentes antioxidantes naturales que aceleran la quema de calorías en estado de reposo.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌵</div>
+                    <h3 class="feature-title">L-Carnitina</h3>
+                    <p class="card-desc">Aminoácido fundamental que ayuda a transformar la grasa almacenada en energía aprovechable.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🍒</div>
+                    <h3 class="feature-title">Garcinia Cambogia</h3>
+                    <p class="card-desc">Controla los antojos y da sensación de saciedad, ayudando a reducir la ingesta calórica diaria.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💧</div>
+                    <h3 class="feature-title">Extractos Detox</h3>
+                    <p class="card-desc">Diferentes combinaciones según el sabor que elijas que evitan la retención de líquidos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="section-padding" style="background-color: var(--surface);">
+        <div class="container">
+            <h2 class="section-title text-center">¿Cómo es el proceso de <span>compra y consumo?</span></h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Cierra pedido por WhatsApp</h3>
+                        <p style="color: var(--text-muted);">Dale clic a cualquiera de los botones de la página, elige tu método de pago y nuestro sistema confirmará el pedido automáticamente.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Recíbelo en casa</h3>
+                        <p style="color: var(--text-muted);">Hacemos envíos a nivel nacional. Entre 2 a 5 días hábiles tendrás tu paquete en la puerta de tu casa listo para usar.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Forma tu rutina</h3>
+                        <p style="color: var(--text-muted);">Toma tus pastillas con el desayuno o prepara tu detox Tea en cualquier momento del día, ya sea para rehidratarte o relajar tu cuerpo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Resultados <span>Reales</span></h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="card" style="background: none; border: none;">
+                    <div class="card-body" style="background-color: var(--surface); border-radius: 20px;">
+                        <div style="font-size: 1.5rem; color: #ffd700; margin-bottom: 1rem;">★★★★★</div>
+                        <p class="card-desc" style="font-style: italic;">"Llevo ya un mes consumiendo las pills y el té de naranja. Mi metabolismo despertó y tengo muchísima más energía. Superó mis expectativas."</p>
+                        <h4 style="margin-top: 1rem;">- Laura Camila G.</h4>
+                    </div>
+                </div>
+                <div class="card" style="background: none; border: none;">
+                    <div class="card-body" style="background-color: var(--surface); border-radius: 20px;">
+                        <div style="font-size: 1.5rem; color: #ffd700; margin-bottom: 1rem;">★★★★★</div>
+                        <p class="card-desc" style="font-style: italic;">"Excelente producto. Sufro todo el día con mis antojos en el trabajo y la verdad el té de frutos rojos me ha mantenido saciada."</p>
+                        <h4 style="margin-top: 1rem;">- Mariana V.</h4>
+                    </div>
+                </div>
+                <div class="card" style="background: none; border: none;">
+                    <div class="card-body" style="background-color: var(--surface); border-radius: 20px;">
+                        <div style="font-size: 1.5rem; color: #ffd700; margin-bottom: 1rem;">★★★★★</div>
+                        <p class="card-desc" style="font-style: italic;">"Compré el combo mensual. Lo súper recomiendo sobre todo para evitar retener líquidos después de hacer ejercicio. Es de alta calidad."</p>
+                        <h4 style="margin-top: 1rem;">- Estefanía L.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background-color: var(--surface);">
+        <div class="container text-center">
+            <h2 class="section-title">Preguntas <span>Frecuentes</span></h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Cómo funciona exactamente el envío?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>El costo de envío se calcula al momento de elegir tu ciudad durante la compra en WhatsApp. Los despachos se hacen diariamente y toman de 2 a 5 días hábiles a cualquier parte de Colombia.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Cuáles métodos de pago reciben?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A través de nuestro bot en WhatsApp, puedes elegir pagar directamente con Bancolombia, Nequi o Bold (tarjeta crédito o débito).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Tiene alguna contraindicación?
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>StayFit está compuesto 100% de ingredientes naturales, libres de alteraciones. Sin embargo, no recomendamos el consumo a mujeres embarazadas o en etapa de lactancia. Ante condiciones médicas previas severas, por favor consulta a tu médico.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-padding" style="text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem; font-weight: 800;">Adelanta y logra tus objetivos</h2>
+            <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">Nuestro inventario vuela, no te quedes por fuera del combo con promoción que más necesitas.</p>
+            <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20comprar%20%F0%9F%8D%B5" target="_blank" class="btn btn-whatsapp" style="font-size: 1.25rem; padding: 1.2rem 3rem;">
+                Hacer mi pedido por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="./Media/Logos/logo blanco.svg" alt="StayFit Logo" class="footer-logo">
+            <p class="footer-text">© 2026 StayFit. Todos los derechos reservados.</p>
+            <p class="footer-text" style="font-size: 0.8rem; margin-top: 0.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">Los suplementos no reemplazan la dieta ni la consulta con especialistas.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                
+                // Toggle current FAQ
+                item.classList.toggle('active');
+                
+                // Change icon
+                const icon = button.querySelector('span');
+                icon.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        // Add UTM parameters automatically to WhatsApp Links 
+        // Based on docs "Agregar parámetros UTM en todos los botones de la landing"
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const source = urlParams.get('utm_source') || 'meta';
+            const medium = urlParams.get('utm_medium') || 'paid';
+            const campaign = urlParams.get('utm_campaign') || 'stayfit_launch';
+            const content = urlParams.get('utm_content') || 'variante_1';
+            
+            // Add UTM tracking to whatsapp buttons
+            const waLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+            waLinks.forEach(link => {
+                const originalUrl = link.getAttribute('href');
+                const waUrl = new URL(originalUrl);
+                // Extract original text
+                const text = waUrl.searchParams.get('text') || '';
+                // Append UTM data transparently or just track locally
+                // For this requirement, we may not need to put UTM inside the WA text, 
+                // but if we do, we could append it to the end of the text.
+                waUrl.searchParams.set('text', text + ` | source:${source}`);
+                link.setAttribute('href', waUrl.toString());
+            });
+        });
+    </script>
+</body>
+</html>

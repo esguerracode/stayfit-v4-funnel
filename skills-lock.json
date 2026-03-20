@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "landing-page-copywriter": {
+      "source": "onewave-ai/claude-skills",
+      "sourceType": "github",
+      "computedHash": "af0145f315f49ed498f27478d3a4f17842cbf23d7fe724a05075938027162fc2"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "computedHash": "6337038fe1fe6bbe1b9f252ab678ee575859190bab6f0f246f4061824eb40875"
+    }
+  }
+}
