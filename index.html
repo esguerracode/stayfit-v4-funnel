@@ -296,37 +296,104 @@
 
 
         /* --- Why Choose (Reference Grid) --- */
+        /* --- Impactful Bento Grid --- */
         .why-bento-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr 1fr;
-            gap: 24px;
-            align-items: center;
-            max-width: 1080px;
-            margin: 0 auto 64px auto;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            align-items: stretch;
         }
-        .why-col { display: flex; flex-direction: column; gap: 40px; justify-content: center; }
-        .why-col.offset-1 { transform: translateY(-30px); }
-        .why-col.offset-2 { transform: translateY(30px); }
+        
         .why-card {
-            background: #fff;
-            border: 1px solid rgba(0,0,0,0.03);
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.04);
             border-radius: var(--radius-lg);
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            display: flex; flex-direction: column; gap: 16px;
-            transition: var(--transition);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: var(--transition-bounce);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
-        .why-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .why-icon-row { display: flex; align-items: center; gap: 16px; }
-        .why-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .why-card h3 { font-family: var(--font-headers); font-size: 1.15rem; margin: 0; line-height: 1.2; }
-        .why-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
-        .why-center-img-wrap { width: 100%; display: flex; justify-content: center; z-index: 5; position: relative;}
-        .why-center-img-wrap::after {
-            content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 60%;
-            background: var(--bento-mint); border-radius: 200px 200px 40px 40px; z-index: -1;
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border-color: rgba(31, 34, 30, 0.1);
         }
-        .why-center-img { width: 100%; max-width: 280px; object-fit: contain; }
+
+        .why-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .why-card h3 {
+            font-family: var(--font-headers);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-dark);
+            letter-spacing: -0.3px;
+        }
+
+        .why-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .why-col-center {
+            grid-column: 2;
+            grid-row: span 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            min-height: 500px;
+        }
+        
+        .why-center-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        .why-col-center:hover .why-center-img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 1024px) {
+            .why-bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .why-col-center {
+                grid-column: span 2;
+                grid-row: auto;
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .why-bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .why-col-center {
+                grid-column: span 1;
+            }
+        }
         
         @media (max-width: 900px) {
             .why-bento-grid { grid-template-columns: 1fr 1fr; }
@@ -589,47 +656,37 @@
             </div>
 
             <div class="why-bento-grid">
-                <!-- Left Column -->
-                <div class="why-col offset-1">
-                    <div class="why-card reveal delay-1">
-                        <div class="why-icon-row">
-                            <div class="why-icon" style="background:var(--bento-peach); color: #ff8a65;">🌿</div>
-                            <h3>Ingredientes Naturales</h3>
-                        </div>
-                        <p>Mezcla clínica con extractos botánicos puros.</p>
-                    </div>
-                    <div class="why-card reveal delay-2">
-                        <div class="why-icon-row">
-                            <div class="why-icon" style="background:var(--bento-yellow); color: #eab308;">🛡️</div>
-                            <h3>Fórmula Comprobada</h3>
-                        </div>
-                        <p>Desarrollada bajo altos estándares sin efecto rebote.</p>
-                    </div>
+                <!-- Card 1 -->
+                <div class="why-card reveal delay-1">
+                    <div class="why-icon" style="background:var(--bento-peach); color: #ff8a65;">🍃</div>
+                    <h3>Bondad Botánica</h3>
+                    <p>Fórmulas de origen natural, sin químicos agresivos, diseñadas para potenciar tu salud desde el interior.</p>
                 </div>
 
-                <!-- Center Image -->
-                <div class="why-col-center">
-                    <div class="why-center-img-wrap reveal delay-2">
-                        <img src="./Media/Fotos publicitarias/Keep_the_product_from_the_reference_image_exactly__delpmaspu (2).png" class="why-center-img" alt="Lifestyle Hand">
-                    </div>
+                <!-- Center Large Showcase -->
+                <div class="why-col-center reveal delay-2">
+                    <img src="./Media/Fotos de producto/Antes_entregame_el_blanco__2k_delpmaspu.png" class="why-center-img" alt="Branding Showcase" onerror="this.src='./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png'">
                 </div>
 
-                <!-- Right Column -->
-                <div class="why-col offset-2">
-                    <div class="why-card reveal delay-3">
-                        <div class="why-icon-row">
-                            <div class="why-icon" style="background:var(--bento-lilac); color: var(--secondary-brand);">⚖️</div>
-                            <h3>Pérdida Equilibrada</h3>
-                        </div>
-                        <p>Control natural del apetito sin ansiedad o fatiga.</p>
-                    </div>
-                    <div class="why-card reveal delay-4">
-                        <div class="why-icon-row">
-                            <div class="why-icon" style="background:var(--bento-mint); color: #10b981;">✅</div>
-                            <h3>Seguro y Confiable</h3>
-                        </div>
-                        <p>Cápsulas 100% seguras para tu bienestar diario.</p>
-                    </div>
+                <!-- Card 3 -->
+                <div class="why-card reveal delay-3">
+                    <div class="why-icon" style="background:var(--bento-lilac); color: var(--secondary-brand);">⚛️</div>
+                    <h3>Ciencia Superior</h3>
+                    <p>Cada ingrediente está validado clínicamente para garantizar resultados reales sin el temido efecto rebote.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="why-card reveal delay-2">
+                    <div class="why-icon" style="background:var(--bento-yellow); color: #eab308;">⚖️</div>
+                    <h3>Control & Balance</h3>
+                    <p>Domina tu metabolismo y reduce la ansiedad de forma natural para un proceso de bienestar sostenible.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="why-card reveal delay-4">
+                    <div class="why-icon" style="background:var(--bento-mint); color: #10b981;">🛡️</div>
+                    <h3>Seguridad Total</h3>
+                    <p>Cápsulas y tés 100% seguros, producidos bajo los más altos estándares de pureza y calidad garantizada.</p>
                 </div>
             </div>
         </section>
