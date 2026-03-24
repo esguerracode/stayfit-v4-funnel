@@ -180,15 +180,138 @@
         });
     }
 
-    // 8. Bootstrap
+    // --- Flavor Slider Logic (Tea Card) ---
+    function initFlavorSlider() {
+        const wrap = document.querySelector('.flavor-slider-wrap');
+        const slider = document.getElementById('flavor-slider-tea');
+        const slides = document.querySelectorAll('.flavor-slide');
+        const dots = document.querySelectorAll('.dot');
+        const tabs = document.querySelectorAll('.tab-item');
+        
+        if (!slider) return;
+
+        let currentIndex = 0;
+        let startX = 0;
+        let isDragging = false;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        function updateSlider() {
+            slider.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Sync UI
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+            tabs.forEach((t, i) => t.classList.toggle('active', i === currentIndex));
+            
+            // Scroll tabs into view
+            const activeTab = tabs[currentIndex];
+            if (activeTab) {
+                activeTab.parentElement.parentElement.scrollTo({
+                    left: activeTab.offsetLeft - 20,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Update hidden input if modal is open or about to open
+            const hiddenFlavor = document.getElementById('flavor-hidden-input');
+            if (hiddenFlavor) {
+                hiddenFlavor.value = slides[currentIndex].getAttribute('data-flavor');
+            }
+        }
+
+        function nextSlide() {
+            if (currentIndex < slides.length - 1) currentIndex++;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) currentIndex--;
+            updateSlider();
+        }
+
+        // Touch Handlers
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            slider.style.transition = 'none';
+        }, { passive: true });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const currentX = e.touches[0].clientX;
+            const diff = currentX - startX;
+            const translate = -(currentIndex * slider.offsetWidth) + diff;
+            slider.style.transform = `translateX(${translate}px)`;
+        }, { passive: true });
+
+        slider.addEventListener('touchend', (e) => {
+            isDragging = false;
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextSlide();
+                else prevSlide();
+            } else {
+                updateSlider();
+            }
+        }, { passive: true });
+
+        // Mouse Handlers (for desktop "slide")
+        slider.addEventListener('mousedown', (e) => {
+            startX = e.clientX;
+            isDragging = true;
+            slider.style.transition = 'none';
+            slider.classList.add('grabbing');
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const currentX = e.clientX;
+            const diff = currentX - startX;
+            const translate = -(currentIndex * slider.offsetWidth) + diff;
+            slider.style.transform = `translateX(${translate}px)`;
+        });
+
+        window.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            slider.classList.remove('grabbing');
+            const endX = e.clientX;
+            const diff = startX - endX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextSlide();
+                else prevSlide();
+            } else {
+                updateSlider();
+            }
+        });
+
+        // Click handlers for navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentIndex = parseInt(dot.getAttribute('data-index'));
+                updateSlider();
+            });
+        });
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                currentIndex = parseInt(tab.getAttribute('data-index'));
+                updateSlider();
+            });
+        });
+    }
+
+    // --- Bootstrap ---
     function bootstrap() {
         injectGlobalStyles();
         initUTM();
         initTheme();
         initCurrency();
         applyWhatsAppLinks();
+        initFlavorSlider(); // Initialize slider
 
-        // Listen for region changes
         window.addEventListener('regionChanged', () => applyWhatsAppLinks());
     }
 
