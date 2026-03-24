@@ -94,6 +94,7 @@
             z-index: 0;
             pointer-events: none;
             filter: grayscale(0.2) blur(10px); /* 10px blur + slight grayscale as requested */
+            object-position: top center; /* Ensure model's head is not cut off */
             mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
             animation: heroImgFadeIn 2s ease-out forwards;
@@ -1138,8 +1139,8 @@
     <section class="bottom-cta reveal">
         <div class="cta-content">
             <h2 class="reveal delay-1">Empieza tu camino hacia tu mejor versión</h2>
-            <p class="reveal delay-2">Lleva hoy el <strong>Tratamiento Esencial de 1 Mes</strong> (30 cápsulas de StayFit Pills) y da el primer paso hacia la transformación que mereces. Ideal para control de ansiedad y quema calórica diaria.</p>
-            <button class="btn btn-primary btn-pulse reveal delay-3" data-open-modal data-product="StayFit Pills">🛒 Pedir Tratamiento 1 Mes — $210.000</button>
+            <p class="reveal delay-2">Lleva hoy el <strong>Tratamiento Esencial de 1 Mes</strong> (Incluye un frasco de 30 cápsulas StayFit Pills) y da el primer paso hacia la transformación que mereces. Ideal para control de ansiedad y quema calórica diaria.</p>
+            <button class="btn btn-primary btn-pulse reveal delay-3" data-open-modal data-product="StayFit Pills">🛒 Comprar Tratamiento 1 Mes — $210.000</button>
             
             <div class="trust-badge-row reveal delay-4" style="justify-content: flex-start; margin-top: 24px; opacity: 0.9;">
                 <div class="trust-badge-mini">

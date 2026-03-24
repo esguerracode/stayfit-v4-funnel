@@ -195,9 +195,15 @@
             height: 100%;
             background-image: url('./Media/Fotos publicitarias/Keep_the_product_from_the_reference_image_exactly__delpmaspu (2).png');
             background-size: cover;
-            background-position: center;
+            background-position: top center;
             opacity: 0.25;
             z-index: -1;
+            animation: heroImgFadeIn 2s ease-out forwards;
+        }
+
+        @keyframes heroImgFadeIn {
+            from { transform: scale(1.1); opacity: 0; }
+            to { transform: scale(1.0); opacity: 0.25; }
         }
 
         .hero-content {
@@ -768,21 +774,24 @@
                     <div class="stars">★★★★★</div>
                     <p>"Clothes started fitting differently after the first 3 weeks. No jitters, just clean energy."</p>
                     <div class="testi-author">
-                        <h4 style="margin:0; font-size:1rem;">Laura B.</h4>
+                        <img src="./Media/Fotos publicitarias/laura_b.png" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1.5px solid #eee;">
+                        <div><h4 style="margin:0; font-size:1rem;">Laura B.</h4></div>
                     </div>
                 </div>
                 <div class="testi-small">
                     <div class="stars">★★★★★</div>
                     <p>"The Detox Tea is espectacular. Best tasting supplement I've ever tried."</p>
                     <div class="testi-author">
-                        <h4 style="margin:0; font-size:1rem;">Camila T.</h4>
+                        <img src="./Media/Fotos de producto/SINFONÍA%20PARA%20UN%20MUNDO%20MEJOR%20%20StayFit.png" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1.5px solid #eee;">
+                        <div><h4 style="margin:0; font-size:1rem;">Camila T.</h4></div>
                     </div>
                 </div>
                 <div class="testi-small">
                     <div class="stars">★★★★★</div>
                     <p>"My nutritionist approved the formulas. Highly recommended for sustainable results."</p>
                     <div class="testi-author">
-                        <h4 style="margin:0; font-size:1rem;">Diana P.</h4>
+                        <img src="./Media/Fotos publicitarias/CC%20por%20Antarctica%20Films%20Argentina.png" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1.5px solid #eee;">
+                        <div><h4 style="margin:0; font-size:1rem;">Diana P.</h4></div>
                     </div>
                 </div>
             </div>
@@ -830,8 +839,8 @@
         <div class="container">
             <h2 style="font-size: 3rem; margin-bottom: 1.5rem; font-weight: 800;">Adelanta y logra tus objetivos</h2>
             <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">Nuestro inventario vuela, no te quedes por fuera del combo con promoción que más necesitas.</p>
-            <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20comprar%20%F0%9F%8D%B5" target="_blank" class="btn btn-whatsapp" style="font-size: 1.25rem; padding: 1.2rem 3rem;">
-                Hacer mi pedido por WhatsApp
+            <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20hacer%20mi%20pedido%20USD%20de%20StayFit%20🌿" target="_blank" class="btn btn-primary btn-pulse" style="font-size: 1.25rem; padding: 1.2rem 3rem; text-decoration: none;">
+                🛒 Hacer mi pedido por WhatsApp
             </a>
         </div>
     </section>
