@@ -266,7 +266,8 @@
             font-family: var(--font-headers);
             font-size: 16vw;
             font-weight: 800;
-            color: var(--text-dark);
+            color: transparent;
+            -webkit-text-stroke: 3px rgba(31, 34, 30, 0.12); /* Subtle solid outline for modern elegance */
             white-space: nowrap;
             letter-spacing: -6px;
             z-index: 1;
@@ -305,8 +306,9 @@
         }
         /* Top Left: Reviews */
         .badge-1 {
-            top: 22%; left: 12%; padding: 12px 20px; gap: 12px;
+            top: 25%; left: 10%; padding: 12px 20px; gap: 12px;
             animation-delay: 1.2s; border-radius: var(--radius-full);
+            backdrop-filter: blur(15px);
         }
         .badge-1 .b-stars { color: #EAB308; font-size: 1.2rem; }
         .badge-1 .b-num { font-weight: 700; font-size: 1rem; }
@@ -315,16 +317,19 @@
 
         /* Bottom Left: Description */
         .badge-2 {
-            bottom: 20%; left: 12%; flex-direction: row; gap: 16px;
-            padding: 16px; max-width: 280px; animation-delay: 1.4s;
+            bottom: 20%; left: 15%; flex-direction: row; gap: 16px;
+            padding: 16px; max-width: 250px; animation-delay: 1.4s;
+            backdrop-filter: blur(15px);
         }
         .badge-2 img { width: 48px; height: 48px; border-radius: var(--radius-sm); object-fit: cover; background: var(--bento-mint); }
         .badge-2 p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin:0; font-family:var(--font-main);}
 
-        /* Center / Top Right: Energy Mode */
+        /* Center / Right: Energy Mode */
         .badge-3 {
-            top: 35%; right: 12%; flex-direction: column; align-items: flex-start;
+            top: 50%; right: 10%; transform: translateY(-50%);
+            flex-direction: column; align-items: flex-start;
             padding: 16px; gap: 12px; max-width: 220px; animation-delay: 1.6s;
+            backdrop-filter: blur(15px);
         }
         .b3-tags { display: flex; gap: 6px; font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
         .badge-3 h4 { font-size: 0.95rem; margin: 0; line-height: 1.2; font-family: var(--font-headers);}
