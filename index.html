@@ -11,10 +11,10 @@
     <style>
         :root {
             /* Light, Airy Bento Palette (Reference inspired) */
-            --bg: #F8F9F5; /* Very soft greenish/beige light background */
+            --bg: #EEF5EA; /* Light mint/green from reference */
             --bg-secondary: #ffffff;
-            --text-dark: #1F221E; /* Almost black */
-            --text-muted: #5D635B;
+            --text-dark: #121A16; /* Very dark green/black */
+            --text-muted: #647065;
             
             /* StayFit Brand Colors */
             --accent: #ff2d55;     /* Pink */
@@ -22,11 +22,11 @@
             --secondary-brand: #5e5ce6;
             
             /* Soft pastel backgrounds for Bento boxes */
-            --bento-peach: #FFF3EB;
-            --bento-mint:  #EEF6ED;
+            --bento-peach: #FFF7F0;
+            --bento-mint:  #E8F2E4;
             --bento-lilac: #F4EEF8;
             --bento-blue:  #EEF5F8;
-            --bento-yellow:#FFF8E1;
+            --bento-yellow:#FFFAEA;
             --font-main: 'Inter', sans-serif;
             --font-headers: 'Outfit', sans-serif;
             
@@ -225,68 +225,45 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Hero (High Impact) --- */
+        /* --- Hero (Reference & Disruptive) --- */
         .hero {
             position: relative;
-            padding-top: 140px;
-            min-height: 90vh;
+            padding-top: 180px;
+            padding-bottom: 120px;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow: hidden;
             text-align: center;
-            background-color: var(--bg);
-        }
-        
-        .hero::before, .hero::after {
-            content: ''; position: absolute; border-radius: 50%;
-            filter: blur(120px); opacity: 0; z-index: 0;
-            animation: meshFadeIn 2s ease forwards 1s, meshFloat 15s infinite alternate ease-in-out 1s;
-        }
-        .hero::before {
-            width: 60vw; height: 60vw;
-            background: radial-gradient(circle, var(--bento-peach) 0%, rgba(255,243,235,0) 70%);
-            top: -20%; left: -10%;
-        }
-        .hero::after {
-            width: 50vw; height: 50vw;
-            background: radial-gradient(circle, var(--bento-mint) 0%, rgba(238,245,248,0) 70%);
-            bottom: -20%; right: -10%;
-            animation-delay: -5s;
-        }
-
-        @keyframes meshFadeIn { to { opacity: 0.6; } }
-        @keyframes meshFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(15%, 15%) scale(1.1); }
         }
         
         .hero-bg-text {
             position: absolute;
-            top: 50%;
+            top: 25%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, 0);
             font-family: var(--font-headers);
-            font-size: 24vw;
+            font-size: 16vw;
             font-weight: 800;
             color: var(--text-dark);
-            opacity: 0;
             white-space: nowrap;
-            letter-spacing: -10px;
+            letter-spacing: -6px;
             z-index: 1;
             line-height: 0.8;
-            background: linear-gradient(180deg, rgba(31,34,30,0.04) 0%, rgba(31,34,30,0) 100%);
+            /* Gradient fade out at the bottom */
+            background: linear-gradient(180deg, var(--text-dark) 40%, rgba(18,26,22,0) 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            /* Entrance animation */
+            opacity: 0;
+            animation: heroTextSlide 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
             pointer-events: none;
-            /* Added smooth scaling intro */
-            animation: textImpact 2.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
         }
-        
-        @keyframes textImpact {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); letter-spacing: -25px; }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); letter-spacing: -10px; }
+
+        @keyframes heroTextSlide {
+            0% { opacity: 0; transform: translate(-50%, 40px); }
+            100% { opacity: 1; transform: translate(-50%, 0); }
         }
 
         .hero-content {
@@ -299,15 +276,14 @@
         }
 
         .hero-product-img {
-            height: clamp(380px, 55vh, 650px);
+            height: clamp(450px, 70vh, 750px);
             object-fit: contain;
-            filter: drop-shadow(0 40px 80px rgba(0,0,0,0.2));
-            margin-top: 20px;
+            filter: drop-shadow(0 40px 60px rgba(0,0,0,0.15));
             position: relative;
-            z-index: 3;
+            z-index: 10;
             opacity: 0;
-            transform: translateY(120px) scale(0.9);
-            animation: heroProductEntrance 1.8s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards, float 6s ease-in-out infinite 2.8s;
+            transform: translateY(100px) scale(0.9);
+            animation: heroProductEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards, float 5s ease-in-out infinite 2.5s;
         }
         
         @keyframes heroProductEntrance {
@@ -315,44 +291,84 @@
         }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.02); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
-        /* Floating Badges */
+        /* Hero Reference Badges */
         .floating-badge {
             position: absolute;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 12px 18px;
-            border-radius: var(--radius-full);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
             display: flex;
             align-items: center;
-            gap: 12px;
-            z-index: 10;
+            z-index: 15;
             opacity: 0;
             animation: floatIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .badge-1 { top: 15%; left: 15%; animation-delay: 0.6s; }
-        .badge-2 { bottom: 15%; left: 10%; flex-direction: column; text-align: left; align-items: flex-start; border-radius: 20px; padding: 20px; max-width: 200px; animation-delay: 0.8s; }
-        .badge-3 { top: 30%; right: 12%; border-radius: 50%; width: 100px; height: 100px; padding: 0; justify-content: center; background: var(--accent); color: white; display: flex; flex-direction: column; text-align: center; animation-delay: 1s; }
-        .badge-3 span { font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-        .badge-3 svg { width: 24px; margin-bottom: 4px; }
+        /* Top Left: Reviews */
+        .badge-1 {
+            top: 25%; left: 8%; padding: 12px 20px; gap: 12px;
+            animation-delay: 1.2s; border-radius: var(--radius-full);
+        }
+        .badge-1 .b-stars { color: #EAB308; font-size: 1.2rem; }
+        .badge-1 .b-num { font-weight: 700; font-size: 1rem; }
+        .badge-1 .b-sub { font-size: 0.75rem; color: var(--text-muted); }
+        .badge-1 img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: var(--bento-peach); padding:4px;}
+
+        /* Bottom Left: Description */
+        .badge-2 {
+            bottom: 25%; left: 8%; flex-direction: row; gap: 16px;
+            padding: 16px; max-width: 250px; animation-delay: 1.4s;
+        }
+        .badge-2 img { width: 48px; height: 48px; border-radius: var(--radius-sm); object-fit: cover; background: var(--bento-mint); }
+        .badge-2 p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; margin:0; font-family:var(--font-main);}
+
+        /* Top Right: Energy Mode */
+        .badge-3 {
+            top: 35%; right: 5%; flex-direction: column; align-items: flex-start;
+            padding: 16px; gap: 12px; max-width: 200px; animation-delay: 1.6s;
+        }
+        .b3-tags { display: flex; gap: 6px; font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
+        .badge-3 h4 { font-size: 0.9rem; margin: 0; line-height: 1.2; font-family: var(--font-headers);}
+        .badge-3 img { width: 100%; height: 80px; border-radius: var(--radius-sm); object-fit: cover; }
+
+        /* Center Spinning Seal */
+        .badge-seal {
+            position: absolute;
+            top: 30%; left: 50%; transform: translate(-180%, -50%);
+            width: 140px; height: 140px; /* Made slightly larger for visibility */
+            z-index: 15;
+            animation: floatIn 1s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
+            opacity: 0;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .seal-text {
+            position: absolute; width: 100%; height: 100%;
+            animation: spin 12s linear infinite;
+        }
+        .seal-inner {
+            width: 56px; height: 56px; background: #85B86A; /* Fresh green color */
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            color: white; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;
+        }
+        .seal-inner:hover { transform: scale(1.1); }
         
-        .badge-icon { background: var(--bento-yellow); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; }
-        .badge-text-bold { font-weight: 700; font-size: 0.9rem; }
-        .badge-text-sm { font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; }
-        .badge-mini-img { width: 60px; height: 40px; border-radius: 8px; object-fit: cover; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
         @media (max-width: 1024px) {
-            .badge-1 { top: 5%; left: 5%; }
-            .badge-2 { bottom: 5%; left: 5%; }
-            .badge-3 { top: 15%; right: 5%; }
+            .badge-1 { top: 15%; left: 5%; }
+            .badge-2 { bottom: 10%; left: 5%; }
+            .badge-3 { top: 20%; right: 5%; }
+            .badge-seal { top: 20%; transform: translate(-140%, -50%); }
+            .hero-bg-text { font-size: 22vw; top: 18%; }
         }
         @media (max-width: 768px) {
-            .floating-badge { display: none; /* Hide floating on mobile to keep it clean */ }
-            .hero-bg-text { font-size: 28vw; top: 50%; }
+            .floating-badge { display: none; }
+            .badge-seal { display: none; }
+            .hero-bg-text { font-size: 26vw; top: 20%; }
+            .hero-product-img { height: 50vh; }
         }
 
 
@@ -408,50 +424,65 @@
             .bento-center { grid-column: span 1; }
         }
 
-        /* --- Featured Products --- */
+        /* --- Featured Essentials (Reference Style) --- */
         .prod-grid {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
-            overflow-x: auto;
             padding-bottom: 32px;
-            scrollbar-width: none;
         }
-        .prod-grid::-webkit-scrollbar { display: none; }
+        @media (max-width: 1024px) { .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+        @media (max-width: 600px) { .prod-grid { grid-template-columns: 1fr; } }
+        
         .prod-card {
-            min-width: 280px;
             background: var(--surface-white);
             border-radius: var(--radius-lg);
             padding: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             display: flex;
             flex-direction: column;
-            transition: var(--transition);
+            transition: var(--transition-bounce);
+            position: relative;
+            text-decoration: none;
+            color: var(--text-dark);
+            border: 1px solid rgba(0,0,0,0.03);
         }
-        .prod-card:hover { transform: translateY(-6px); }
-        .prod-tag { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent); margin-bottom: 8px; display: block;}
-        .prod-title { font-family: var(--font-headers); font-size: 1.3rem; margin-bottom: 24px; }
+        .prod-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+        .pc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+        .pc-brand { font-family: var(--font-headers); font-size: 1.1rem; font-weight: 600; line-height: 1.1; display:flex; flex-direction:column;}
+        .pc-brand span { font-size: 0.75rem; font-weight: 400; color: var(--text-muted); font-family: var(--font-main); margin-top: 4px; }
+        .pc-cap { font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: #85B86A; text-align: right; line-height:1.2;}
+        .pc-cap span { color: var(--text-muted); font-weight: 500;}
         
         .prod-img-container {
-            background: var(--bg);
-            border-radius: var(--radius-md);
-            height: 200px;
+            height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 32px;
             position: relative;
         }
-        .prod-card.c-pills .prod-img-container { background: var(--bento-peach); }
-        .prod-card.c-green .prod-img-container { background: var(--bento-mint); }
-        .prod-card.c-orange .prod-img-container { background: var(--bento-yellow); }
-        .prod-card.c-purple .prod-img-container { background: var(--bento-lilac); }
+        .prod-img-container::before {
+            content: ''; position: absolute; width: 140px; height: 140px;
+            border-radius: 50%; opacity: 0.3; z-index: 0;
+            background: radial-gradient(circle, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0) 70%);
+        }
+        .prod-card.c-pills .prod-img-container::before { background: var(--bento-peach); opacity: 0.6; }
+        .prod-card.c-green .prod-img-container::before { background: var(--bento-mint); opacity: 0.6; }
+        .prod-card.c-orange .prod-img-container::before { background: var(--bento-yellow); opacity: 0.6; }
+        .prod-card.c-purple .prod-img-container::before { background: var(--bento-lilac); opacity: 0.6; }
         
-        .prod-img { height: 160px; object-fit: contain; mix-blend-mode: multiply; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.05)); }
+        .prod-img { height: 200px; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15)); position: relative; z-index: 2; transition: transform 0.4s ease;}
+        .prod-card:hover .prod-img { transform: scale(1.05) rotate(-2deg); }
         
-        .prod-price-row { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+        .prod-price-row { display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 16px;}
+        .p-price-label { font-size: 0.75rem; color: var(--text-muted); display: block; }
         .p-price { font-weight: 700; font-size: 1.1rem; }
-        .p-btn { border: 1px solid var(--text-dark); border-radius: var(--radius-full); padding: 6px 16px; font-size: 0.85rem; color: var(--text-dark); text-decoration: none; font-weight: 600;}
-        .p-btn:hover { background: var(--text-dark); color: white; }
+        .p-arrow { width: 32px; height: 32px; border-radius: 50%; background: #F0F0F0; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; }
+        .prod-card:hover .p-arrow { background: #1F221E; color: white; transform: translateX(4px); }
 
         /* --- Accordion Split --- */
         .split-section {
@@ -624,34 +655,47 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-bg-text">STAYFIT</div>
+        <!-- Massive Text fading down -->
+        <div class="hero-bg-text">VIVE MEJOR</div>
         
         <div class="hero-content container">
-            
+            <!-- Central Giant Bottle -->
             <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" alt="StayFit Pills" class="hero-product-img">
             
             <!-- Badges -->
             <div class="floating-badge badge-1">
-                <div class="badge-icon" style="background:var(--bento-peach)">⭐</div>
+                <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" alt="Icon">
                 <div>
-                    <div class="badge-text-bold">4.9/5</div>
-                    <div class="badge-text-sm">+45,000 Clientas</div>
+                    <div style="display:flex; align-items:center; gap:4px;">
+                        <span class="b-stars">★★★★★</span>
+                        <span class="b-num">4.9</span>
+                    </div>
+                    <div class="b-sub">+45,000 Clientas Satisfechas</div>
                 </div>
             </div>
             
             <div class="floating-badge badge-2">
-                <img src="./Media/Fotos de producto/te verde.png" class="badge-mini-img" alt="Tea">
-                <div style="margin-top:8px;">
-                    <div class="badge-text-bold">Potencia tus resultados</div>
-                    <div class="badge-text-sm">Combina Pills + Té para máxima quema de grasa.</div>
+                <img src="./Media/Fotos publicitarias/CC por Antarctica Films Argentina.png" alt="Tea">
+                <p>Apoya tu proceso de bienestar con extractos herbales purificados para tu salud.</p>
+            </div>
+
+            <div class="badge-seal">
+                <svg viewBox="0 0 100 100" class="seal-text">
+                    <path id="curve" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="transparent" />
+                    <text font-size="10.5" fill="var(--text-dark)" font-weight="600" letter-spacing="1">
+                        <textPath href="#curve">100% NATURAL • PREMIUM • SÚPER EFECTIVO • </textPath>
+                    </text>
+                </svg>
+                <div class="seal-inner">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
             </div>
 
             <div class="floating-badge badge-3">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                <span>Saber<br>Más</span>
+                <div class="b3-tags"><span>ENERGÍA</span><span>•</span><span>METABOLISMO</span></div>
+                <h4>Tu Aliado Diario.</h4>
+                <img src="./Media/Fotos publicitarias/Keep_the_product_from_the_reference_image_exactly__delpmaspu (2).png" alt="Hand">
             </div>
-
         </div>
     </section>
 
@@ -702,67 +746,82 @@
 
     <!-- Featured Essentials -->
     <section class="section container" id="cat">
-        <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px;">
-            <div>
-                <h2 class="section-title" style="margin-bottom:0;">Fórmulas Esenciales</h2>
-            </div>
-            <div>
-                <button class="p-btn" style="border:none;background:var(--surface-white);padding:10px 16px;box-shadow:0 4px 10px rgba(0,0,0,0.05)">← →</button>
-            </div>
+        <div class="text-center reveal" style="margin-bottom: 56px;">
+            <h2 class="section-title">Fórmulas Esenciales</h2>
         </div>
 
         <div class="prod-grid">
             <!-- Card 1 -->
-            <div class="prod-card c-pills reveal delay-1">
-                <span class="prod-tag">MÁS VENDIDO</span>
+            <a href="stayfit_pills.html" class="prod-card c-pills reveal delay-1">
+                <div class="pc-top">
+                    <div class="pc-brand">StayFit Pills<span>Pérdida de Peso</span></div>
+                    <div class="pc-cap">Cápsulas<br><span>30 uds</span></div>
+                </div>
                 <div class="prod-img-container">
                     <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" class="prod-img" alt="Pills">
                 </div>
-                <h3 class="prod-title">StayFit Pills<br><span style="font-weight:400; font-size:0.9rem; color:var(--text-muted)">Control y Energía</span></h3>
                 <div class="prod-price-row">
-                    <span class="p-price">$210.000 <small>COP</small></span>
-                    <a href="stayfit_pills.html" class="p-btn">Ver Más</a>
+                    <div>
+                        <span class="p-price-label">Desde</span>
+                        <span class="p-price">$210.000 <small>COP</small></span>
+                    </div>
+                    <div class="p-arrow">→</div>
                 </div>
-            </div>
+            </a>
 
             <!-- Card 2 -->
-            <div class="prod-card c-green reveal delay-2">
-                <span class="prod-tag">DETOX</span>
+            <a href="stayfit_tea.html" class="prod-card c-green reveal delay-2">
+                <div class="pc-top">
+                    <div class="pc-brand">Té Verde<span>Desintoxicante</span></div>
+                    <div class="pc-cap">Fórmula<br><span>Diaria</span></div>
+                </div>
                 <div class="prod-img-container">
                     <img src="./Media/Fotos de producto/te verde.png" class="prod-img" alt="Tea Verde">
                 </div>
-                <h3 class="prod-title">Té Verde<br><span style="font-weight:400; font-size:0.9rem; color:var(--text-muted)">Desintoxicante</span></h3>
                 <div class="prod-price-row">
-                    <span class="p-price">$120.000 <small>COP</small></span>
-                    <a href="stayfit_tea.html" class="p-btn">Ver Más</a>
+                    <div>
+                        <span class="p-price-label">Desde</span>
+                        <span class="p-price">$120.000 <small>COP</small></span>
+                    </div>
+                    <div class="p-arrow">→</div>
                 </div>
-            </div>
+            </a>
 
             <!-- Card 3 -->
-            <div class="prod-card c-orange reveal delay-3">
-                <span class="prod-tag">QUEMA GRASA</span>
+            <a href="stayfit_tea.html" class="prod-card c-orange reveal delay-3">
+                <div class="pc-top">
+                    <div class="pc-brand">Té Naranja<span>Metabolismo</span></div>
+                    <div class="pc-cap">Fórmula<br><span>Diaria</span></div>
+                </div>
                 <div class="prod-img-container">
                     <img src="./Media/Fotos de producto/Te naranja.png" class="prod-img" alt="Tea Naranja">
                 </div>
-                <h3 class="prod-title">Té Naranja<br><span style="font-weight:400; font-size:0.9rem; color:var(--text-muted)">Metabolismo</span></h3>
                 <div class="prod-price-row">
-                    <span class="p-price">$120.000 <small>COP</small></span>
-                    <a href="stayfit_tea.html" class="p-btn">Ver Más</a>
+                    <div>
+                        <span class="p-price-label">Desde</span>
+                        <span class="p-price">$120.000 <small>COP</small></span>
+                    </div>
+                    <div class="p-arrow">→</div>
                 </div>
-            </div>
+            </a>
 
             <!-- Card 4 -->
-            <div class="prod-card c-purple reveal delay-4">
-                <span class="prod-tag">DIGESTIVO</span>
+            <a href="stayfit_tea.html" class="prod-card c-purple reveal delay-4">
+                <div class="pc-top">
+                    <div class="pc-brand">Té Morado<span>Digestivo</span></div>
+                    <div class="pc-cap">Fórmula<br><span>Diaria</span></div>
+                </div>
                 <div class="prod-img-container">
                     <img src="./Media/Fotos de producto/te morado.png" class="prod-img" alt="Tea Morado">
                 </div>
-                <h3 class="prod-title">Té Morado<br><span style="font-weight:400; font-size:0.9rem; color:var(--text-muted)">Tránsito Intestinal</span></h3>
                 <div class="prod-price-row">
-                    <span class="p-price">$120.000 <small>COP</small></span>
-                    <a href="stayfit_tea.html" class="p-btn">Ver Más</a>
+                    <div>
+                        <span class="p-price-label">Desde</span>
+                        <span class="p-price">$120.000 <small>COP</small></span>
+                    </div>
+                    <div class="p-arrow">→</div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
