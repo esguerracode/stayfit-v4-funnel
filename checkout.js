@@ -41,40 +41,90 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * Modal Control Functions
+     * FEATURE 2: MODAL LOGIC (Prices, Qty, Flavors)
+     */
+    const qtyDisplay = document.getElementById('qty-display');
+    const qtyMinus = document.getElementById('qty-minus');
+    const qtyPlus = document.getElementById('qty-plus');
+    const flavorField = document.getElementById('flavor-field');
+    const flavorPills = document.querySelectorAll('.pill-option');
+    const flavorHidden = document.getElementById('product-hidden-input'); // Usaremos el mismo hidden si es necesario o uno específico
+    const flavorSelectedInput = document.getElementById('flavor-hidden-input'); // El que definimos en FEATURE 1
+    const summaryPrice = document.getElementById('summary-price');
+    let qty = 1;
+
+    // Fixed Prices
+    const PRICES = {
+        'StayFit Pills': 210000,
+        'StayFit Tea': 140000,
+        'Combo 1 (Mix Inicial)': 340000,
+        'Combo 2 (Dúo Poder)': 260000,
+        'Combo 3 (Máximo Detox)': 375000,
+        'Tratamiento StayFit': 210000,
+    };
+
+    const formatCOP = (n) => 
+        new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(n);
+
+    const updateSummary = () => {
+        const productName = document.getElementById('product-hidden-input').value;
+        const base = PRICES[productName] || 210000;
+        if (summaryPrice) summaryPrice.textContent = formatCOP(base * qty);
+    };
+
+    const isTea = (name) => 
+        name && (name.toLowerCase().includes('tea') || name.toLowerCase().includes('té') || name.toLowerCase().includes('te '));
+
+    // Quantity Listeners
+    if (qtyMinus && qtyPlus) {
+        qtyMinus.onclick = () => { if (qty > 1) { qty--; qtyDisplay.textContent = qty; updateSummary(); } };
+        qtyPlus.onclick = () => { qty++; qtyDisplay.textContent = qty; updateSummary(); };
+    }
+
+    // Flavor Pill Logic
+    flavorPills.forEach(pill => {
+        pill.onclick = () => {
+            flavorPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            if (flavorSelectedInput) flavorSelectedInput.value = pill.dataset.flavor;
+        };
+    });
+
+    /**
+     * Modal Control Functions (Optimized)
      */
     const openModal = (productName) => {
         if (!modal) return;
         
-        lastFocusedElement = document.activeElement; // Remember trigger
-        productHidden.value = productName;
+        lastFocusedElement = document.activeElement;
+        const productInput = document.getElementById('product-hidden-input');
+        if (productInput) productInput.value = productName;
         modalTitle.textContent = productName;
         
+        qty = 1;
+        if (qtyDisplay) qtyDisplay.textContent = qty;
+        
+        if (flavorField) {
+            const teaActive = isTea(productName);
+            flavorField.style.display = teaActive ? 'block' : 'none';
+            if (teaActive && flavorSelectedInput) {
+                const currentFlavor = flavorSelectedInput.value || 'Naranja';
+                flavorPills.forEach(p => p.classList.toggle('active', p.dataset.flavor === currentFlavor));
+            }
+        }
+        
+        updateSummary();
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
-        
-        // Minor delay for CSS transition
-        setTimeout(() => {
-            modal.classList.add('active');
-            // Move focus to first input
-            const firstInput = modal.querySelector('input');
-            if (firstInput) firstInput.focus();
-        }, 10);
-
+        setTimeout(() => { modal.classList.add('active'); }, 10);
         trapFocus(modal);
     };
 
     const closeModal = () => {
         if (!modal) return;
-        
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        
-        setTimeout(() => {
-            modal.style.display = 'none';
-            // Restore focus to trigger element
-            if (lastFocusedElement) lastFocusedElement.focus();
-        }, 400); 
+        setTimeout(() => { modal.style.display = 'none'; if (lastFocusedElement) lastFocusedElement.focus(); }, 400); 
     };
 
     /**
@@ -106,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Optimized WhatsApp Submission
+     * Optimized WhatsApp Submission (Redesigned)
      */
     if (checkoutForm) {
         checkoutForm.addEventListener('submit', function(e) {
@@ -115,37 +165,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalContent = submitBtn.innerHTML;
             
-            // Visual feedback
             submitBtn.innerHTML = '<span>✨ Procesando...</span>';
             submitBtn.disabled = true;
 
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
             const cleanPhone = data.phone.replace(/\D/g, '');
+            
+            const totalStr = summaryPrice ? summaryPrice.textContent : '';
+            const teaActive = isTea(data.product);
 
             const messageHeader = `🛍️ *ORDEN PENDIENTE STAYFIT*`;
             const messageBody = [
                 `📦 *Producto:* ${data.product}`,
+                teaActive ? `🍵 *Sabor:* ${data.flavor}` : '',
+                `🔢 *Cantidad:* ${qty}`,
+                `💰 *Total:* ${totalStr}`,
                 `👤 *Cliente:* ${data.name}`,
                 `📱 *WhatsApp:* ${countryCode.textContent} ${cleanPhone}`,
                 `🏠 *Dirección:* ${data.address}`,
                 `📍 *Origen:* ${data.country}`
-            ].join('\n');
+            ].filter(line => line !== '').join('\n');
+            
             const messageFooter = `---------------------------------\n_Enviado desde el Checkout de la Web_`;
 
             const fullMessage = `${messageHeader}\n\n${messageBody}\n\n${messageFooter}`;
             const encodedMsg = encodeURIComponent(fullMessage);
             const waUrl = `https://wa.me/573103296863?text=${encodedMsg}`;
 
-            // Small delay for perceived robustness & UX
             setTimeout(() => {
-                window.open(waUrl, '_blank'); // Open in new tab to keep lead on site
-                
-                // Reset state
+                window.open(waUrl, '_blank');
                 submitBtn.innerHTML = originalContent;
                 submitBtn.disabled = false;
                 
-                // Track Conversion (Optional Placeholder)
                 if (typeof window.gtag === 'function') {
                     window.gtag('event', 'conversion', { 'send_to': 'AW-CONVERSION_ID', 'value': 1.0, 'currency': 'COP' });
                 }

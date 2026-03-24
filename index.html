@@ -142,9 +142,47 @@
                     </article>
 
                     <article class="product-card reveal delay-2">
-                        <div class="product-visual">
-                            <img src="./Media/Fotos de producto/Te naranja.png" alt="StayFit Tea - Detox 15 días" width="600" height="340" loading="lazy">
-                            <span class="card-badge mint">DETOX NATURAL</span>
+                        <div class="product-visual flavor-slider-wrap">
+                            <div class="flavor-slider" id="flavor-slider-tea">
+                                <div class="flavor-slide active" data-flavor="Naranja">
+                                    <img src="./Media/Fotos de producto/Te naranja.png"
+                                         alt="StayFit Tea Sabor Naranja" loading="lazy" width="400" height="400">
+                                    <span class="flavor-label">Naranja</span>
+                                </div>
+                                <div class="flavor-slide" data-flavor="Frutos Rojos">
+                                    <img src="./Media/Fotos de producto/te rojo.png"
+                                         alt="StayFit Tea Sabor Frutos Rojos" loading="lazy" width="400" height="400">
+                                    <span class="flavor-label">Frutos Rojos</span>
+                                </div>
+                                <div class="flavor-slide" data-flavor="Piña">
+                                    <img src="./Media/Fotos de producto/te verde.png"
+                                         alt="StayFit Tea Sabor Piña" loading="lazy" width="400" height="400">
+                                    <span class="flavor-label">Piña</span>
+                                </div>
+                                <div class="flavor-slide" data-flavor="Maracuyá">
+                                    <img src="./Media/Fotos de producto/te morado.png"
+                                         alt="StayFit Tea Sabor Maracuyá" loading="lazy" width="400" height="400">
+                                    <span class="flavor-label">Maracuyá</span>
+                                </div>
+                            </div>
+                            <!-- Dots indicadores -->
+                            <div class="flavor-dots" aria-label="Seleccionar sabor">
+                                <button class="dot active" data-index="0" aria-label="Naranja"></button>
+                                <button class="dot" data-index="1" aria-label="Frutos Rojos"></button>
+                                <button class="dot" data-index="2" aria-label="Piña"></button>
+                                <button class="dot" data-index="3" aria-label="Maracuyá"></button>
+                            </div>
+                            <!-- Flavor Tabs (Deslizable) -->
+                            <div class="flavor-tabs-container">
+                                <div class="flavor-tabs" id="flavor-tabs-tea">
+                                    <button class="tab-item active" data-index="0">Naranja</button>
+                                    <button class="tab-item" data-index="1">Frutos Rojos</button>
+                                    <button class="tab-item" data-index="2">Piña</button>
+                                    <button class="tab-item" data-index="3">Maracuyá</button>
+                                </div>
+                            </div>
+                            
+                            <span class="card-badge mint">100% Detox Natural</span>
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">StayFit Tea</h3>
@@ -383,33 +421,93 @@
                 <p>Estás a solo un paso de tu mejor versión.</p>
             </div>
             
-            <form id="checkout-form" class="modal-form">
+            <form id="checkout-form" class="modal-form" novalidate>
                 <input type="hidden" name="product" id="product-hidden-input">
-                <div class="form-field">
-                    <label for="u-name">Nombre Completo</label>
-                    <input type="text" id="u-name" name="name" placeholder="Ej: Diana Pérez" required>
+                <input type="hidden" name="flavor" id="flavor-hidden-input" value="Naranja">
+
+                <!-- Paso visual -->
+                <div class="form-steps">
+                    <span class="step active">1. Datos</span>
+                    <span class="step-sep">→</span>
+                    <span class="step">2. Confirmar</span>
                 </div>
+
+                <!-- Nombre -->
+                <div class="form-field">
+                    <label for="u-name">
+                        <span class="field-icon">👤</span> Nombre Completo
+                    </label>
+                    <input type="text" id="u-name" name="name"
+                           placeholder="Ej: Diana Pérez" required autocomplete="name">
+                </div>
+
+                <!-- Sabor Selection (Pill Style) -->
+                <div class="form-field" id="flavor-field" style="display:none;">
+                    <label>
+                        <span class="field-icon">🍵</span> Sabor del Té (Selecciona uno)
+                    </label>
+                    <div class="flavor-pills">
+                        <div class="pill-option active" data-flavor="Naranja">🍊 Naranja</div>
+                        <div class="pill-option" data-flavor="Frutos Rojos">🍓 Frutos Rojos</div>
+                        <div class="pill-option" data-flavor="Piña">🍍 Piña</div>
+                        <div class="pill-option" data-flavor="Maracuyá">🌟 Maracuyá</div>
+                    </div>
+                </div>
+
+                <!-- Cantidad -->
+                <div class="form-field">
+                    <label><span class="field-icon">📦</span> Cantidad</label>
+                    <div class="qty-control">
+                        <button type="button" class="qty-btn" id="qty-minus"
+                                aria-label="Reducir cantidad">−</button>
+                        <span id="qty-display" class="qty-value">1</span>
+                        <button type="button" class="qty-btn" id="qty-plus"
+                                aria-label="Aumentar cantidad">+</button>
+                    </div>
+                </div>
+
+                <!-- País + WhatsApp en fila -->
                 <div class="form-row">
                     <div class="form-field">
-                        <label for="country-select">País</label>
+                        <label for="country-select">
+                            <span class="field-icon">🌎</span> País
+                        </label>
                         <select id="country-select" name="country" required>
                             <option value="Colombia" selected>COL - Colombia</option>
                             <option value="Estados Unidos">USA - Estados Unidos</option>
                         </select>
                     </div>
                     <div class="form-field flex-2">
-                        <label for="u-phone">WhatsApp</label>
+                        <label for="u-phone">
+                            <span class="field-icon">📱</span> WhatsApp
+                        </label>
                         <div class="phone-input">
                             <span id="country-code">+57</span>
-                            <input type="tel" id="u-phone" name="phone" placeholder="300 123 4567" required>
+                            <input type="tel" id="u-phone" name="phone"
+                                   placeholder="300 123 4567" required autocomplete="tel">
                         </div>
                     </div>
                 </div>
+
+                <!-- Dirección -->
                 <div class="form-field">
-                    <label for="u-address">Dirección de Envío</label>
-                    <input type="text" id="u-address" name="address" placeholder="Ciudad, Barrio y Dirección" required>
+                    <label for="u-address">
+                        <span class="field-icon">📍</span> Dirección de Envío
+                    </label>
+                    <input type="text" id="u-address" name="address"
+                           placeholder="Ciudad, Barrio y Dirección" required autocomplete="street-address">
                 </div>
-                <button type="submit" class="btn btn-primary btn-full btn-lg">✨ Confirmar Pedido</button>
+
+                <!-- Resumen precio -->
+                <div class="order-summary" id="order-summary">
+                    <span class="summary-label">Total estimado:</span>
+                    <span class="summary-price" id="summary-price">$210.000 COP</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full btn-lg submit-btn">
+                    ✅ Confirmar Pedido por WhatsApp
+                </button>
+                <p class="form-trust">🔒 Pago contra entrega · Envío seguro · Sin tarjeta</p>
             </form>
         </div>
     </div>
