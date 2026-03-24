@@ -241,7 +241,11 @@
             if (!isDragging) return;
             const currentX = e.touches[0].clientX;
             const diff = currentX - startX;
-            const translate = -(currentIndex * slider.offsetWidth) + diff;
+            // Add resistance at edges
+            let translate = -(currentIndex * slider.offsetWidth) + diff;
+            if (currentIndex === 0 && diff > 0) translate = diff * 0.3;
+            if (currentIndex === slides.length - 1 && diff < 0) translate = -(currentIndex * slider.offsetWidth) + diff * 0.3;
+            
             slider.style.transform = `translateX(${translate}px)`;
         }, { passive: true });
 
@@ -269,7 +273,10 @@
             if (!isDragging) return;
             const currentX = e.clientX;
             const diff = currentX - startX;
-            const translate = -(currentIndex * slider.offsetWidth) + diff;
+            let translate = -(currentIndex * slider.offsetWidth) + diff;
+            if (currentIndex === 0 && diff > 0) translate = diff * 0.3;
+            if (currentIndex === slides.length - 1 && diff < 0) translate = -(currentIndex * slider.offsetWidth) + diff * 0.3;
+            
             slider.style.transform = `translateX(${translate}px)`;
         });
 
