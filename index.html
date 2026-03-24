@@ -229,136 +229,70 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Hero (Reference & Disruptive) --- */
-        .hero {
-            position: relative;
-            padding-top: 140px;
+        /* --- Hero (Minimalist Reference) --- */
+        .minimal-hero {
+            padding-top: 180px; /* Space for fixed header */
+            min-height: 95vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            background-color: #ffffff;
             overflow: hidden;
-            text-align: center;
-            min-height: 100vh;
-        }    
-        
-        .hero-bg-img {
-            position: absolute;
-            inset: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.15;
-            z-index: 0;
-            pointer-events: none;
-            animation: heroImgScale 10s ease-out forwards;
-        }
-
-        @keyframes heroImgScale {
-            0% { transform: scale(1.1); opacity: 0; }
-            10% { opacity: 0.15; }
-            100% { transform: scale(1); opacity: 0.15; }
-        }
-
-        .hero-bg-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--font-headers);
-            font-size: 16vw;
-            font-weight: 800;
-            color: transparent;
-            -webkit-text-stroke: 3px rgba(31, 34, 30, 0.12); /* Subtle solid outline for modern elegance */
-            white-space: nowrap;
-            letter-spacing: -6px;
-            z-index: 1;
-            line-height: 0.8;
-            opacity: 0;
-            animation: heroTextSlide 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-            pointer-events: none;
-        }
-
-        @keyframes heroTextSlide {
-            0% { opacity: 0; transform: translate(-50%, 40px); }
-            100% { opacity: 1; transform: translate(-50%, -50%); }
-        }
-
-        .hero-content {
             position: relative;
-            z-index: 5;
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            animation: floatIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+            opacity: 0;
+            text-align: center;
+        }
+
+        .hero-center-logo-minimal {
+            width: 300px;
+            margin-bottom: 40px;
+            animation: floatIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
+            opacity: 0;
+        }
+
+        .hero-product-stage {
+            position: relative;
             width: 100%;
-            height: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Hero Reference Badges */
-        .floating-badge {
-            position: absolute;
-            background: var(--bg-secondary);
-            border-radius: var(--radius-md);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            z-index: 15;
+            justify-content: center;
+            animation: floatIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
             opacity: 0;
-            animation: floatIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            z-index: 5;
         }
-        /* Top Left: Reviews */
-        .badge-1 {
-            top: 25%; left: 10%; padding: 12px 20px; gap: 12px;
-            animation-delay: 1.2s; border-radius: var(--radius-full);
-            backdrop-filter: blur(15px);
+        
+        .hero-main-product {
+            width: 100%;
+            height: auto;
+            max-height: 55vh;
+            object-fit: contain;
+            filter: drop-shadow(0 40px 80px rgba(0,0,0,0.12));
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .badge-1 .b-stars { color: #EAB308; font-size: 1.2rem; }
-        .badge-1 .b-num { font-weight: 700; font-size: 1rem; }
-        .badge-1 .b-sub { font-size: 0.75rem; color: var(--text-muted); }
-        .badge-1 img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: var(--bento-peach); padding:4px;}
-
-        /* Bottom Left: Description */
-        .badge-2 {
-            bottom: 20%; left: 15%; flex-direction: row; gap: 16px;
-            padding: 16px; max-width: 250px; animation-delay: 1.4s;
-            backdrop-filter: blur(15px);
-        }
-        .badge-2 img { width: 48px; height: 48px; border-radius: var(--radius-sm); object-fit: cover; background: var(--bento-mint); }
-        .badge-2 p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin:0; font-family:var(--font-main);}
-
-        /* Center / Right: Energy Mode */
-        .badge-3 {
-            top: 50%; right: 10%; transform: translateY(-50%);
-            flex-direction: column; align-items: flex-start;
-            padding: 16px; gap: 12px; max-width: 220px; animation-delay: 1.6s;
-            backdrop-filter: blur(15px);
-        }
-        .b3-tags { display: flex; gap: 6px; font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
-        .badge-3 h4 { font-size: 0.95rem; margin: 0; line-height: 1.2; font-family: var(--font-headers);}
-        .badge-3 img { width: 100%; height: 90px; border-radius: var(--radius-sm); object-fit: cover; }
-
-        /* Center Logo */
-        .hero-center-logo {
-            position: absolute;
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 320px;
-            z-index: 15;
-            animation: floatIn 1s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
-            opacity: 0;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+        .hero-main-product:hover {
+            transform: scale(1.02) translateY(-10px);
         }
 
         @media (max-width: 1024px) {
-            .badge-1 { top: 15%; left: 5%; }
-            .badge-2 { bottom: 10%; left: 5%; }
-            .badge-3 { top: 20%; right: 5%; }
-            .badge-seal { top: 20%; transform: translate(-140%, -50%); }
-            .hero-bg-text { font-size: 22vw; top: 18%; }
+            .hero-main-product { max-height: 50vh; }
         }
         @media (max-width: 768px) {
-            .floating-badge { display: none; }
-            .badge-seal { display: none; }
-            .hero-bg-text { font-size: 26vw; top: 20%; }
-            .hero-product-img { height: 50vh; }
+            .hero-subtitle { font-size: 0.7rem; letter-spacing: 2px; }
+            .hero-center-logo-minimal { width: 220px; }
+            .hero-main-product { max-height: 45vh; }
+            .minimal-hero { min-height: 80vh; padding-top: 140px;}
         }
+
 
 
         /* --- Why Choose (Reference Grid) --- */
@@ -636,43 +570,16 @@
         </div>
     </header>
 
-    <!-- Hero -->
-    <div class="bg-light" style="position: relative;">
-        <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" alt="StayFit Background" class="hero-bg-img">
-        
-        <section class="hero">
-        <!-- Massive Text -->
-        <div class="hero-bg-text">VIVE MEJOR</div>
-        
-        <div class="hero-content container">
+    <!-- Hero Minimalist -->
+    <div style="background-color: #FAFAF8;">
+        <section class="minimal-hero">
+            <h1 class="hero-subtitle">Ciencia natural para tu bienestar</h1>
+            <img src="./Media/Logos/Logo negro.svg" class="hero-center-logo-minimal" alt="StayFit Logo">
             
-            <!-- Badges -->
-            <div class="floating-badge badge-1">
-                <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" alt="Icon">
-                <div>
-                    <div style="display:flex; align-items:center; gap:4px;">
-                        <span class="b-stars">★★★★★</span>
-                        <span class="b-num">4.9</span>
-                    </div>
-                    <div class="b-sub">+45,000 Clientas Satisfechas</div>
-                </div>
+            <!-- Minimal Product Stage -->
+            <div class="hero-product-stage">
+                <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" alt="StayFit Products" class="hero-main-product">
             </div>
-            
-            <div class="floating-badge badge-2">
-                <img src="./Media/Fotos publicitarias/CC por Antarctica Films Argentina.png" alt="Tea">
-                <p>Apoya tu proceso de bienestar con <br><strong>extractos herbales purificados</strong> para tu salud.</p>
-            </div>
-
-            <!-- Central Stayfit Logo -->
-            <img src="./Media/Logos/Logo negro.svg" class="hero-center-logo" alt="StayFit Logo">
-
-            <div class="floating-badge badge-3">
-                <div class="b3-tags"><span>ENERGÍA</span><span>•</span><span>METABOLISMO</span></div>
-                <h4>Tu Aliado Diario.</h4>
-                <img src="./Media/Fotos publicitarias/Keep_the_product_from_the_reference_image_exactly__delpmaspu (2).png" alt="Hand">
-            </div>
-        </div>
-        </div>
         </section>
     </div>
 
