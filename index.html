@@ -3,493 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StayFit — Tu Mejor Versión | Adelgaza de Forma Natural</title>
-    <meta name="description" content="StayFit: Suplementos 100% naturales para la pérdida de peso. Quema grasa, inhibe el apetito y mejora tu salud con nuestro té y cápsulas premium.">
-    <!-- Google Fonts -->
+    <title>StayFit — Tu Mejor Versión | Adelgaza de Forma Natural y Saludable</title>
+    <meta name="description" content="StayFit: Suplementos 100% naturales premium. Quema grasa, controla la ansiedad y mejora tu salud con nuestras pastillas y té détox. Resultados garantizados.">
+    <link rel="canonical" href="https://stayfit.co/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💚</text></svg>">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:title" content="StayFit — Tu Mejor Versión | Adelgaza de Forma Natural">
+    <meta property="og:description" content="Suplementos 100% naturales para la pérdida de peso. Quema grasa e inhibe el apetito de forma segura.">
+    <meta property="og:image" content="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png">
+    <meta property="og:url" content="https://stayfit.co/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": "StayFit Pills",
+          "description": "Quemador de grasa localizada e inhibidor del apetito 100% natural.",
+          "brand": { "@type": "Brand", "name": "StayFit" },
+          "offers": {
+            "@type": "Offer",
+            "price": "210000",
+            "priceCurrency": "COP",
+            "availability": "https://schema.org/InStock",
+            "url": "https://stayfit.co/#cat"
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "StayFit Tea",
+          "description": "Té détox natural para eliminación de líquidos y aceleración del metabolismo.",
+          "brand": { "@type": "Brand", "name": "StayFit" },
+          "offers": {
+            "@type": "Offer",
+            "price": "140000",
+            "priceCurrency": "COP",
+            "availability": "https://schema.org/InStock",
+            "url": "https://stayfit.co/#cat"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="globals.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Styles -->
+    <link rel="stylesheet" href="globals.css">
 </head>
 <body class="is-loading">
 
+    <!-- SEO Header (Hidden) -->
+    <h1 class="sr-only">StayFit: Suplementos Naturales para Pérdida de Peso y Bienestar Té y Cápsulas</h1>
+
     <!-- Premium Loader -->
-    <div class="page-loader" id="page-loader">
+    <div class="page-loader" id="page-loader" aria-hidden="true">
         <div class="pl-bg">
-            <img src="./Media/Logos/Logo negro.svg" alt="StayFit" class="pl-logo" id="pl-logo">
+            <img src="./Media/Logos/Logo negro.svg" alt="StayFit" class="pl-logo" width="140" height="28">
             <div class="pl-progress-wrap">
                 <div class="pl-progress" id="pl-progress"></div>
             </div>
         </div>
     </div>
 
-    <!-- Header -->
-    <header>
-        <a href="#"><img src="./Media/Logos/Logo negro.svg" class="header-logo" alt="StayFit Logo"></a>
-        <nav class="header-nav">
-            <a href="#cat">Nuestros Productos</a>
-            <a href="#funciona">Cómo Funciona</a>
-            <a href="#beneficios">Beneficios</a>
-            <a href="#testi">Testimonios</a>
-        </nav>
-        <div class="header-tools">
-            <button id="currency-toggle" class="btn btn-outline" aria-label="Cambiar moneda">🇺🇸 USD</button>
-            <a href="#cat" class="btn btn-primary" aria-label="Ver catálogo de productos">Catálogo</a>
+    <!-- Header Navigation -->
+    <header class="header-main" id="main-header">
+        <div class="container header-container">
+            <a href="/" class="header-logo-link" aria-label="StayFit Inicio">
+                <img src="./Media/Logos/Logo negro.svg" class="header-logo" alt="StayFit Logo" width="140" height="28">
+            </a>
+            
+            <nav class="header-nav" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li><a href="#cat">Productos</a></li>
+                    <li><a href="#combos">Combos</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#testi">Testimonios</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-tools">
+                <button id="currency-toggle" class="btn-tool" aria-label="Cambiar moneda">USD</button>
+                <a href="#cat" class="btn btn-primary btn-sm" aria-label="Ir al catálogo">Catálogo</a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Immersive -->
-    <section class="immersive-hero">
-        <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" alt="StayFit Experience" class="hero-bg-overlay" width="1920" height="1080" fetchpriority="high">
-        
-        <div class="hero-content-minimal">
-            <h1 class="hero-subtitle">Baja de peso de forma 100% natural</h1>
-            <img src="./Media/Logos/Logo negro.svg" class="hero-center-logo" alt="StayFit Logo Premium" width="320" height="80">
-            <p style="margin-top: 24px; color: var(--text-muted); font-weight: 500; font-size: 0.9rem;" class="reveal delay-4">Potenciamos tu transformación sin químicos agresivos</p>
-        </div>
-    </section>
-
-    <!-- Featured Essentials — Editorial List -->
-    <div style="background:#fff;">
-        <section class="section container" id="cat">
-            <div class="ess-header reveal">
-                <h2>Fórmulas Esenciales</h2>
-                <span class="ess-count">02 Productos</span>
-            </div>
-
-            <div class="modern-product-grid">
-                <!-- Product 1: StayFit Pills -->
-                <div class="modern-product-card reveal delay-1">
-                    <div class="modern-img-wrap">
-                        <img src="./Media/Fotos de producto/Entrégame_solamente_las_202603241529.png" id="pills-image" alt="StayFit Pills">
-                        <div class="product-badge accent">Potente Quemador</div>
+    <main>
+        <!-- Hero: Visual Excellence & CRO -->
+        <section class="hero-immersive" id="home">
+            <img src="./Media/Fotos de producto/Ahora_entregame_el_blanco__2k_delpmaspu.png" alt="StayFit Lifestyle Experience" class="hero-bg" width="1920" height="1080" fetchpriority="high">
+            <div class="container hero-container">
+                <article class="hero-content reveal">
+                    <span class="hero-tag">Nutrición & Ciencia Natural</span>
+                    <h2 class="hero-title">Recupera tu confianza <br><span class="text-accent">con StayFit.</span></h2>
+                    <p class="hero-desc">Descubre el poder de lo natural. Nuestros suplementos premium te ayudan a alcanzar tus objetivos sin sacrificios extremos.</p>
+                    <div class="hero-actions">
+                        <a href="#cat" class="btn btn-primary btn-lg btn-pulse">🛒 Iniciar Mi Cambio</a>
+                        <a href="#testi" class="btn btn-outline btn-lg">Ver Testimonios</a>
                     </div>
-                    <div class="modern-product-info">
-                        <h3 class="modern-product-title">StayFit Pills</h3>
-                        <p class="modern-product-desc">Quema grasa localizada, inhibe el apetito y aumenta tu energía sin efecto rebote.</p>
-                        
-                        <div style="font-size:0.8rem; color:var(--text-muted); margin: 8px 0; padding: 12px; background: var(--bg-light); border-radius: 12px; border: 1px solid rgba(0,0,0,0.03);">
-                             <strong style="display:block; color:var(--text-dark); margin-bottom:4px; font-size:0.85rem;">Tratamiento Ideal:</strong>
-                             Resultados visibles desde la primera semana.
+                </article>
+            </div>
+        </section>
+
+        <!-- Products Section: Semantic Article Cards -->
+        <section class="section-products section-padding" id="cat">
+            <div class="container">
+                <header class="section-header reveal">
+                    <div class="header-line">
+                        <h2 class="section-title">Fórmulas Esenciales</h2>
+                        <span class="badge-count" aria-label="2 productos cargados">02 PRODUCTOS</span>
+                    </div>
+                    <p class="section-lead">Ingredientes puros, resultados extraordinarios.</p>
+                </header>
+
+                <div class="product-grid">
+                    <article class="product-card reveal delay-1">
+                        <div class="product-visual">
+                            <img src="./Media/Fotos de producto/Entrégame_solamente_las_202603241529.png" alt="StayFit Pills - Tratamiento 30 días" width="600" height="340" loading="lazy">
+                            <span class="card-badge accent">QUEMA GRASA</span>
                         </div>
-
-                        <p style="font-size:0.75rem; color:var(--text-dark); margin-bottom:12px; font-weight:600;">💊 1 cápsula al día en ayunas x 30 días.</p>
-                        
-                        <div class="modern-product-price" data-amount-cop="210.000" data-amount-usd="80">$210.000 <small>COP</small></div>
-                        <button class="btn btn-primary btn-pulse" data-open-modal data-product="StayFit Pills" style="width: 100%;" aria-label="Comprar StayFit Pills">Comprar Ahora</button>
-                    </div>
-                </div>
-
-                <!-- Product 2: StayFit Tea (Consolidated) -->
-                <div class="modern-product-card reveal delay-2">
-                    <div class="modern-img-wrap">
-                        <img src="./Media/Fotos de producto/Te naranja.png" alt="StayFit Tea">
-                        <div class="product-badge mint">100% Natural</div>
-                    </div>
-                    <div class="modern-product-info">
-                        <h3 class="modern-product-title">StayFit Tea</h3>
-                        <p class="modern-product-desc">Détox diario que acelera la quema de grasa, elimina líquidos retenidos y mejora la digestión.</p>
-                        
-                        <div class="product-features-mini">
-                            <span>✅ Quema grasa</span>
-                            <span>✅ Pierde peso</span>
-                            <span>✅ Inhibe el apetito</span>
-                            <span>✅ Diurético</span>
+                        <div class="product-body">
+                            <h3 class="product-name">StayFit Pills</h3>
+                            <p class="product-description">Inhibidor de apetito y quemador termogénico. Resultados visibles desde la primera semana.</p>
+                            <div class="product-footer">
+                                <span class="price-main" data-amount-cop="210.000" data-amount-usd="80">$210.000 <small>COP</small></span>
+                                <button class="btn btn-primary btn-full" data-open-modal data-product="StayFit Pills">Lo Quiero Ahora</button>
+                            </div>
                         </div>
-                        
-                        <div style="font-size:0.8rem; color:var(--text-muted); margin: 8px 0; padding: 12px; background: var(--bg-light); border-radius: 12px; border: 1px solid rgba(0,0,0,0.03);">
-                             <strong style="display:block; color:var(--text-dark); margin-bottom:4px; font-size:0.85rem;">Componentes Reales:</strong>
-                             Picolinato de cromo, L-Carnitina, fibra de frutas y antioxidantes.
+                    </article>
+
+                    <article class="product-card reveal delay-2">
+                        <div class="product-visual">
+                            <img src="./Media/Fotos de producto/Te naranja.png" alt="StayFit Tea - Detox 15 días" width="600" height="340" loading="lazy">
+                            <span class="card-badge mint">DETOX NATURAL</span>
                         </div>
-
-                        <p style="font-size:0.75rem; color:var(--text-dark); margin-bottom:12px; font-weight:600;">☕ 15 Sobres (1 cada mañana en ayunas en agua tibia).</p>
-                        
-                        <div class="modern-product-price" data-amount-cop="140.000" data-amount-usd="45">$140.000 <small>COP</small></div>
-                        <button class="btn btn-primary btn-pulse" data-open-modal data-product="StayFit Tea" style="width: 100%;" aria-label="Comprar StayFit Tea">Comprar Ahora</button>
-                    </div>
-                </div>            </div>
-        </section>
-    </div>
-
-    <!-- Combos Section -->
-    <div class="promo-section">
-        <section class="section container">
-            <div class="text-center reveal">
-                <h2 class="section-title">Combos & Promociones</h2>
-                <p class="section-subtitle">Maximiza tus resultados al mejor precio con nuestros packs exclusivos.</p>
-            </div>
-
-            <div class="promo-grid">
-                <!-- Combo 1 -->
-                <div class="promo-card reveal delay-1">
-                    <div class="promo-title">Combo 1</div>
-                    <p class="promo-desc">El equilibrio perfecto para empezar.</p>
-                    <div class="promo-price">
-                        <span data-amount-cop="340.000" data-amount-usd="85">$340.000 <small>COP</small></span>
-                    </div>
-                    <ul class="promo-list">
-                        <li>1 Frasco de Pastillas (30 uds)</li>
-                        <li>1 Caja de Té (15 sobres)</li>
-                        <li>Tratamiento de 1 mes</li>
-                        <li>Asesoría Alimenticia Incluida</li>
-                    </ul>
-                    <button class="btn btn-outline" data-open-modal data-product="Combo 1 (Pastillas + Té)" style="width:100%;">Pedir Combo 1 →</button>
-                </div>
-
-                <!-- Combo 2 -->
-                <div class="promo-card featured reveal delay-2">
-                    <div class="promo-badge">Elegido</div>
-                    <div class="promo-title">Combo 2</div>
-                    <p class="promo-desc">Doble poder adelgazante.</p>
-                    <div class="promo-price">
-                        <span data-amount-cop="260.000" data-amount-usd="65">$260.000 <small>COP</small></span>
-                    </div>
-                    <ul class="promo-list">
-                        <li>2 Cajas de Té (30 sobres)</li>
-                        <li>Sabores a elección</li>
-                        <li>Ideal para mantenimiento</li>
-                        <li>Efecto Detox duplicado</li>
-                    </ul>
-                    <button class="btn btn-primary" data-open-modal data-product="Combo 2 (2 Cajas de Té)" style="width:100%;">Pedir Combo 2 →</button>
-                </div>
-
-                <!-- Combo 3 -->
-                <div class="promo-card reveal delay-3">
-                    <div class="promo-title">Combo 3</div>
-                    <p class="promo-desc">Plan completo de 45 días.</p>
-                    <div class="promo-price">
-                        <span data-amount-cop="375.000" data-amount-usd="95">$375.000 <small>COP</small></span>
-                    </div>
-                    <ul class="promo-list">
-                        <li>3 Cajas de Té (45 sobres)</li>
-                        <li>Máxima Variedad de Sabores</li>
-                        <li>Mejor Precio por unidad</li>
-                        <li>Ideal para procesos largos</li>
-                    </ul>
-                    <button class="btn btn-outline" data-open-modal data-product="Combo 3 (3 Cajas de Té)" style="width:100%;">Pedir Combo 3 →</button>
+                        <div class="product-body">
+                            <h3 class="product-name">StayFit Tea</h3>
+                            <p class="product-description">Elimina toxinas y líquidos retenidos mientras aceleras tu metabolismo de forma suave.</p>
+                            <div class="product-footer">
+                                <span class="price-main" data-amount-cop="140.000" data-amount-usd="45">$140.000 <small>COP</small></span>
+                                <button class="btn btn-primary btn-full" data-open-modal data-product="StayFit Tea">Lo Quiero Ahora</button>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
-    </div>
 
-
-
-    <!-- Purchase Info Bento (Replacing Why Choose) -->
-    <div class="bg-white">
-        <section class="section container" id="beneficios">
-            <div class="text-center reveal">
-                <h2 class="section-title">Información para tu Compra</h2>
-                <p class="section-subtitle">Comprar es fácil, rápido y 100% seguro.</p>
-            </div>
-
-            <div class="why-bento-grid">
-                <!-- Card 1: Shipping -->
-                <div class="why-card reveal delay-1">
-                    <div class="why-icon" style="background:var(--bento-peach); color: #ff8a65;">🚚</div>
-                    <h3>Envíos Nacionales Rápidos</h3>
-                    <p>Entrega directa a tu puerta en Colombia. Coordinamos costos y tiempos por WhatsApp.</p>
+        <!-- Combos & Promotions -->
+        <section class="section-combos section-padding" id="combos">
+            <div class="container">
+                <div class="text-center reveal">
+                    <h2 class="section-title">Packs de Transformación</h2>
+                    <p class="section-subtitle">Ahorra hasta un 20% combinando nuestras fórmulas.</p>
                 </div>
 
-                <!-- Card 3: Payment -->
-                <div class="why-card reveal delay-3">
-                    <div class="why-icon" style="background:var(--bento-lilac); color: var(--secondary-brand);">💳</div>
-                    <h3>Pagos Seguros</h3>
-                    <p>Aceptamos Bancolombia, Nequi y pagos con Tarjeta (Bold). Recibes tus datos de pago directo en WhatsApp.</p>
-                </div>
+                <div class="combos-grid">
+                    <article class="combo-card reveal delay-1">
+                        <h3 class="combo-name">Combo 1: Mix Inicial</h3>
+                        <p class="combo-desc">La pareja perfecta para un mes de detox y quema calórica.</p>
+                        <div class="combo-price" data-amount-cop="340.000" data-amount-usd="85">$340.000 <small>COP</small></div>
+                        <ul class="combo-features">
+                            <li>1 Frasco de Pastillas (30 caps)</li>
+                            <li>1 Caja de Té (15 sobres)</li>
+                            <li>Guía de alimentación gratis</li>
+                        </ul>
+                        <button class="btn btn-outline btn-full" data-open-modal data-product="Combo 1 (Mix Inicial)">Pedir Combo</button>
+                    </article>
 
-                <!-- Card 2: Authenticity -->
-                <div class="why-card reveal delay-2">
-                    <div class="why-icon" style="background:var(--bento-yellow); color: #eab308;">✅</div>
-                    <h3>Garantía StayFit</h3>
-                    <p>Cada frasco incluye su lote de seguridad. Recibes exactamente lo que ves: salud natural sin químicos agresivos.</p>
-                </div>
+                    <article class="combo-card featured reveal delay-2">
+                        <div class="featured-badge" aria-hidden="true">TOP VENTAS</div>
+                        <h3 class="combo-name">Combo 2: Dúo Poder</h3>
+                        <p class="combo-desc">Detox intensivo para un mes completo de limpieza profunda.</p>
+                        <div class="combo-price" data-amount-cop="260.000" data-amount-usd="65">$260.000 <small>COP</small></div>
+                        <ul class="combo-features">
+                            <li>2 Cajas de Té StayFit</li>
+                            <li>Sabores a elección</li>
+                            <li>Tratamiento de 30 días</li>
+                        </ul>
+                        <button class="btn btn-primary btn-full" data-open-modal data-product="Combo 2 (Dúo Poder)">Pedir Combo</button>
+                    </article>
 
-                <!-- Card 4: Support -->
-                <div class="why-card reveal delay-4">
-                    <div class="why-icon" style="background:var(--bento-mint); color: #10b981;">🎧</div>
-                    <h3>Asesoría Exclusiva</h3>
-                    <p>Te apoyamos paso a paso vía WhatsApp para maximizar tus metas de peso ideal.</p>
+                    <article class="combo-card reveal delay-3">
+                        <h3 class="combo-name">Combo 3: Máximo Detox</h3>
+                        <p class="combo-desc">Mantenimiento y purificación continua de 45 días.</p>
+                        <div class="combo-price" data-amount-cop="375.000" data-amount-usd="95">$375.000 <small>COP</small></div>
+                        <ul class="combo-features">
+                            <li>3 Cajas de Té StayFit</li>
+                            <li>Máximo ahorro por unidad</li>
+                            <li>Ideal para metas a largo plazo</li>
+                        </ul>
+                        <button class="btn btn-outline btn-full" data-open-modal data-product="Combo 3 (Máximo Detox)">Pedir Combo</button>
+                    </article>
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- Testimonials -->
-    <div class="bg-white">
-        <section class="section container" id="testi">
-        <div class="text-center reveal">
-            <h2 class="section-title">Lo que dicen nuestras clientas</h2>
-            <p class="section-subtitle">Historias reales de personas que vivieron la diferencia de forma natural.</p>
-        </div>
-
-        <div class="testi-grid">
-            <!-- Left Featured (Video or Pic) -->
-            <div class="testi-featured reveal delay-1">
-                <img src="./Media/Fotos publicitarias/satisfied_customer_lifestyle.png" class="testi-feat-img" alt="Testimonial Real" style="object-position: top center;">
-                <div class="play-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <!-- Bento Trust Section -->
+        <section class="section-bento section-padding" id="beneficios">
+            <div class="container">
+                <div class="bento-grid">
+                    <article class="bento-item reveal delay-1" style="--bento-bg: var(--bento-peach);">
+                        <div class="bento-icon" aria-hidden="true">🚚</div>
+                        <h3 class="bento-title">Entrega Garantizada</h3>
+                        <p>Envíos seguros a toda Colombia. Recibe en 24-48 horas.</p>
+                    </article>
+                    <article class="bento-item reveal delay-2" style="--bento-bg: var(--bento-mint);">
+                        <div class="bento-icon" aria-hidden="true">💳</div>
+                        <h3 class="bento-title">Pago contra entrega</h3>
+                        <p>Opciones de pago seguras y fáciles vía WhatsApp.</p>
+                    </article>
+                    <article class="bento-item reveal delay-3" style="--bento-bg: var(--bento-yellow);">
+                        <div class="bento-icon" aria-hidden="true">🛡️</div>
+                        <h3 class="bento-title">Pureza StayFit</h3>
+                        <p>Sin químicos agresivos. Solo ingredientes que la naturaleza provee.</p>
+                    </article>
+                    <article class="bento-item reveal delay-4" style="--bento-bg: var(--bento-lilac);">
+                        <div class="bento-icon" aria-hidden="true">✨</div>
+                        <h3 class="bento-title">Asesoría VIP</h3>
+                        <p>Te guiamos en el uso para maximizar resultados.</p>
+                    </article>
                 </div>
             </div>
-            
-            <!-- Right Main Review -->
-            <div class="testi-main-card reveal delay-2">
-                <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/></svg>
-                <div class="stars">★★★★★</div>
-                <p class="testi-quote">"Usar StayFit ha transformado por completo mi rutina diaria. Los suplementos no solo redujeron mi ansiedad por el dulce, sino que noto un cambio total en mi energía y enfoque."</p>
-                <div class="testi-author">
-                    <img src="./Media/Fotos publicitarias/CC%20por%20Antarctica%20Films%20Argentina.png" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); padding: 2px; background: white; object-position: top center;">
-                    <div>
-                        <h4>Sarah M.</h4>
-                        <p>Cliente Verificada • Villavicencio</p>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section-testimonials section-padding" id="testi">
+            <div class="container">
+                <header class="text-center reveal">
+                    <h2 class="section-title">Resultados StayFit</h2>
+                    <p class="section-subtitle">Historias de éxito que motivan.</p>
+                </header>
+                <div class="testi-main reveal delay-1">
+                    <div class="testi-media">
+                        <img src="./Media/Fotos publicitarias/satisfied_customer_lifestyle.png" alt="Cliente satisfecha StayFit" width="500" height="500" loading="lazy">
+                    </div>
+                    <article class="testi-content">
+                        <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                        <blockquote class="testi-quote">"Nunca creí que un producto natural pudiera quitarme la ansiedad tan rápido. Bajé 5 kilos en mi primer mes con solo las pastillas."</blockquote>
+                        <footer class="testi-author">
+                            <img src="./Media/Fotos publicitarias/laura_b.png" alt="Sarah M." width="48" height="48" loading="lazy" aria-hidden="true">
+                            <div><strong>Sarah M.</strong><span>Bogotá, Colombia</span></div>
+                        </footer>
+                    </article>
+                </div>
+                <div class="testi-subgrid">
+                    <article class="testi-card reveal delay-2">
+                        <div class="stars">★★★★★</div>
+                        <p>"El té naranja es delicioso y me ayudó muchísimo con la pesadez estomacal."</p>
+                        <strong>Camila G.</strong>
+                    </article>
+                    <article class="testi-card reveal delay-3">
+                        <div class="stars">★★★★★</div>
+                        <p>"Servicio al cliente de 10. Mi pedido llegó de un día para otro."</p>
+                        <strong>Diana L.</strong>
+                    </article>
+                    <article class="testi-card reveal delay-4">
+                        <div class="stars">★★★★★</div>
+                        <p>"Combiné el combo 1 con ejercicio leve y los cambios son notorios. ¡Feliz!"</p>
+                        <strong>Valentina S.</strong>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-final-cta section-padding reveal">
+            <div class="container cta-container">
+                <div class="cta-layout-wrapper">
+                    <div class="cta-content">
+                        <h2>¿Lista para dar el primer paso?</h2>
+                        <p>Únete a la familia StayFit y empieza hoy tu transformación.</p>
+                        <button class="btn btn-primary btn-lg btn-pulse" data-open-modal data-product="Tratamiento Completo">🛍️ Quiero comprar hoy</button>
+                    </div>
+                    <div class="cta-visual">
+                        <img src="./Media/Fotos de producto/imagen con todos los productos.png" alt="Gama de productos StayFit" width="500" height="350" loading="lazy">
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Small grid text testimonials -->
-        <div class="testi-small-grid" style="margin-top:24px;">
-            <div class="testi-small reveal delay-1">
-                <div class="stars">★★★★★</div>
-                <p>"Desde el primer mes noté que la ropa me quedaba diferente. Las pastillas me quitan el hambre de más y no me dan taquicardia. Excelente producto y súper limpio."</p>
-                <div class="testi-author">
-                    <img src="./Media/Fotos publicitarias/laura_b.png" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1.5px solid #eee;">
-                    <div><h4>Laura B.</h4></div>
-                </div>
-            </div>
-            <div class="testi-small reveal delay-2">
-                <div class="stars">★★★★★</div>
-                <p>"Por primera vez en años pude ser constante con un tratamiento. El té StayFit es espectacular para el sistema digestivo. Hacen exactamente lo prometido."</p>
-                <div class="testi-author">
-                    <img src="./Media/Avatars/avatar1.png" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1.5px solid #eee;" alt="Avatar de Cliente">
-                    <div><h4>Camila T.</h4></div>
-                </div>
-            </div>
-            <div class="testi-small reveal delay-3">
-                <div class="stars">★★★★★</div>
-                <p>"Las fórmulas son puras y limpias, mi nutricionista las revisó y me dio luz verde. Excelentes si buscas resultados sostenibles sin químicos raros."</p>
-                <div class="testi-author">
-                    <img src="./Media/Avatars/vanessa.png" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1.5px solid #eee;" alt="Avatar de Cliente">
-                    <div><h4>Diana P.</h4></div>
-                </div>
-            </div>
+        <!-- Wholesale Section (Collapsible - FIX 2) -->
+        <section class="section-wholesale section-padding" id="mayoristas">
+            <div class="container">
+                <details class="wholesale-details">
+                    <summary class="btn btn-outline btn-full">🚀 ¿Eres distribuidor? Emprende con StayFit</summary>
+                    <div class="wholesale-content">
+                        <header class="text-center" style="margin-top: 40px;">
+                            <h2 class="section-title">Precios para Distribuidores</h2>
+                            <p class="section-subtitle">Oportunidad de negocio desde 12 unidades. Stock disponible para entrega inmediata.</p>
+                        </header>
+                        <div class="product-grid" style="margin-top: 32px;">
+                            <div class="bento-item" style="--bento-bg: var(--bento-mint);">
+                                <h3>💊 StayFit Pills</h3>
+                                <p>Desde 12 unidades: $180.000 COP c/u</p>
+                                <p>Desde 50 unidades: $150.000 COP c/u</p>
+                            </div>
+                            <div class="bento-item" style="--bento-bg: var(--bento-peach);">
+                                <h3>☕ StayFit Tea</h3>
+                                <p>Desde 12 unidades: $120.000 COP c/u</p>
+                                <p>Desde 100 unidades: $95.000 COP c/u</p>
+                            </div>
+                        </div>
+                        <div class="text-center" style="margin-top: 32px;">
+                            <a href="https://wa.me/573103296863?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20precios%20mayoristas" target="_blank" class="btn btn-primary">Hablar con un asesor comercial 📦</a>
+                        </div>
+                    </div>
+                </details>
             </div>
         </section>
-    </div>
+    </main>
 
-
-    <!-- Bottom CTA -->
-    <section class="bottom-cta reveal">
-        <div class="cta-content">
-            <h2 class="reveal delay-1">Empieza tu camino hacia tu mejor versión</h2>
-            <p class="reveal delay-2">Lleva hoy el <strong>Tratamiento Esencial de 1 Mes</strong> (Incluye un frasco de 30 cápsulas StayFit Pills) y da el primer paso hacia la transformación que mereces. Ideal para control de ansiedad y quema calórica diaria.</p>
-            <button class="btn btn-primary btn-pulse reveal delay-3" data-open-modal data-product="StayFit Pills">🛒 Comprar Tratamiento 1 Mes — $210.000</button>
-            
-            <div class="trust-badge-row reveal delay-4" style="justify-content: flex-start; margin-top: 24px; opacity: 0.9;">
-                <div class="trust-badge-mini">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span>Despacho 24h</span>
+    <!-- Semantic Footer -->
+    <footer class="footer-main">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="./Media/Logos/Logo negro.svg" alt="StayFit Logo" width="120" height="24" class="footer-logo">
+                <p>Equilibrio natural para tu bienestar.</p>
+            </div>
+            <nav class="footer-links" aria-label="Enlaces del pie de página">
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <a href="#cat">Productos</a>
+                    <a href="#combos">Combos</a>
+                    <a href="#testi">Testimonios</a>
                 </div>
-                <div class="trust-badge-mini">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    <span>Asesoría VIP</span>
+                <div class="footer-col">
+                    <h4>Info</h4>
+                    <a href="/privacidad" class="link-disabled" aria-disabled="true">Privacidad</a>
+                    <a href="/terminos" class="link-disabled" aria-disabled="true">Términos</a>
+                    <a href="/envios" class="link-disabled" aria-disabled="true">Envíos</a>
                 </div>
-            </div>
-        </div>
-        <img src="./Media/Fotos de producto/imagen con todos los productos.png" class="cta-img reveal delay-2" alt="Todos los productos">
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="f-col">
-                <img src="./Media/Logos/Logo negro.svg" class="f-logo" alt="Logo de StayFit" width="120" height="24">
-                <p>Nutrimos las rutinas diarias con ciencia natural diseñada para tu bienestar óptimo.</p>
-            </div>
-            <div class="f-col">
-                <h4>Empresa</h4>
-                <a href="#">Sobre nosotros</a>
-                <a href="#cat">Tienda</a>
-                <a href="#testi">Reseñas</a>
-            </div>
-            <div class="f-col">
-                <h4>Soporte</h4>
-                <a href="#">FAQ</a>
-                <a href="#">Shipping & Returns</a>
-                <a href="#">Términos y Condiciones</a>
-            </div>
-            <div class="f-col">
+            </nav>
+            <div class="footer-news">
                 <h4>Newsletter</h4>
-                <div style="display:flex; gap:8px;">
-                    <label for="newsletter-email" class="sr-only">Correo electrónico</label>
-                    <input type="email" id="newsletter-email" placeholder="Ingresa tu correo…" style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,0.1); flex:1; outline:2px solid transparent; font-family:var(--font-main);">
-                    <button class="btn btn-primary" style="padding: 12px 20px; border-radius:12px;">Go</button>
-                </div>
+                <p>Cuidado natural en tu bandeja de entrada.</p>
+                <form class="footer-form">
+                    <label for="f-email" class="sr-only">Tu correo</label>
+                    <input type="email" id="f-email" placeholder="Tu correo aquí..." required>
+                    <button type="submit" class="btn btn-primary">Ok</button>
+                </form>
             </div>
         </div>
-        <div style="border-top:1px solid rgba(0,0,0,0.05); text-align:center; padding-top:24px; margin-top:48px; color:var(--text-muted); font-size:0.8rem;">
-            &copy; 2026 StayFit. All rights reserved.
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 StayFit. Wellness & Lifestyle.</p>
         </div>
     </footer>
 
-    <script>
-        // Simple script to handle accordion logic if clicked
-        document.querySelectorAll('.acc-header').forEach(item => {
-            item.addEventListener('click', event => {
-                const parent = event.target.closest('.acc-item');
-                parent.classList.toggle('active');
-            });
-        });
-
-        // Intersection Observer for scroll reveal animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Loader Sequence Logic
-        document.addEventListener("DOMContentLoaded", () => {
-            let progress = 0;
-            const progressEl = document.getElementById('pl-progress');
-            const logoEl = document.getElementById('pl-logo');
-            const loader = document.getElementById('page-loader');
-            
-            // Start making logo visible immediately
-            if(logoEl) logoEl.style.opacity = '1';
-
-            // Simulate loading segments
-            const progressInterval = setInterval(() => {
-                progress += Math.random() * 15;
-                if (progress > 90) progress = 90; // hold before fully loaded
-                if(progressEl) progressEl.style.width = `${progress}%`;
-            }, 150);
-
-            // Once window has fully loaded all assets (images, fonts, etc.)
-            window.addEventListener('load', () => {
-                clearInterval(progressInterval);
-                if(progressEl) progressEl.style.width = '100%';
-                
-                // Add a tiny delay so the bar visually completes, then slide up loader
-                setTimeout(() => {
-                    if(loader) loader.classList.add('loaded');
-                    document.body.classList.remove('is-loading');
-                    
-                    // Small cleanup of DOM after transition
-                    setTimeout(() => {
-                        if(loader) loader.style.display = 'none';
-                    }, 1200);
-                }, 600);
-            });
-            
-            // Fallback just in case 'load' takes too long (e.g., slow network)
-            setTimeout(() => {
-                if(document.body.classList.contains('is-loading')) {
-                    clearInterval(progressInterval);
-                    if(progressEl) progressEl.style.width = '100%';
-                    if(loader) loader.classList.add('loaded');
-                    document.body.classList.remove('is-loading');
-                }
-            }, 5000); 
-        });
-    </script>
-
-    <div class="sticky-cta-mobile">
-        <div style="display:flex; flex-direction:column;">
-            <span style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">StayFit Original</span>
-            <span style="font-size:1rem; font-weight:800; color:var(--accent);">Bienestar Natural</span>
+    <!-- Mobile Sticky CTA -->
+    <!-- Sticky Mobile CTA (Standardized Class - FIX 3) -->
+    <nav class="sticky-footer-cta sticky-cta-mobile" aria-label="Acción rápida de compra">
+        <div class="sticky-info">
+            <span class="label">OFERTA ACTIVA</span>
+            <span class="price">$210.000 COP</span>
         </div>
-        <button class="btn btn-accent btn-pulse" data-open-modal data-product="Bienestar Natural" style="padding: 10px 20px; border-radius:14px; font-size: 0.9rem;">Pedir Hoy</button>
-    </div>
+        <button class="btn btn-accent btn-pulse" data-open-modal data-product="Tratamiento StayFit">¡Comprar!</button>
+    </nav>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/573103296863" class="float-btn reveal delay-4 whatsapp-link" data-msg="Hola, deseo información sobre StayFit" target="_blank" aria-label="Chat con StayFit en WhatsApp">
-        <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
+    <!-- WhatsApp Floating -->
+    <a href="https://wa.me/573103296863" class="float-wa whatsapp-link" data-msg="Hola, deseo información" target="_blank" aria-label="WhatsApp StayFit">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
     </a>
 
     <!-- Order Modal -->
-    <div class="modal-overlay" id="order-modal">
-        <div class="modal-content">
+    <div class="modal-root" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-body">
             <button class="modal-close" id="close-modal" aria-label="Cerrar ventana">✕</button>
-            <h2 id="modal-product-title" style="font-family: var(--font-headers); margin-bottom: 8px;">Finaliza tu pedido</h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">Estás a un paso de iniciar tu transformación.</p>
+            <div class="modal-header">
+                <h2 id="modal-title">Finaliza tu Compra</h2>
+                <p>Estás a solo un paso de tu mejor versión.</p>
+            </div>
             
-            <form id="checkout-form">
-                <input type="hidden" name="product" id="product-hidden-input" value="StayFit">
-                
-                <div class="form-group">
-                    <label>Nombre Completo</label>
-                    <input type="text" class="form-control" name="name" placeholder="Ej: Juan Pérez" required>
+            <form id="checkout-form" class="modal-form">
+                <input type="hidden" name="product" id="product-hidden-input">
+                <div class="form-field">
+                    <label for="u-name">Nombre Completo</label>
+                    <input type="text" id="u-name" name="name" placeholder="Ej: Diana Pérez" required>
                 </div>
-
-                <div class="form-group row" style="display: flex; flex-wrap: wrap; gap: 12px;">
-                    <div style="flex: 1; min-width: 120px;">
-                        <label>País</label>
-                        <select class="form-control" name="country" id="country-select" required>
-                            <option value="Colombia" selected>🇨🇴 Colombia</option>
-                            <option value="Estados Unidos">🇺🇸 Estados Unidos</option>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="country-select">País</label>
+                        <select id="country-select" name="country" required>
+                            <option value="Colombia" selected>COL - Colombia</option>
+                            <option value="Estados Unidos">USA - Estados Unidos</option>
                         </select>
                     </div>
-                    <div style="flex: 2; min-width: 180px;">
-                        <label>WhatsApp</label>
-                        <div style="display: flex;">
-                            <span id="country-code" style="display: flex; align-items: center; padding: 0 12px; background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.1); border-right: none; border-radius: 12px 0 0 12px; font-weight: 600; font-family: var(--font-headers);">+57</span>
-                            <input type="tel" class="form-control" name="phone" id="phone-input" placeholder="3001234567" style="border-radius: 0 12px 12px 0;" required>
+                    <div class="form-field flex-2">
+                        <label for="u-phone">WhatsApp</label>
+                        <div class="phone-input">
+                            <span id="country-code">+57</span>
+                            <input type="tel" id="u-phone" name="phone" placeholder="300 123 4567" required>
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group" id="flavor-group-container">
-                    <label id="flavor-label">Sabor Preferido</label>
-                    <select class="form-control" name="flavor1" id="flavor1">
-                        <option value="" disabled selected>Elige tu sabor</option>
-                        <option value="No aplica">No aplica (Pastillas)</option>
-                        <option value="🍊 Naranja">🍊 Naranja</option>
-                        <option value="🍍 Piña">🍍 Piña</option>
-                        <option value="🍓 Frutos Rojos">🍓 Frutos Rojos</option>
-                        <option value="🍋 Limón">🍋 Limón</option>
-                        <option value="🍇 Uva">🍇 Uva</option>
-                    </select>
+                <div class="form-field">
+                    <label for="u-address">Dirección de Envío</label>
+                    <input type="text" id="u-address" name="address" placeholder="Ciudad, Barrio y Dirección" required>
                 </div>
-
-                <div class="form-group">
-                    <label>Dirección de Envío</label>
-                    <input type="text" class="form-control" name="address" placeholder="Ciudad, Barrio y Dirección" required>
-                </div>
-
-                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; padding: 16px; border-radius: 16px; margin-bottom: 24px;">
-                    <label style="margin-bottom: 0;">Cantidad</label>
-                    <div class="qty-control">
-                        <button type="button" class="qty-btn" id="qty-minus">−</button>
-                        <span id="qty-val" style="width: 30px; text-align: center; font-weight: 700;">1</span>
-                        <button type="button" class="qty-btn" id="qty-plus">+</button>
-                    </div>
-                    <input type="hidden" name="quantity" id="quantity-input" value="1">
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="width: 100%; height: 56px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-                    🚀 Confirmar Pedido
-                </button>
+                <button type="submit" class="btn btn-primary btn-full btn-lg">✨ Confirmar Pedido</button>
             </form>
         </div>
     </div>
 
-
-
+    <!-- Scripts -->
     <script src="stayfit-conversion.js"></script>
     <script src="checkout.js"></script>
+    <script>
+        // Immersive Reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            
+            // Premium Loader Dismiss
+            window.addEventListener('load', () => {
+                const loader = document.getElementById('page-loader');
+                setTimeout(() => {
+                    loader.classList.add('loaded');
+                    document.body.classList.remove('is-loading');
+                }, 600);
+            });
+        });
+    </script>
 </body>
 </html>

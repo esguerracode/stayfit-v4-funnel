@@ -61,7 +61,7 @@
         
         const toggle = document.getElementById('currency-toggle');
         if (toggle) {
-            toggle.innerHTML = currency === 'COP' ? '🇨🇴 COP' : '🇺🇸 USD';
+            toggle.innerHTML = currency === 'COP' ? 'COP' : 'USD';
         }
         
         updatePrices();
