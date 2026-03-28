@@ -11,7 +11,25 @@ import { Loader } from './modules/loader.js';
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Core Logic
     Attribution.init();
-    Billing.updateDOM();
+    
+    // Initial Currency & IP Geolocation (if no local preference)
+    const toggleBtn = document.getElementById('currency-toggle');
+    if (!localStorage.getItem('sf_currency')) {
+        fetch('https://get.geojs.io/v1/ip/country.json')
+            .then(r => r.json())
+            .then(data => {
+                const currency = data.country === 'CO' ? 'COP' : 'USD';
+                Billing.setCurrency(currency);
+                if(toggleBtn) toggleBtn.innerHTML = currency;
+            })
+            .catch(() => {
+                Billing.updateDOM();
+                if(toggleBtn) toggleBtn.innerHTML = 'COP';
+            });
+    } else {
+        Billing.updateDOM();
+        if(toggleBtn) toggleBtn.innerHTML = Billing.getCurrency();
+    }
     UI.initReveal();
     Loader.init();
     CheckoutUI.init();
