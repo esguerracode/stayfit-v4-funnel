@@ -1,11 +1,11 @@
 :root {
-    /* Design System Tokens */
+    /* Design System Tokens (Lilac Palette) */
     --bg-primary: #FFFFFF;
-    --bg-secondary: #F8FAF7;
-    --text-main: #121212;
-    --text-muted: #52525B;
-    --accent: #7B2CBF; /* StayFit deep purple */
-    --accent-dark: #5A189A;
+    --bg-secondary: #F8F6FD;
+    --text-main: #111112;
+    --text-muted: #6C6A75;
+    --accent: #9D8ADB;
+    --accent-dark: #8A73CD;
     --radius-lg: 32px;
     --radius-md: 16px;
     --radius-full: 9999px;
@@ -89,8 +89,8 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; line-height: 1.
     text-decoration: none;
 }
 
-.btn-primary { background: #9D8ADB; color: #FFF; padding: 16px 32px; }
-.btn-primary:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(157,138,219,0.3); }
+.btn-primary { background: var(--accent); color: #FFF; padding: 16px 32px; }
+.btn-primary:hover { background: var(--accent-dark); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(157,138,219,0.3); }
 
 .btn-accent { background: var(--accent); color: #FFF; padding: 16px 32px; }
 .btn-outline { background: transparent; border: 1.5px solid rgba(0,0,0,0.1); color: var(--text-main); padding: 16px 32px; }
