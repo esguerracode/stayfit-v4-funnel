@@ -89,15 +89,51 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; line-height: 1.
     text-decoration: none;
 }
 
-.btn-primary { background: var(--accent); color: #FFF; padding: 16px 32px; }
-.btn-primary:hover { background: var(--accent-dark); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(157,138,219,0.3); }
+.btn-primary { 
+    background: linear-gradient(135deg, #9D8ADB 0%, #FF758C 100%); 
+    color: #FFF; 
+    padding: 16px 32px; 
+    box-shadow: 0 5px 15px rgba(255, 117, 140, 0.2);
+}
+.btn-primary:hover { 
+    filter: brightness(1.08);
+    transform: translateY(-4px); 
+    box-shadow: 0 12px 30px rgba(255, 117, 140, 0.45); 
+}
 
-.btn-accent { background: var(--accent); color: #FFF; padding: 16px 32px; }
+.btn-accent { background: linear-gradient(135deg, #8A73CD 0%, #667EEA 100%); color: #FFF; padding: 16px 32px; }
 .btn-outline { background: transparent; border: 1.5px solid rgba(0,0,0,0.1); color: var(--text-main); padding: 16px 32px; }
 .btn-full { width: 100%; }
 
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(157,138,219,0.6); } 70% { box-shadow: 0 0 0 15px rgba(157,138,219,0); } 100% { box-shadow: 0 0 0 0 rgba(157,138,219,0); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 117, 140, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(255, 117, 140, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 117, 140, 0); } }
 .btn-pulse { animation: pulse 2.5s infinite; }
+
+/* --- Gradients & Glassmorphism --- */
+.text-gradient {
+    background: linear-gradient(to right, #9D8ADB, #FF758C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+.bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.35;
+    z-index: 0;
+    animation: drift 20s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+.blob-1 { width: 600px; height: 600px; background: linear-gradient(135deg, #9D8ADB, #FF758C); top: -10%; left: -10%; }
+.blob-2 { width: 500px; height: 500px; background: linear-gradient(135deg, #8A73CD, #4AC8EA); bottom: -10%; right: -10%; animation-direction: alternate-reverse; animation-duration: 25s; }
+
+@keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(80px, 80px) scale(1.15); }
+}
 
 /* --- Hero --- */
 .hero-immersive { 
