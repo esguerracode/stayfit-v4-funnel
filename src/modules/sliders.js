@@ -1,8 +1,12 @@
 /**
  * sliders: handles flavor selection and visual transitions.
+ * @param {string} sliderId - ID of the slider container element
+ * @param {Element|null} dotsContainer - dots nav element
+ * @param {Element|null} tabsContainer - tabs element
+ * @param {Function|null} onFlavorChange - callback(flavorName: string) fired on every slide change
  */
 export const Sliders = {
-    initFlavorSlider(sliderId, dotsContainer, tabsContainer) {
+    initFlavorSlider(sliderId, dotsContainer, tabsContainer, onFlavorChange = null) {
         const slider = document.getElementById(sliderId);
         if (!slider) return;
 
@@ -23,9 +27,12 @@ export const Sliders = {
             tabs.forEach((t, i) => t.classList.toggle('active', i === currentIndex));
             
             const flavor = slides[currentIndex].getAttribute('data-flavor');
-            const hiddenFlavor = document.getElementById('flavor-hidden-input');
-            if (hiddenFlavor) hiddenFlavor.value = flavor;
             
+            // Notify orchestrator of flavor change so CTA href can be updated
+            if (typeof onFlavorChange === 'function') {
+                onFlavorChange(flavor);
+            }
+
             const activeTab = tabs[currentIndex];
             if (activeTab && activeTab.parentElement && activeTab.parentElement.parentElement) {
                 activeTab.parentElement.parentElement.scrollTo({

@@ -3,35 +3,65 @@
  */
 
 export const CONFIG = {
-    WHATSAPP: {
-        PHONE: '573103296863',
-        DEFAULT_MSG: 'Hola, quiero más información sobre StayFit',
-    },
-    CURRENCY: {
+    whatsappNumber: '573103296863',
+    whatsappMessage: 'Hola, quiero más información sobre StayFit',
+    
+    currency: {
         EXCHANGE_RATE: 4000,
         DEFAULT: 'COP',
     },
-    STORAGE_PREFIX: 'sf_',
-    UTM_PARAMS: ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'],
-    PRICES: {
-        'StayFit Pills': 210000,
-        'StayFit Tea': 140000,
-        'Combo 1 (Mix Inicial)': 340000,
-        'Combo 2 (Dúo Poder)': 260000,
-        'Combo 3 (Máximo Detox)': 375000,
-        'Tratamiento StayFit': 210000,
-    },
-    // Precios fijos para Estados Unidos (según requerimiento de Notion)
-    USA_PRICES: {
-        'StayFit Pills': 130,
-        'StayFit Tea': 80,
-        'Combo 1 (Mix Inicial)': 200,
-        'Combo 2 (Dúo Poder)': 140,
-        'Combo 3 (Máximo Detox)': 180,
-        'Tratamiento StayFit': 130,
-        'SHIPPING': 20
+    
+    storagePrefix: 'sf_',
+    
+    // Configuración estructurada de productos para el CheckoutEngine
+    products: {
+        'StayFit Pills': {
+            name: 'StayFit Pills',
+            price: 210000,
+            usaPrice: 130,
+            hasFlavors: false,
+            badge: 'Producto Top de Ventas',
+            icon: '💊'
+        },
+        'StayFit Tea': {
+            name: 'StayFit Tea',
+            price: 140000,
+            usaPrice: 80,
+            hasFlavors: true,
+            badge: 'Detox Natural',
+            icon: '🍵'
+        },
+        'Combo 1': {
+            name: 'Combo 1 (Mix Inicial)',
+            price: 340000,
+            usaPrice: 200,
+            hasFlavors: true,
+            badge: 'Ideal para Iniciar',
+            icon: '✨'
+        },
+        'Combo 2': {
+            name: 'Combo 2 (Dúo)',
+            price: 430000,
+            usaPrice: 270,
+            hasFlavors: true,
+            badge: 'Ahorro Pack',
+            icon: '🔥'
+        },
+        'Combo 3': {
+            name: 'Combo 3 (Trío)',
+            price: 575000,
+            usaPrice: 350,
+            hasFlavors: true,
+            badge: 'Máximo Ahorro',
+            icon: '👑'
+        }
     },
 
-    // Sabores oficiales (Eliminado Maracuya)
-    FLAVORS: ['Piña', 'Uva', 'Limón', 'Naranja', 'Frutos Rojos'],
+    shipping: {
+        usa: 20,
+        colombia: 'A cargo de transportadora'
+    },
+
+    flavors: ['Piña', 'Uva', 'Limón', 'Naranja', 'Frutos Rojos'],
 };
+
