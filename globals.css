@@ -322,13 +322,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ── Final CTA ── */
 .section-final-cta .container { 
-    background: var(--bg-dark); border-radius: var(--radius-lg); padding: 64px; color: #fff;
+    background: var(--surface-dark); border-radius: var(--radius-lg); padding: 64px; color: #fff;
     overflow: hidden; position: relative;
 }
 .cta-layout-wrapper { display: flex; align-items: center; justify-content: space-between; gap: 40px; position: relative; z-index: 2; }
 .cta-content h2 { font-size: 3rem; margin-bottom: 16px; }
 .cta-content p { font-size: 1.25rem; opacity: 0.8; margin-bottom: 32px; }
-.cta-visual img { filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); }
+.cta-visual img { filter: drop-shadow(0 10px 25px rgba(0,0,0,0.2)); }
 
 @media (max-width: 768px) {
     .section-final-cta .container { padding: 40px 24px; }
