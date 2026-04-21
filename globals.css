@@ -7,19 +7,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap');
 
 :root {
-    /* Brand Foundation (StayFit Premium: Gold & Black) */
-    --brand-gold: #D4AF37; 
-    --brand-gold-light: #F9E29C;
-    --brand-gold-dark: #A67C00;
-    --brand-gradient: linear-gradient(135deg, #D4AF37 0%, #A67C00 100%);
-    --brand-gradient-hover: linear-gradient(135deg, #A67C00 0%, #D4AF37 100%);
+    /* Brand Identity (Purple/Magenta - Verified) */
+    --brand-primary: #C2185B; 
+    --brand-secondary: #E91E8C;
+    --brand-gradient: linear-gradient(135deg, #C2185B 0%, #E91E8C 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #a5144d 0%, #d81b60 100%);
     
-    /* Surfaces */
+    /* Luxury Accents (Gold reserved for micro-details) */
+    --brand-gold: #D4AF37;
+    --brand-gold-light: #F9E2AF;
+    
+    /* Modern Surfaces */
     --surface-0: #ffffff;
     --surface-1: #fafafa;
     --surface-2: #f4f4f4;
-    --surface-3: #eeeeee;
-    --bg-dark: #000000;
+    --surface-dark: #000000;
+    --surface-x: #121212;
     
     /* Text */
     --text-primary: #111111;
@@ -28,12 +31,12 @@
     --text-white: #ffffff;
     
     /* Functional */
-    --accent: var(--brand-gold);
+    --accent: var(--brand-primary);
     --success: #10b981;
     --error: #ef4444;
     --warning: #f59e0b;
     --border: #e5e5e5;
-    --border-focus: var(--brand-gold);
+    --border-focus: var(--brand-primary);
     
     /* Layout Tokens */
     --radius-sm: 4px;
@@ -76,7 +79,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .section-padding { padding: 3rem 0; min-height: auto; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 .text-gradient { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
-.text-brand { color: #BF1A61; }
+.text-brand { color: var(--brand-primary); }
 
 /* ── Loader ─────────────────────────────────────────────────────────────── */
 .page-loader {
@@ -88,7 +91,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .pl-logo { margin-bottom: 24px; animation: pulse 2s infinite ease-in-out; }
 .pl-progress-wrap { width: 200px; height: 4px; background: var(--surface-2); border-radius: 4px; overflow: hidden; margin: 0 auto; }
 .pl-progress { width: 0%; height: 100%; background: var(--brand-gradient); transition: width 0.3s ease; }
-.pl-percentage { margin-top: 12px; font-weight: 700; color: var(--brand-gold); font-size: 0.8rem; letter-spacing: 0.1em; }
+.pl-percentage { margin-top: 12px; font-weight: 700; color: var(--brand-primary); font-size: 0.8rem; letter-spacing: 0.1em; }
 
 @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.7; transform: scale(0.95); } }
 
@@ -103,7 +106,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .header-logo { height: 32px; }
 .header-nav .nav-list { display: flex; gap: 32px; }
 .nav-list a { font-weight: 600; font-size: 0.9rem; color: var(--text-secondary); }
-.nav-list a:hover { color: var(--brand-gold); }
+.nav-list a:hover { color: var(--brand-primary); }
 .header-tools { display: flex; align-items: center; gap: 16px; }
 
 @media (max-width: 768px) {
@@ -113,7 +116,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
 .hero-immersive {
     position: relative; min-height: 100vh; padding-top: var(--header-h);
-    display: flex; align-items: center; overflow: hidden; background: var(--bg-dark);
+    display: flex; align-items: center; overflow: hidden; background: var(--surface-dark);
 }
 .hero-bg {
     position: absolute; inset: 0; width: 100%; height: 100%;
@@ -184,7 +187,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     flex-direction: column;
     margin-bottom: 2rem;
 }
-.product-card:hover { transform: translateY(-8px); border-color: var(--brand-gold); box-shadow: var(--shadow-lg); }
+.product-card:hover { transform: translateY(-8px); border-color: var(--brand-primary); box-shadow: var(--shadow-lg); }
 .product-visual { position: relative; aspect-ratio: 1.1; background: var(--surface-2); overflow: hidden; }
 .product-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .product-card:hover .product-visual img { transform: scale(1.08); }
@@ -199,7 +202,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .product-name { font-size: 1.5rem; margin-bottom: 8px; }
 .product-description { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px; }
 .product-price { margin-top: auto; margin-bottom: 24px; display: flex; flex-direction: column; gap: 4px; }
-.price-main { font-size: 1.85rem; font-weight: 800; color: var(--brand-gold); font-family: 'Syne', sans-serif; line-height: 1.2; }
+.price-main { font-size: 1.85rem; font-weight: 800; color: var(--brand-primary); font-family: 'Syne', sans-serif; line-height: 1.2; }
 .price-strikethrough { font-size: 0.9rem; color: var(--text-muted); text-decoration: line-through; opacity: 0.8; }
 .price-main small { font-size: 0.8rem; font-weight: 500; opacity: 0.7; margin-left: 4px; }
 
@@ -221,13 +224,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     min-height: 540px;
 }
 .combo-card.featured {
-    border-color: var(--brand-gold);
-    background: linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, var(--surface-0) 100%);
-    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.1);
+    border-color: var(--brand-primary);
+    background: linear-gradient(180deg, rgba(194, 24, 91, 0.05) 0%, var(--surface-0) 100%);
+    box-shadow: 0 20px 50px rgba(194, 24, 91, 0.1);
 }
 .combo-card:hover { 
     transform: translateY(-10px); 
-    border-color: var(--brand-gold); 
+    border-color: var(--brand-primary); 
 }
 
 .combo-header { text-align: center; margin-bottom: 2.5rem; }
@@ -235,7 +238,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     display: inline-block;
     padding: 6px 16px;
     background: var(--surface-2);
-    color: var(--brand-gold);
+    color: var(--brand-primary);
     border-radius: 100px;
     font-size: 0.7rem;
     font-weight: 900;
@@ -254,10 +257,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     color: var(--text-primary); font-family: 'Syne', sans-serif;
 }
 .combo-desc { font-size: 0.95rem; color: var(--text-secondary); text-align: center; margin-bottom: 2rem; }
-.combo-price { 
-    font-size: 2.5rem; font-weight: 800; text-align: center; 
-    margin-bottom: 2.5rem; font-family: 'Syne'; color: var(--brand-gold);
-}
+.combo-price { font-size: 2.25rem; font-weight: 800; margin-bottom: 24px; font-family: 'Syne'; color: var(--brand-primary); }
 
 .combo-features { margin-bottom: 2.5rem; flex-grow: 1; }
 .combo-features li { 
@@ -265,7 +265,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     display: flex; align-items: center; justify-content: center;
     color: var(--text-secondary);
 }
-.combo-features li::before { content: '✓'; color: var(--brand-gold); font-weight: 900; margin-right: 12px; }
+.combo-features li::before { content: '✓'; color: var(--brand-primary); font-weight: 900; margin-right: 12px; }
 
 /* ── Bento ─────────────────────────────────────────────────────────────── */
 .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -275,7 +275,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .bento-icon { width: 48px; height: 48px; background: #fff; border-radius: 12px; 
     display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: var(--brand-gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: var(--brand-primary);
 }
 .bento-title { font-size: 1.15rem; margin-bottom: 8px; }
 .bento-item p { font-size: 0.85rem; color: var(--text-secondary); }
@@ -296,7 +296,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .testi-media { border-radius: var(--radius-md); overflow: hidden; }
 .testi-media img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 .testi-content { padding: 20px; }
-.testi-quote { font-size: 1.5rem; font-weight: 600; color: var(--brand-gold); margin-bottom: 24px; font-style: italic; }
+.testi-quote { font-size: 1.5rem; font-weight: 600; color: var(--brand-primary); margin-bottom: 24px; font-style: italic; }
 .testi-author { display: flex; align-items: center; gap: 16px; }
 .testi-author img { width: 56px; height: 56px; border-radius: var(--radius-pill); }
 
@@ -341,7 +341,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-distributor { 
     width: 100%; display: flex; align-items: center; justify-content: space-between;
     padding: 24px 32px; border-radius: var(--radius-lg); background: var(--surface-2);
-    border: 2px dashed var(--brand-gold); transition: 0.3s;
+    border: 2px dashed var(--brand-primary); transition: 0.3s;
 }
 .btn-distributor:hover { background: var(--surface-3); }
 .distributor-arrow { font-size: 1.5rem; transition: 0.3s; }
@@ -412,8 +412,8 @@ body.is-scrolled .sticky-footer-cta { transform: translateY(0); }
 .btn-primary:hover { transform: translateY(-3px); background: var(--brand-gradient-hover); }
 
 .btn-secondary { 
-    border: 2px solid var(--brand-gold); 
-    color: var(--brand-gold); 
+    border: 2px solid var(--brand-primary); 
+    color: var(--brand-primary); 
     background: transparent;
 }
 .btn-secondary:hover { background: rgba(212, 175, 55, 0.05); }
@@ -421,7 +421,7 @@ body.is-scrolled .sticky-footer-cta { transform: translateY(0); }
 .btn-outline { 
     border: 1px solid var(--border); color: var(--text-primary); background: #fff;
 }
-.btn-outline:hover { background: var(--surface-2); border-color: var(--brand-gold); }
+.btn-outline:hover { background: var(--surface-2); border-color: var(--brand-primary); }
 
 .btn-lg { padding: 18px 36px; font-size: 1.1rem; }
 .btn-sm { padding: 8px 16px; font-size: 0.85rem; }
@@ -499,7 +499,7 @@ body.is-scrolled .sticky-footer-cta { transform: translateY(0); }
   font-family: 'DM Sans', sans-serif;
 }
 .sf-field input:focus {
-  border-color: var(--brand-gold);
+  border-color: var(--brand-primary);
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
   background: #fff;
 }
@@ -559,8 +559,8 @@ body.is-scrolled .sticky-footer-cta { transform: translateY(0); }
 
 /* Preview del subtotal en tiempo real */
 .sf-summary-preview {
-  background: #fdfbf5; border: 1px solid #f5e9c9; border-radius: 10px;
-  padding: 12px 14px; font-size: 14px; color: var(--brand-gold);
+  background: #fff5f8; border: 1px solid #f9d9e2; border-radius: 10px;
+  padding: 12px 14px; font-size: 14px; color: var(--brand-primary);
   font-weight: 600; margin-bottom: 20px; min-height: 44px;
 }
 
@@ -582,7 +582,7 @@ body.is-scrolled .sticky-footer-cta { transform: translateY(0); }
 
 .sf-btn-secondary {
   width: 100%; padding: 13px; background: transparent;
-  color: var(--brand-gold); border: 1.5px solid var(--brand-gold); border-radius: 12px;
+  color: var(--brand-primary); border: 1.5px solid var(--brand-primary); border-radius: 12px;
   font-size: 15px; font-weight: 600; cursor: pointer; min-height: 48px;
   transition: background 0.18s ease;
   font-family: 'DM Sans', sans-serif;
@@ -599,7 +599,7 @@ body.is-scrolled .sticky-footer-cta { transform: translateY(0); }
 .sf-confirm-row .sf-label { color: #888; font-weight: 500; }
 .sf-confirm-row .sf-value { color: #1a1a1a; font-weight: 600; text-align: right; max-width: 55%; }
 .sf-confirm-row.sf-total { border-top: 1px solid #eee; padding-top: 10px; margin-top: 4px; }
-.sf-confirm-row.sf-total .sf-value { color: var(--brand-gold); font-size: 17px; font-weight: 800; font-family: 'Syne', sans-serif; }
+.sf-confirm-row.sf-total .sf-value { color: var(--brand-primary); font-size: 17px; font-weight: 800; font-family: 'Syne', sans-serif; }
 
 .sf-confirm-note {
   font-size: 12px; color: #999; text-align: center;
