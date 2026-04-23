@@ -633,3 +633,111 @@ body.is-scrolled .sticky-footer-cta { transform: translateY(0); }
 }
 
 .delay-1, .delay-2, .delay-3, .delay-4 { transition-delay: 0s !important; }
+
+/* ── Logo Tagline (ADVANCED FORMULA) ───────────────────────────────────── */
+.header-logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    gap: 2px;
+}
+.logo-tagline {
+    font-size: 0.48rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    line-height: 1;
+    font-family: 'DM Sans', sans-serif;
+    opacity: 0.75;
+    margin-top: -1px;
+}
+
+/* ── Tea Flavor Selector ────────────────────────────────────────────────── */
+.flavor-selector {
+    margin: 14px 0 18px;
+}
+.flavor-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+.flavor-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+.flavor-btn {
+    padding: 5px 13px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: transparent;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+    font-family: inherit;
+    line-height: 1.6;
+}
+.flavor-btn:hover {
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+}
+.flavor-btn.active {
+    background: var(--brand-gradient);
+    border-color: transparent;
+    color: #fff;
+}
+.tea-selector-card .product-visual img {
+    transition: opacity 0.25s ease, transform 0.5s ease;
+}
+
+/* ── Tea Card: full-width in grid ───────────────────────────────────────── */
+.tea-selector-card {
+    grid-column: 1 / -1;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* ── USA CTA Button inside Bento ────────────────────────────────────────── */
+.bento-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: var(--brand-gradient);
+    color: #fff;
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.02em;
+    width: 100%;
+    text-align: center;
+}
+.bento-cta:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ── Bento: 3-col after removing Botánica card ──────────────────────────── */
+.bento-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1024px) {
+    .bento-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+    .bento-grid-3 { grid-template-columns: 1fr; }
+}

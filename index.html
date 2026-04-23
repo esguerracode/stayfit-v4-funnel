@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StayFit — Tu Mejor Versión | Adelgaza de Forma Natural y Saludable</title>
-    <meta name="description" content="StayFit: Suplementos 100% naturales premium. Quema grasa, controla la ansiedad y mejora tu salud con nuestras pastillas y té détox. Resultados garantizados.">
+    <meta name="description" content="StayFit: Fórmulas 100% naturales premium. Quema grasa, controla la ansiedad y mejora tu salud con nuestras pastillas y té quema grasa. Resultados garantizados.">
     <link rel="canonical" href="https://stayfit.co/">
     <link rel="alternate" hreflang="es-CO" href="https://stayfit.co/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💚</text></svg>">
     
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:title" content="StayFit — Tu Mejor Versión | Adelgaza de Forma Natural">
-    <meta property="og:description" content="Suplementos 100% naturales para la pérdida de peso. Quema grasa e inhibe el apetito de forma segura.">
+    <meta property="og:description" content="Fórmulas 100% naturales para la pérdida de peso. Quema grasa e inhibe el apetito de forma segura.">
     <meta property="og:image" content="https://stayfit.co/Media/Fotos%20de%20producto/Ahora_entregame_el_blanco__2k_delpmaspu.png">
     <meta property="og:url" content="https://stayfit.co/">
     <meta property="og:type" content="website">
@@ -108,7 +108,7 @@
     </style>
 
     <!-- SEO Header (Hidden) -->
-    <h1 class="sr-only">StayFit: Suplementos Naturales para Pérdida de Peso y Bienestar Té y Cápsulas</h1>
+    <h1 class="sr-only">StayFit: Fórmulas Naturales para Pérdida de Peso y Bienestar — Té y Cápsulas</h1>
 
     <!-- Premium Loader -->
     <div class="page-loader" id="page-loader" aria-hidden="true">
@@ -126,6 +126,7 @@
         <div class="container header-container">
             <a href="/" class="header-logo-link" aria-label="StayFit Inicio">
                 <img src="Media/Logos/Logo negro.svg" class="header-logo" alt="StayFit Logo" width="140" height="28">
+                <span class="logo-tagline">ADVANCED FORMULA</span>
             </a>
             
             <nav class="header-nav" aria-label="Navegación principal">
@@ -199,7 +200,7 @@
             <span class="hero-tag">NUTRICIÓN & CIENCIA NATURAL</span>
             <h1 class="hero-title">Recupera tu confianza <span class="text-brand">con StayFit.</span></h1>
             <p class="hero-desc">
-                Descubre el poder de lo natural. Nuestros suplementos premium te ayudan a alcanzar tus objetivos sin sacrificios extremos.
+                Descubre el poder de lo natural. Nuestros productos premium te ayudan a alcanzar tus objetivos sin sacrificios extremos.
             </p>
             <div class="hero-actions">
                 <button onclick="openModal('Tratamiento StayFit', 210000, '💊')" 
@@ -247,75 +248,32 @@
                             <h3 class="product-name">StayFit Pills</h3>
                             <p class="product-description">Control absoluto de tu apetito. Siente saciedad total desde la mañana mientras la termogénesis quema grasa localizada.</p>
                             <div class="product-price">
-                                <span class="price-strikethrough" data-amount-cop="260000" data-amount-usd="160">$260.000 COP</span>
                                 <div class="price-main" data-amount-cop="210000" data-amount-usd="130">$210.000 COP</div>
                             </div>
-                            <button onclick="openModal('StayFit Pills', 210000, '💊')" class="btn btn-primary btn-full">Apagar mi Ansiedad</button>
+                            <button onclick="openModal('StayFit Pills', 210000, '💊')" class="btn btn-primary btn-full">Comprar Ahora</button>
                         </div>
                     </article>
 
-                    <!-- Naranja -->
-                    <article class="product-card reveal delay-2" data-flavor="Naranja">
+                    <!-- StayFit Tea — Flavor Selector Card -->
+                    <article class="product-card tea-selector-card reveal delay-2">
                         <div class="product-visual">
-                            <img src="Media/Fotos de producto/Te naranja.png" alt="StayFit Tea Naranja" loading="lazy">
+                            <img id="tea-img" src="Media/Fotos de producto/Te naranja.png" alt="StayFit Tea Naranja" loading="lazy">
                         </div>
                         <div class="product-body">
-                            <h3 class="product-name">StayFit Tea • Naranja</h3>
-                            <p class="product-description">Elimina la pesadez y revitaliza tu digestión con el poder cítrico del té verde y naranja.</p>
+                            <h3 class="product-name">StayFit Tea <span id="tea-flavor-name">• Naranja</span></h3>
+                            <p class="product-description">Activa tu metabolismo y acelera la quema de grasa de forma natural. Cada sorbo potencia tu proceso de pérdida de peso con ingredientes botánicos cuidadosamente seleccionados.</p>
+                            <div class="flavor-selector" aria-label="Seleccionar sabor de té">
+                                <span class="flavor-label">Elige tu sabor:</span>
+                                <div class="flavor-options">
+                                    <button class="flavor-btn active" data-flavor="Naranja" data-img="Media/Fotos de producto/Te naranja.png" onclick="selectFlavor(this)">Naranja</button>
+                                    <button class="flavor-btn" data-flavor="Frutos Rojos" data-img="Media/Fotos de producto/te rojo.png" onclick="selectFlavor(this)">Frutos Rojos</button>
+                                    <button class="flavor-btn" data-flavor="Piña" data-img="Media/Fotos de producto/te verde.png" onclick="selectFlavor(this)">Piña</button>
+                                    <button class="flavor-btn" data-flavor="Uva" data-img="Media/Fotos de producto/te morado.png" onclick="selectFlavor(this)">Uva</button>
+                                    <button class="flavor-btn" data-flavor="Limón" data-img="Media/Fotos de producto/te blanco.png" onclick="selectFlavor(this)">Limón</button>
+                                </div>
+                            </div>
                             <div class="price-main" data-amount-cop="140000" data-amount-usd="80">$140.000 COP</div>
-                            <button onclick="openModal('StayFit Tea', 140000, '🍵')" class="btn btn-primary btn-full">Empezar Detox</button>
-                        </div>
-                    </article>
-
-                    <!-- Frutos Rojos -->
-                    <article class="product-card reveal delay-2" data-flavor="Frutos Rojos">
-                        <div class="product-visual">
-                            <img src="Media/Fotos de producto/te rojo.png" alt="StayFit Tea Frutos Rojos" loading="lazy">
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">StayFit Tea • Frutos Rojos</h3>
-                            <p class="product-description">Explosión antioxidante que combate radicales libres y mejora la apariencia de tu piel.</p>
-                            <div class="price-main" data-amount-cop="140000" data-amount-usd="80">$140.000 COP</div>
-                            <button onclick="openModal('StayFit Tea', 140000, '🍵')" class="btn btn-primary btn-full">Empezar Detox</button>
-                        </div>
-                    </article>
-
-                    <!-- Piña -->
-                    <article class="product-card reveal delay-2" data-flavor="Piña">
-                        <div class="product-visual">
-                            <img src="Media/Fotos de producto/te verde.png" alt="StayFit Tea Piña" loading="lazy">
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">StayFit Tea • Piña</h3>
-                            <p class="product-description">El aliado perfecto para desinflamar y eliminar la retención de líquidos de forma natural.</p>
-                            <div class="price-main" data-amount-cop="140000" data-amount-usd="80">$140.000 COP</div>
-                            <button onclick="openModal('StayFit Tea', 140000, '🍵')" class="btn btn-primary btn-full">Empezar Detox</button>
-                        </div>
-                    </article>
-
-                    <!-- Uva -->
-                    <article class="product-card reveal delay-2" data-flavor="Uva">
-                        <div class="product-visual">
-                            <img src="Media/Fotos de producto/te morado.png" alt="StayFit Tea Uva" loading="lazy">
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">StayFit Tea • Uva</h3>
-                            <p class="product-description">Sabor gourmet con alto contenido de resveratrol para proteger tu corazón y células.</p>
-                            <div class="price-main" data-amount-cop="140000" data-amount-usd="80">$140.000 COP</div>
-                            <button onclick="openModal('StayFit Tea', 140000, '🍵')" class="btn btn-primary btn-full">Empezar Detox</button>
-                        </div>
-                    </article>
-
-                    <!-- Limón -->
-                    <article class="product-card reveal delay-2" data-flavor="Limón">
-                        <div class="product-visual">
-                            <img src="Media/Fotos de producto/te blanco.png" alt="StayFit Tea Limón" loading="lazy">
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">StayFit Tea • Limón</h3>
-                            <p class="product-description">Purificador alcalino que equilibra tu pH y controla la ansiedad por el azúcar.</p>
-                            <div class="price-main" data-amount-cop="140000" data-amount-usd="80">$140.000 COP</div>
-                            <button onclick="openModal('StayFit Tea', 140000, '🍵')" class="btn btn-primary btn-full">Empezar Detox</button>
+                            <button onclick="openModal('StayFit Tea ' + document.getElementById('tea-flavor-name').textContent, 140000, '🍵')" class="btn btn-primary btn-full">Comprar Té</button>
                         </div>
                     </article>
 
@@ -356,14 +314,12 @@
                             <span class="combo-subtitle">DÚO PACK</span>
                         </div>
                         <h3 class="combo-name">Combo 2: Dúo Poder</h3>
-                        <p class="combo-desc">Ideal para un mantenimiento intensivo y limpieza profunda.</p>
-                        <div class="combo-price" data-amount-cop="430000" data-amount-usd="270">$430.000 COP</div>
+                        <p class="combo-desc">Ideal para perder peso y mantenerse.</p>
+                        <div class="combo-price" data-amount-cop="260000" data-amount-usd="160">$260.000 COP</div>
                         <ul class="combo-features">
-                            <li>1 StayFit Pills (30 cápsulas)</li>
                             <li>2 Cajas de StayFit Tea</li>
-                            <li>Control de ansiedad prolongado</li>
                         </ul>
-                        <button onclick="openModal('Combo 2 (Dúo Poder)', 430000, '🔥')" class="btn btn-secondary btn-full mt-auto">Asegurar Mi Pack</button>
+                        <button onclick="openModal('Combo 2 (Dúo Poder)', 260000, '🔥')" class="btn btn-secondary btn-full mt-auto">Asegurar Mi Pack</button>
                     </article>
 
                     <article class="combo-card reveal delay-3 featured">
@@ -371,15 +327,13 @@
                             <span class="combo-tag accent">MÁXIMO AHORRO</span>
                             <span class="combo-subtitle">PROTOCOLO FULL</span>
                         </div>
-                        <h3 class="combo-name">Combo 3: Máximo Detox</h3>
-                        <p class="combo-desc">Tratamiento intensivo para 45-60 días. El favorito para transformaciones reales.</p>
-                        <div class="combo-price" data-amount-cop="575000" data-amount-usd="350">$575.000 COP</div>
+                        <h3 class="combo-name">Combo 3: Máximo Ahorro</h3>
+                        <p class="combo-desc">Tratamiento intensivo para 45 días. El favorito para transformaciones reales.</p>
+                        <div class="combo-price" data-amount-cop="375000" data-amount-usd="230">$375.000 COP</div>
                         <ul class="combo-features">
-                            <li style="font-weight: 700; color: var(--brand-primary);">2 Frascos de StayFit Pills (60 caps)</li>
-                            <li>1 Caja de StayFit Tea</li>
-                            <li>Guía de alimentación VIP</li>
+                            <li style="font-weight: 700; color: var(--brand-primary);">3 Cajas de StayFit Tea</li>
                         </ul>
-                        <button onclick="openModal('Combo 3 (Máximo Detox)', 575000, '✨')" class="btn btn-primary btn-full mt-auto">Asegurar Máximo Ahorro</button>
+                        <button onclick="openModal('Combo 3 (Máximo Ahorro)', 375000, '✨')" class="btn btn-primary btn-full mt-auto">Asegurar Máximo Ahorro</button>
                     </article>
                 </div>
             </div>
@@ -388,7 +342,7 @@
         <!-- Bento Trust Section -->
         <section class="section-bento section-padding" id="beneficios">
             <div class="container">
-                <div class="bento-grid">
+                <div class="bento-grid bento-grid-3">
                     <article class="bento-item reveal delay-1" style="--bento-bg: var(--bento-peach);">
                         <div class="bento-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -403,19 +357,13 @@
                         <h3 class="bento-title">Pago contra entrega</h3>
                         <p>Disponible en Villavicencio y Yopal. Resto del país previo pago.</p>
                     </article>
-                    <article class="bento-item reveal delay-3" style="--bento-bg: var(--bento-yellow);">
-                        <div class="bento-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        </div>
-                        <h3 class="bento-title">Fórmula 100% Botánica</h3>
-                        <p>Extractos naturales certificados. Sin anfetaminas, solo componentes naturales, sin riesgos para tu corazón.</p>
-                    </article>
                     <article class="bento-item reveal delay-4" style="--bento-bg: var(--bento-lilac); border: 1px dashed var(--brand-primary);">
                         <div class="bento-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                         </div>
                         <h3 class="bento-title">Envíos a USA 🇺🇸</h3>
                         <p>Llegamos a todo Estados Unidos. Pastillas: $130 USD | Té: $80 USD. Envío: $20 USD adicionales.</p>
+                        <a href="https://wa.me/573172691600?text=Hola,%20quiero%20hacer%20un%20pedido%20desde%20Estados%20Unidos" target="_blank" class="bento-cta">Comprar desde USA</a>
                     </article>
                 </div>
             </div>
@@ -444,7 +392,7 @@
                 <div class="testi-subgrid">
                     <article class="testi-card reveal delay-2">
                         <div class="stars">★★★★★</div>
-                        <p>"El té naranja es delicioso y me ayudó muchísimo con la pesadez estomacal."</p>
+                        <p>"El té naranja es delicioso y me dio muchísima energía durante el día."</p>
                         <strong>Camila G.</strong>
                     </article>
                     <article class="testi-card reveal delay-3">
@@ -486,11 +434,11 @@
                         <div class="faq-answer">
                             <p>Para tu comodidad, manejamos diversos canales oficiales:</p>
                             <ul>
-                                <li><strong>Transferencia Bancolombia:</strong> Cuenta de Ahorros 91280146078.</li>
-                                <li><strong>Nequi:</strong> 3103295832.</li>
-                                <li><strong>Titular:</strong> Juan Vicente Cipagauta.</li>
+                                <li><strong>Transferencia Bancolombia:</strong> Disponible para todo el país.</li>
+                                <li><strong>Nequi:</strong> Transferencia inmediata.</li>
                                 <li><strong>Pago contra entrega:</strong> Disponible únicamente en Villavicencio y Yopal. Resto del país previo pago.</li>
                             </ul>
+                            <p>Solicita los datos actuales de transferencia directamente con tu asesor por WhatsApp.</p>
                         </div>
                     </details>
                     <details class="faq-item">
@@ -502,15 +450,10 @@
                     <details class="faq-item">
                         <summary>¿Puedo combinar Pills y Tea?</summary>
                         <div class="faq-answer">
-                            <p>¡Totalmente! De hecho, el Combo 1 (Pills + Tea) está diseñado para maximizar resultados. Las pastillas trabajan en la quema de grasa y control de ansiedad, mientras que el té acelera el metabolismo y elimina toxinas. Son complementarios y potencian los efectos del otro.</p>
+                            <p>¡Totalmente! De hecho, el Combo 1 (Pills + Tea) está diseñado para maximizar resultados. Las pastillas trabajan en la quema de grasa y control de ansiedad, mientras que el té acelera el metabolismo y ayuda a drenar líquidos. Son complementarios y potencian los efectos del otro.</p>
                         </div>
                     </details>
-                    <details class="faq-item">
-                        <summary>¿Tienen registro o respaldo?</summary>
-                        <div class="faq-answer">
-                            <p>Sí, nuestras fórmulas son fabricadas bajo altos estándares de calidad y con componentes naturales permitidos. StayFit es una marca registrada que cumple con la normativa de suplementos dietarios naturales, garantizando que lo que dice la etiqueta es exactamente lo que consumes.</p>
-                        </div>
-                    </details>
+
                     <details class="faq-item">
                         <summary>¿Qué pasa si tengo dudas durante el proceso?</summary>
                         <div class="faq-answer">
@@ -882,6 +825,23 @@
         const encoded = encodeURIComponent(text);
         window.open(`https://wa.me/573172691600?text=${encoded}`, '_blank');
         closeModal();
+      }
+
+      function selectFlavor(btn) {
+        document.querySelectorAll('.flavor-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const flavor = btn.getAttribute('data-flavor');
+        const imgSrc = btn.getAttribute('data-img');
+        
+        document.getElementById('tea-flavor-name').textContent = '• ' + flavor;
+        const imgEl = document.getElementById('tea-img');
+        
+        imgEl.style.opacity = '0';
+        setTimeout(() => {
+            imgEl.src = imgSrc;
+            imgEl.style.opacity = '1';
+        }, 200);
       }
 
       overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
