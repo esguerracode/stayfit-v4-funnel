@@ -52,7 +52,7 @@
         {
           "@type": "Product",
           "name": "StayFit Tea",
-          "description": "Té détox natural para eliminación de líquidos y aceleración del metabolismo.",
+          "description": "Quemador natural de grasa para acelerar el metabolismo y potenciar la pérdida de peso.",
           "brand": { "@type": "Brand", "name": "StayFit" },
           "offers": {
             "@type": "Offer",
@@ -199,7 +199,7 @@
             <span class="hero-tag">NUTRICIÓN & CIENCIA NATURAL</span>
             <h1 class="hero-title">Recupera tu confianza <span class="text-brand">con StayFit.</span></h1>
             <p class="hero-desc">
-                Descubre el poder de lo natural. Nuestros productos premium te ayudan a alcanzar tus objetivos sin sacrificios extremos.
+                Descubre el poder de lo natural. Nuestro quemador te ayuda a alcanzar tus objetivos sin sacrificios externos.
             </p>
             <div class="hero-actions">
                 <button onclick="openModal('Tratamiento StayFit', 210000, '💊')" 
@@ -260,7 +260,7 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">StayFit Tea <span id="tea-flavor-name">• Naranja</span></h3>
-                            <p class="product-description">Activa tu metabolismo y acelera la quema de grasa de forma natural. Cada sorbo potencia tu proceso de pérdida de peso con ingredientes botánicos cuidadosamente seleccionados.</p>
+                            <p class="product-description">Activa tu metabolismo y acelera la quema de grasa de forma natural. Cada sobre potencia tu proceso de pérdida de peso con ingredientes naturales cuidadosamente seleccionados.</p>
                             <div class="flavor-selector" aria-label="Seleccionar sabor de té">
                                 <span class="flavor-label">Elige tu sabor:</span>
                                 <div class="flavor-options">
@@ -296,12 +296,12 @@
                             <span class="combo-tag accent">IDEAL PARA INICIAR</span>
                             <span class="combo-subtitle">INICIO</span>
                         </div>
-                        <h3 class="combo-name">Combo 1: Mix Inicial</h3>
-                        <p class="combo-desc">La combinación perfecta para iniciar tu transformación.</p>
+                        <h3 class="combo-name">Combo 1: Inicio Poderoso</h3>
+                        <p class="combo-desc">1 Frasco de Pastillas + 1 Caja de Té</p>
                         <div class="combo-price" data-amount-cop="340000" data-amount-usd="200">$340.000 COP</div>
                         <ul class="combo-features">
-                            <li>1 frasco de StayFit Pills</li>
-                            <li>1 caja de StayFit Tea (Sabor a elección)</li>
+                            <li>1 Frasco de Quemador StayFit (60 cápsulas)</li>
+                            <li>1 Caja de Té StayFit (Sabor a elección)</li>
                         </ul>
                         <button onclick="openModal('Combo 1 (Mix Inicial)', 340000, '🎁')" class="btn btn-primary btn-full mt-auto">¡Empezar Ahora!</button>
                     </article>
@@ -316,6 +316,7 @@
                         <div class="combo-price" data-amount-cop="260000" data-amount-usd="160">$260.000 COP</div>
                         <ul class="combo-features">
                             <li>2 Cajas de StayFit Tea</li>
+                            <li>✓ Control de ansiedad prolongada</li>
                         </ul>
                         <button onclick="openModal('Combo 2 (Dúo Poder)', 260000, '🔥')" class="btn btn-secondary btn-full mt-auto">Asegurar Mi Pack</button>
                     </article>
@@ -353,7 +354,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                         </div>
                         <h3 class="bento-title">Pago contra entrega</h3>
-                        <p>Disponible en Villavicencio y Yopal. Resto del país previo pago.</p>
+                        <p>Disponible en Villavicencio y Yopal.</p>
+                        <button onclick="openModal('Tratamiento StayFit', 210000, '🛒')" class="bento-cta" style="margin-top:12px;cursor:pointer;border:none;background:none;padding:0;">Compra Inmediata →</button>
                     </article>
                     <article class="bento-item reveal delay-4" style="--bento-bg: var(--bento-lilac); border: 1px dashed var(--brand-primary);">
                         <div class="bento-icon">
@@ -361,7 +363,7 @@
                         </div>
                         <h3 class="bento-title">Envíos a USA 🇺🇸</h3>
                         <p>Llegamos a todo Estados Unidos. Pastillas: $130 USD | Té: $80 USD. Envío: $20 USD adicionales.</p>
-                        <a href="https://wa.me/573172691600?text=Hola,%20quiero%20hacer%20un%20pedido%20desde%20Estados%20Unidos" target="_blank" class="bento-cta">Comprar desde USA</a>
+                        <a href="https://wa.me/573172691600?text=Hola,%20quiero%20hacer%20un%20pedido%20desde%20Estados%20Unidos" target="_blank" class="bento-cta">Compra Inmediata →</a>
                     </article>
                 </div>
             </div>
@@ -843,6 +845,64 @@
       }
 
       overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+    </script>
+
+    <!-- Tea Flavor Autoplay Slider -->
+    <script>
+      (function initTeaSlider() {
+        // Ensure selectFlavor already has transition; enhance with autoplay
+        const btns = Array.from(document.querySelectorAll('.flavor-btn'));
+        const img  = document.getElementById('tea-img');
+        const nameEl = document.getElementById('tea-flavor-name');
+        if (!btns.length || !img) return;
+
+        // Guarantee CSS transition on the image
+        img.style.transition = 'opacity 0.35s ease';
+
+        let idx = 0;
+
+        function goTo(i) {
+          const btn = btns[i];
+          img.style.opacity = '0';
+          setTimeout(function() {
+            img.src = btn.dataset.img;
+            img.alt = 'StayFit Tea ' + btn.dataset.flavor;
+            if (nameEl) nameEl.textContent = '\u2022 ' + btn.dataset.flavor;
+            btns.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            img.style.opacity = '1';
+          }, 350);
+        }
+
+        var timer = setInterval(function() {
+          idx = (idx + 1) % btns.length;
+          goTo(idx);
+        }, 3000);
+
+        // Manual click resets timer
+        btns.forEach(function(btn, i) {
+          btn.addEventListener('click', function() {
+            clearInterval(timer);
+            idx = i;
+            timer = setInterval(function() {
+              idx = (idx + 1) % btns.length;
+              goTo(idx);
+            }, 3000);
+          });
+        });
+
+        // Pause autoplay on hover
+        var card = document.querySelector('.tea-selector-card');
+        if (card) {
+          card.addEventListener('mouseenter', function() { clearInterval(timer); });
+          card.addEventListener('mouseleave', function() {
+            timer = setInterval(function() {
+              idx = (idx + 1) % btns.length;
+              goTo(idx);
+            }, 3000);
+          });
+        }
+      })();
     </script>
 </body>
 
