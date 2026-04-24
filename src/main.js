@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // The Tea CTA starts with "Naranja" (default slide index 0).
     WhatsApp.initAllCtas();
 
-    // ── 5. Flavor Slider (Deprecated/Optional) ──────────────────────────
+    // ── 5. Sliders ───────────────────────────────────────────────────────
     if (document.getElementById('flavor-slider-tea')) {
         Sliders.initFlavorSlider(
             'flavor-slider-tea',
@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('flavor-tabs-tea'),
             (flavorName) => WhatsApp.updateTeaFlavor(flavorName),
         );
+    }
+
+    if (document.getElementById('testimonial-track')) {
+        Sliders.initTestimonialSlider('testimonial-track', 'testi-progress-bars', 3000);
     }
 
     // ── 6. Checkout Logic ────────────────────────────────────────────────
