@@ -12,7 +12,7 @@
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:title" content="StayFit — Tu Mejor Versión | Adelgaza de Forma Natural">
     <meta property="og:description" content="Fórmulas 100% naturales para la pérdida de peso. Quema grasa e inhibe el apetito de forma segura.">
-    <meta property="og:image" content="https://stayfit.co/Media/Fotos%20de%20producto/pills_box.png">
+    <meta property="og:image" content="https://stayfit.co/Media/Fotos de producto/pills_box.png">
     <meta property="og:url" content="https://stayfit.co/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -39,7 +39,7 @@
         {
           "@type": "Product",
           "name": "StayFit Pills",
-          "description": "Quemador de grasa localizada e inhibidor del apetito 100% natural.",
+          "description": "Quemador de grasa e inhibidor del apetito 100% natural.",
           "brand": { "@type": "Brand", "name": "StayFit" },
           "offers": {
             "@type": "Offer",
@@ -94,6 +94,28 @@
         body, h1, h2, h3, h4, h5, h6, p, span, div, a, button {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
         }
+        /* Aesthetic Ingredient Chips */
+        .ingredient-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+            margin-bottom: 20px;
+        }
+        .ingredient-chip {
+            background: rgba(231, 76, 60, 0.08);
+            color: #d63031;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            border: 1px solid rgba(231, 76, 60, 0.15);
+            transition: all 0.2s ease;
+        }
+        .ingredient-chip:hover {
+            background: rgba(231, 76, 60, 0.15);
+            transform: translateY(-1px);
+        }
     </style>
     
     <!-- Styles -->
@@ -121,8 +143,13 @@
         </div>
     </div>
 
+    <!-- Top Announcement Bar -->
+    <div class="top-bar" style="background: var(--brand-primary); color: #fff; text-align: center; padding: 10px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 1001;">
+        ✨ ¡AHORA CON ENVÍOS A USA! COMPRA DESDE CUALQUIER LUGAR ✨
+    </div>
+
     <!-- Header Navigation -->
-    <header class="header-main" id="main-header">
+    <header class="header-main" id="main-header" style="top: 40px;">
         <div class="container header-container">
             <a href="/" class="header-logo-link" aria-label="StayFit Inicio">
                 <img src="Media/Logos/logo_negro.svg" class="header-logo" alt="StayFit Logo" width="140" height="63">
@@ -199,7 +226,7 @@
             <span class="hero-tag">NUTRICIÓN & CIENCIA NATURAL</span>
             <h1 class="hero-title">Recupera tu confianza <span class="text-brand">con StayFit.</span></h1>
             <p class="hero-desc">
-                Descubre el poder de lo natural. Nuestro quemador te ayuda a alcanzar tus objetivos sin sacrificios externos.
+                Descubre el poder de lo natural. Nuestro quemador te ayuda a alcanzar tus objetivos de quema de grasa sin sacrificios externos.
             </p>
             <div class="hero-actions">
                 <button onclick="openModal('Tratamiento StayFit', 210000, '💊')" 
@@ -245,7 +272,13 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">StayFit Pills</h3>
-                            <p class="product-description">Control absoluto de tu apetito. Siente saciedad total desde la mañana mientras la termogénesis quema grasa localizada.</p>
+                            <p class="product-description">Control absoluto de tu apetito. Siente saciedad total desde la mañana mientras la termogénesis quema grasa.</p>
+                            <div class="ingredient-chips">
+                                <span class="ingredient-chip">L-carnitina</span>
+                                <span class="ingredient-chip">Picolinato de cromo</span>
+                                <span class="ingredient-chip">Naranja amarga</span>
+                                <span class="ingredient-chip">Té verde</span>
+                            </div>
                             <div class="product-price">
                                 <div class="price-main" data-amount-cop="210000" data-amount-usd="130">$210.000 COP</div>
                             </div>
@@ -260,7 +293,13 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">StayFit Tea <span id="tea-flavor-name">• Naranja</span></h3>
-                            <p class="product-description">Activa tu metabolismo y acelera la quema de grasa de forma natural. Cada sobre potencia tu proceso de pérdida de peso con ingredientes naturales cuidadosamente seleccionados.</p>
+                            <p class="product-description">Activa tu metabolismo y acelera la quema de grasa de forma natural. <strong>Cada caja contiene 15 sobres</strong> para potenciar tu pérdida de peso con ingredientes 100% naturales.</p>
+                            <div class="ingredient-chips">
+                                <span class="ingredient-chip">Té verde</span>
+                                <span class="ingredient-chip">Té rojo</span>
+                                <span class="ingredient-chip">Naranja amarga</span>
+                                <span class="ingredient-chip">Stevia</span>
+                            </div>
                             <div class="flavor-selector" aria-label="Seleccionar sabor de té">
                                 <span class="flavor-label">Elige tu sabor:</span>
                                 <div class="flavor-options">
@@ -309,16 +348,16 @@
                     <article class="combo-card reveal delay-2">
                         <div class="combo-header">
                             <span class="combo-tag">AHORRO PACK</span>
-                            <span class="combo-subtitle">DÚO PACK</span>
+                            <span class="combo-subtitle">DÚO PODER</span>
                         </div>
-                        <h3 class="combo-name">Combo 2: Dúo Poder</h3>
-                        <p class="combo-desc">Ideal para perder peso y mantenerse.</p>
+                        <h3 class="combo-name">Dúo Poder</h3>
+                        <p class="combo-desc">El equilibrio perfecto para potenciar resultados. Combina Pills y Tea.</p>
                         <div class="combo-price" data-amount-cop="260000" data-amount-usd="160">$260.000 COP</div>
                         <ul class="combo-features">
-                            <li>2 Cajas de StayFit Tea</li>
+                            <li>2 Cajas de StayFit Tea (15 sobres por caja)</li>
                             <li>✓ Control de ansiedad prolongada</li>
                         </ul>
-                        <button onclick="openModal('Combo 2 (Dúo Poder)', 260000, '🔥')" class="btn btn-secondary btn-full mt-auto">Asegurar Mi Pack</button>
+                        <button onclick="openModal('Dúo Poder', 260000, '🔥')" class="btn btn-secondary btn-full mt-auto">Asegurar Mi Pack</button>
                     </article>
 
                     <article class="combo-card reveal delay-3 featured">
@@ -330,7 +369,7 @@
                         <p class="combo-desc">Tratamiento intensivo para 45 días. El favorito para transformaciones reales.</p>
                         <div class="combo-price" data-amount-cop="375000" data-amount-usd="230">$375.000 COP</div>
                         <ul class="combo-features">
-                            <li style="font-weight: 700; color: var(--brand-primary);">3 Cajas de StayFit Tea</li>
+                            <li style="font-weight: 700;">3 Cajas de StayFit Tea (15 sobres por caja)</li>
                         </ul>
                         <button onclick="openModal('Combo 3 (Máximo Ahorro)', 375000, '✨')" class="btn btn-primary btn-full mt-auto">Asegurar Máximo Ahorro</button>
                     </article>
@@ -342,23 +381,7 @@
         <section class="section-bento section-padding" id="beneficios">
             <div class="container">
                 <div class="bento-grid bento-grid-3">
-                    <article class="bento-item reveal delay-1" style="--bento-bg: var(--bento-peach);">
-                        <div class="bento-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                        </div>
-                        <h3 class="bento-title">Entrega Garantizada</h3>
-                        <p>Envíos seguros a toda Colombia. Recibe en 2-4 días hábiles.</p>
-                        <button onclick="openModal('Tratamiento StayFit', 210000, '🚚')" class="bento-cta">Compra Inmediata →</button>
-                    </article>
-                    <article class="bento-item reveal delay-2" style="--bento-bg: var(--bento-mint);">
-                        <div class="bento-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                        </div>
-                        <h3 class="bento-title">Pago contra entrega</h3>
-                        <p>Disponible en Villavicencio y Yopal.</p>
-                        <button onclick="openModal('Tratamiento StayFit', 210000, '🛒')" class="bento-cta">Compra Inmediata →</button>
-                    </article>
-                    <article class="bento-item reveal delay-4" style="--bento-bg: var(--bento-lilac); border: 1px dashed var(--brand-primary);">
+                    <article class="bento-item reveal delay-1" style="--bento-bg: var(--bento-lilac); border: 2px solid var(--brand-primary);">
                         <div class="bento-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                         </div>
@@ -366,76 +389,156 @@
                         <p>Llegamos a todo Estados Unidos. Pastillas: $130 USD | Té: $80 USD. Envío: $20 USD adicionales.</p>
                         <a href="https://wa.me/573172691600?text=Hola,%20quiero%20hacer%20un%20pedido%20desde%20Estados%20Unidos" target="_blank" class="bento-cta">Compra Inmediata →</a>
                     </article>
+                    <article class="bento-item reveal delay-2" style="--bento-bg: var(--bento-peach);">
+                        <div class="bento-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <h3 class="bento-title">Entrega Garantizada</h3>
+                        <p>Envíos seguros a toda Colombia. Recibe en 2-4 días hábiles.</p>
+                        <button onclick="openModal('Tratamiento StayFit', 210000, '🚚')" class="bento-cta">Compra Inmediata →</button>
+                    </article>
+                    <article class="bento-item reveal delay-4" style="--bento-bg: var(--bento-mint);">
+                        <div class="bento-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        </div>
+                        <h3 class="bento-title">Pago contra entrega</h3>
+                        <p>Disponible en Villavicencio y Yopal. Resto del país previo pago.</p>
+                        <button onclick="openModal('Tratamiento StayFit', 210000, '🛒')" class="bento-cta">Compra Inmediata →</button>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section: Smartphone Interactive Slider -->
         <section class="section-testimonials section-padding" id="testi">
             <div class="container">
-                <header class="section-header reveal">
-                    <h2 class="section-title">Testimonios <span class="text-gradient">Reales</span></h2>
-                    <p class="section-lead">Mira los resultados de nuestras clientas y comienza tu cambio hoy.</p>
+                <header class="text-center reveal">
+                    <h2 class="section-title">Nuestras <span class="text-gradient">Clientas Reales</span></h2>
+                    <p class="section-lead">Resultados auténticos de mujeres que transformaron su vida.</p>
                 </header>
                 
-                <div class="testi-smartphone-wrapper reveal">
-                    <div class="smartphone-case">
-                        <div class="smartphone-bezel">
-                            <div class="smartphone-speaker"></div>
-                        </div>
-                        <div class="smartphone-screen">
-                            <div class="testimonial-track" id="testimonial-track">
-                                <!-- Imágenes -->
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_1.jpg" alt="Testimonio StayFit 1" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_2.jpg" alt="Testimonio StayFit 2" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_3.jpg" alt="Testimonio StayFit 3" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_4.jpg" alt="Testimonio StayFit 4" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_5.png" alt="Testimonio StayFit 5" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_6.png" alt="Testimonio StayFit 6" loading="lazy">
-                                </div>
-                                <!-- Videos -->
-                                <div class="testi-slide">
-                                    <video src="Media/Testimonios/testi_vid_1.mp4" autoplay muted loop playsinline></video>
-                                </div>
-                                <div class="testi-slide">
-                                    <video src="Media/Testimonios/testi_vid_2.mp4" autoplay muted loop playsinline></video>
-                                </div>
-                                <div class="testi-slide">
-                                    <video src="Media/Testimonios/testi_vid_3.mp4" autoplay muted loop playsinline></video>
-                                </div>
+                <div class="testi-slider-container reveal delay-1">
+                    <div class="testi-track" id="testimonial-track">
+                        <!-- Slide 1 (Video) -->
+                        <article class="testi-slide">
+                            <div class="testi-media">
+                                <video src="Media/Testimonios/testi_vid_1.mp4" loop muted playsinline></video>
                             </div>
-                            
-                            <!-- Slider Overlay UI -->
-                            <div class="testi-overlay-ui">
-                                <div class="testi-progress-bars" id="testi-progress-bars">
-                                    <!-- Progress bars will be injected by JS -->
-                                </div>
-                                <div class="testi-user-info">
-                                    <div class="testi-avatar">💚</div>
-                                    <div class="testi-meta">
-                                        <span class="testi-name">Clienta StayFit</span>
-                                        <span class="testi-status">Hace un momento</span>
+                            <div class="testi-content">
+                                <div class="testi-stars">★★★★★</div>
+                                <p class="testi-quote">"¡No puedo creer lo rápido que funcionó! En solo 15 días ya noto mi abdomen mucho más plano y sin esa ansiedad constante por dulces."</p>
+                                <div class="testi-user">
+                                    <img src="Media/Avatars/martha.png" alt="Martha R." class="testi-avatar">
+                                    <div>
+                                        <span class="testi-name">Martha R.</span>
+                                        <span class="testi-status">Comprador Verificado</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="smartphone-button"></div>
-                    </div>
-                </div>
+                        </article>
 
-                <div class="text-center mt-12 reveal">
-                    <p class="text-muted" style="font-size: 0.9rem;">Resultados reales verificados • Únete a +500 mujeres</p>
+                        <!-- Slide 2 (Image) -->
+                        <article class="testi-slide">
+                            <div class="testi-media">
+                                <img src="Media/Testimonios/testi_img_1.jpg" alt="Resultado Real 1">
+                            </div>
+                            <div class="testi-content">
+                                <div class="testi-stars">★★★★★</div>
+                                <p class="testi-quote">"El Dúo Poder es lo mejor que he probado. He bajado 5 kilos en un mes y el sabor del té de naranja es delicioso. ¡100% recomendado!"</p>
+                                <div class="testi-user">
+                                    <img src="Media/Avatars/claudia.png" alt="Claudia M." class="testi-avatar">
+                                    <div>
+                                        <span class="testi-name">Claudia M.</span>
+                                        <span class="testi-status">Comprador Verificado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 3 (Video) -->
+                        <article class="testi-slide">
+                            <div class="testi-media">
+                                <video src="Media/Testimonios/testi_vid_2.mp4" loop muted playsinline></video>
+                            </div>
+                            <div class="testi-content">
+                                <div class="testi-stars">★★★★★</div>
+                                <p class="testi-quote">"Por fin algo que sí cumple. La energía que me da StayFit es increíble, entreno mucho mejor y ya no pico entre comidas."</p>
+                                <div class="testi-user">
+                                    <img src="Media/Avatars/vanessa.png" alt="Vanessa P." class="testi-avatar">
+                                    <div>
+                                        <span class="testi-name">Vanessa P.</span>
+                                        <span class="testi-status">Comprador Verificado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Slide 4 (Image) -->
+                        <article class="testi-slide">
+                            <div class="testi-media">
+                                <img src="Media/Testimonios/testi_img_2.jpg" alt="Resultado Real 2">
+                            </div>
+                            <div class="testi-content">
+                                <div class="testi-stars">★★★★★</div>
+                                <p class="testi-quote">"Me encanta que sea 100% natural. No me da taquicardia ni insomnio, solo resultados reales. ¡Gracias StayFit!"</p>
+                                <div class="testi-user">
+                                    <img src="Media/Avatars/martha.png" alt="Carolina L." class="testi-avatar">
+                                    <div>
+                                        <span class="testi-name">Carolina L.</span>
+                                        <span class="testi-status">Comprador Verificado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <!-- Slide 5 (Video) -->
+                        <article class="testi-slide">
+                            <div class="testi-media">
+                                <video src="Media/Testimonios/testi_vid_3.mp4" loop muted playsinline></video>
+                            </div>
+                            <div class="testi-content">
+                                <div class="testi-stars">★★★★★</div>
+                                <p class="testi-quote">"El mejor aliado para mi proceso. El té de frutos rojos me ayuda muchísimo con la retención de líquidos."</p>
+                                <div class="testi-user">
+                                    <img src="Media/Avatars/claudia.png" alt="Jessica V." class="testi-avatar">
+                                    <div>
+                                        <span class="testi-name">Jessica V.</span>
+                                        <span class="testi-status">Comprador Verificado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Progress bars (required by sliders.js) -->
+                    <div class="testi-progress-bars" id="testi-progress-bars"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Uso y Recomendaciones (Premium Edition) -->
+        <section class="section-usage section-padding" id="uso">
+            <div class="container">
+                <header class="text-center reveal">
+                    <h2 class="section-title">Guía de <span class="text-gradient">Uso StayFit</span> 👇</h2>
+                    <p class="section-lead">Sigue estos pasos para maximizar tu transformación.</p>
+                </header>
+                
+                <div class="usage-premium-grid">
+                    <div class="usage-card reveal delay-1">
+                        <div class="usage-step">Regla 1</div>
+                        <h3>Ayunas y Constancia</h3>
+                        <p>Consume 1 servicio diariamente en ayunas cada mañana (1 cápsula con agua o 1 sobre de té en agua caliente). Espera 15 minutos antes de desayunar. Esto ayuda a inhibir el apetito y la ansiedad.</p>
+                    </div>
+                    <div class="usage-card reveal delay-2">
+                        <div class="usage-step">Regla 2</div>
+                        <h3>Hidratación Total</h3>
+                        <p>Bebe de 2 a 3 litros de agua diariamente. Nuestros productos actúan como diuréticos para eliminar toxinas y contribuir significativamente a la pérdida de peso.</p>
+                    </div>
+                    <div class="usage-card reveal delay-3">
+                        <div class="usage-step">Regla 3</div>
+                        <h3>Moderación Consciente</h3>
+                        <p>Evita alimentos altos en grasa, gaseosas, harinas y bebidas alcohólicas. No requerimos una dieta estricta, pero se recomienda un consumo moderado para mejores resultados.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -449,27 +552,35 @@
                 </header>
                 <div class="faq-grid reveal delay-1">
                     <details class="faq-item">
+                        <summary>¿Tiene efectos secundarios?</summary>
+                        <div class="faq-content">
+                            <p>StayFit es 100% natural y seguro. Sus componentes son: <strong>L carnitina, picolinato de cromo, extracto de frutas y saborizante natural.</strong> No genera efecto rebote ni taquicardia.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item -->
+                    <details class="faq-item">
+                        <summary>¿Cómo debo tomarlo? (Recomendaciones)</summary>
+                        <div class="faq-content">
+                            <p><strong>Uso sugerido:</strong> Toma 1 cápsula 30 minutos antes del desayuno con agua tibia. El té lo puedes tomar en ayunas o antes de dormir para potenciar la eliminación de toxinas. Te recomendamos beber al menos 2 litros de agua al día.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
                         <summary>¿Cuánto tiempo tardan los resultados?</summary>
                         <div class="faq-answer">
                             <p>La mayoría de nuestras clientas comienzan a ver resultados desde la primera semana de uso. Los cambios más significativos se observan entre la segunda y cuarta semana, especialmente cuando se combina con una alimentación equilibrada y ejercicio moderado.</p>
                         </div>
                     </details>
                     <details class="faq-item">
-                        <summary>¿Los productos tienen efectos secundarios?</summary>
+                        <summary>¿Cuáles son los componentes de StayFit?</summary>
                         <div class="faq-answer">
-                            <p>StayFit está formulado con ingredientes 100% naturales y es seguro para el consumo diario. No contiene hormonas sintéticas ni estimulantes peligrosos. Sin embargo, si estás embarazada, lactando o tienes alguna condición médica, te recomendamos consultar con tu médico antes de usar cualquier quemador.</p>
+                            <p>Nuestra fórmula premium está compuesta por: L-carnitina, picolinato de cromo, extracto de frutas y saborizante natural. Ingredientes 100% seguros y efectivos.</p>
                         </div>
                     </details>
                     <details class="faq-item">
                         <summary>¿Cómo realizo el pago?</summary>
                         <div class="faq-answer">
-                            <p>Para tu comodidad, manejamos diversos canales oficiales:</p>
-                            <ul>
-                                <li><strong>Transferencia Bancolombia:</strong> Disponible para todo el país.</li>
-                                <li><strong>Nequi:</strong> Transferencia inmediata.</li>
-                                <li><strong>Pago contra entrega:</strong> Disponible únicamente en Villavicencio y Yopal. Resto del país previo pago.</li>
-                            </ul>
-                            <p>Solicita los datos actuales de transferencia directamente con tu asesor por WhatsApp.</p>
+                            <p>Para tu seguridad, el pago se gestiona <strong>después de confirmar tu pedido</strong>. Una vez realices la solicitud en la web, uno de nuestros asesores te contactará vía WhatsApp para validar tus datos y coordinar el método de pago más conveniente (Transferencia Bancolombia, Nequi o Pago Contra Entrega en ciudades seleccionadas).</p>
                         </div>
                     </details>
                     <details class="faq-item">
@@ -479,18 +590,25 @@
                         </div>
                     </details>
                     <details class="faq-item">
+                        <summary>¿Cuáles son los componentes de los productos?</summary>
+                        <div class="faq-answer">
+                            <p>Nuestros productos están formulados con ingredientes naturales de alta calidad:</p>
+                            <ul>
+                                <li><strong>L-carnitina:</strong> Ayuda a convertir la grasa en energía.</li>
+                                <li><strong>Picolinato de cromo:</strong> Clave para reducir la ansiedad por dulces y carbohidratos.</li>
+                                <li><strong>Extracto de frutas:</strong> Aporta antioxidantes y vitaminas esenciales.</li>
+                                <li><strong>Saborizante natural:</strong> Para una experiencia agradable al paladar.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="faq-item">
                         <summary>¿Puedo combinar Pills y Tea?</summary>
                         <div class="faq-answer">
                             <p>No se deben combinar. La recomendación es iniciar con el té, que es de fácil adaptación, y posterior a terminarlo se inicia con las pastillas hasta finalizar el tratamiento.</p>
                         </div>
                     </details>
 
-                    <details class="faq-item">
-                        <summary>¿Qué pasa si tengo dudas durante el proceso?</summary>
-                        <div class="faq-answer">
-                            <p>A diferencia de otras marcas, no te dejamos sola. Al adquirir StayFit, tienes acceso a nuestro canal de WhatsApp donde resolvemos tus dudas sobre dosis, alimentación y cómo potenciar tus resultados cada vez que lo necesites.</p>
-                        </div>
-                    </details>
+
                 </div>
             </div>
         </section>
@@ -507,7 +625,7 @@
                         </button>
                     </div>
                     <div class="cta-visual">
-                        <img src="Media/Fotos de producto/imagen con todos los productos.png" alt="Gama de productos StayFit" width="500" height="350" loading="lazy">
+                        <img src="Media/Fotos de producto/productos_all.png" alt="Gama de productos StayFit" width="500" height="350" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -521,7 +639,7 @@
                         <span class="distributor-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
                         </span>
-                        <span class="distributor-text">¿Eres distribuidor? Emprende con StayFit</span>
+                        <span class="distributor-text">¿Te gustaría distribuir nuestros productos?</span>
                         <span class="distributor-arrow">→</span>
                     </summary>
                     <div class="wholesale-content">
@@ -560,7 +678,7 @@
     <footer class="footer-main">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <img src="Media/Logos/Logo negro.svg" alt="StayFit Logo" width="120" height="54" class="footer-logo" loading="lazy">
+                <img src="Media/Logos/logo_negro.svg" alt="StayFit Logo" width="120" height="54" class="footer-logo" loading="lazy">
                 <p>Equilibrio natural para tu bienestar.</p>
             </div>
             <nav class="footer-links" aria-label="Enlaces del pie de página">
