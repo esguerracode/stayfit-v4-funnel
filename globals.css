@@ -290,7 +290,72 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     .bento-grid { grid-template-columns: 1fr; }
 }
 
-/* ── Testimonials (Smartphone Style) ───────────────────────────────────── */
+/* ── Hero USA Badge ────────────────────────────────────────────────────── */
+.hero-usa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    backdrop-filter: blur(4px);
+}
+.hero-usa-badge .usa-flag { font-size: 1.1rem; }
+
+/* ── Testimonials (Card Grid) ───────────────────────────────────────────── */
+.testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+@media (max-width: 900px) { .testi-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .testi-grid { grid-template-columns: 1fr; } }
+
+.testi-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.testi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+.testi-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+.testi-card-stars { color: #f59e0b; font-size: 1rem; letter-spacing: 2px; }
+.testi-card-quote {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+.testi-card-author { margin-top: auto; display: flex; align-items: center; gap: 12px; }
+.testi-card-avatar {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: var(--av-color, var(--brand-primary));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;
+}
+.testi-card-name { display: block; font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
+.testi-card-location { display: block; font-size: 0.78rem; color: var(--text-muted); }
+
+/* ── Testimonials (Smartphone Style — LEGACY, kept for reference) ───────── */
 .testi-smartphone-wrapper {
     display: flex;
     justify-content: center;

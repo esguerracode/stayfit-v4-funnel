@@ -39,7 +39,7 @@
         {
           "@type": "Product",
           "name": "StayFit Pills",
-          "description": "Quemador de grasa localizada e inhibidor del apetito 100% natural.",
+          "description": "Quemador de grasa e inhibidor del apetito 100% natural.",
           "brand": { "@type": "Brand", "name": "StayFit" },
           "offers": {
             "@type": "Offer",
@@ -202,12 +202,16 @@
                 Descubre el poder de lo natural. Nuestro quemador te ayuda a alcanzar tus objetivos sin sacrificios externos.
             </p>
             <div class="hero-actions">
-                <button onclick="openModal('Tratamiento StayFit', 210000, '💊')" 
-                        class="btn btn-primary btn-lg btn-pulse" 
+                <button onclick="openModal('Tratamiento StayFit', 210000, '💊')"
+                        class="btn btn-primary btn-lg btn-pulse"
                         id="cta-hero">
                     ¡Quiero mi Tratamiento!
                 </button>
                 <a href="#cat" class="btn btn-outline" style="border-width: 2px; font-weight: 700;">Ver Catálogo</a>
+            </div>
+            <div class="hero-usa-badge">
+                <span class="usa-flag">🇺🇸</span>
+                <span>Envíos a <strong>Estados Unidos</strong> disponibles</span>
             </div>
         </article>
 
@@ -370,68 +374,98 @@
             </div>
         </section>
 
-        <!-- Testimonials Section: Smartphone Interactive Slider -->
+        <!-- Testimonials Section: Card Grid with Ratings -->
         <section class="section-testimonials section-padding" id="testi">
             <div class="container">
                 <header class="section-header reveal">
-                    <h2 class="section-title">Testimonios <span class="text-gradient">Reales</span></h2>
-                    <p class="section-lead">Mira los resultados de nuestras clientas y comienza tu cambio hoy.</p>
+                    <h2 class="section-title">Lo que dicen nuestras <span class="text-gradient">Clientas</span></h2>
+                    <p class="section-lead">Resultados reales de mujeres que ya transformaron su vida con StayFit.</p>
                 </header>
-                
-                <div class="testi-smartphone-wrapper reveal">
-                    <div class="smartphone-case">
-                        <div class="smartphone-bezel">
-                            <div class="smartphone-speaker"></div>
-                        </div>
-                        <div class="smartphone-screen">
-                            <div class="testimonial-track" id="testimonial-track">
-                                <!-- Imágenes -->
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_1.jpg" alt="Testimonio StayFit 1" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_2.jpg" alt="Testimonio StayFit 2" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_3.jpg" alt="Testimonio StayFit 3" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_4.jpg" alt="Testimonio StayFit 4" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_5.png" alt="Testimonio StayFit 5" loading="lazy">
-                                </div>
-                                <div class="testi-slide">
-                                    <img src="Media/Testimonios/testi_img_6.png" alt="Testimonio StayFit 6" loading="lazy">
-                                </div>
-                                <!-- Videos -->
-                                <div class="testi-slide">
-                                    <video src="Media/Testimonios/testi_vid_1.mp4" autoplay muted loop playsinline></video>
-                                </div>
-                                <div class="testi-slide">
-                                    <video src="Media/Testimonios/testi_vid_2.mp4" autoplay muted loop playsinline></video>
-                                </div>
-                                <div class="testi-slide">
-                                    <video src="Media/Testimonios/testi_vid_3.mp4" autoplay muted loop playsinline></video>
-                                </div>
-                            </div>
-                            
-                            <!-- Slider Overlay UI -->
-                            <div class="testi-overlay-ui">
-                                <div class="testi-progress-bars" id="testi-progress-bars">
-                                    <!-- Progress bars will be injected by JS -->
-                                </div>
-                                <div class="testi-user-info">
-                                    <div class="testi-avatar">💚</div>
-                                    <div class="testi-meta">
-                                        <span class="testi-name">Clienta StayFit</span>
-                                        <span class="testi-status">Hace un momento</span>
-                                    </div>
+
+                <div class="testi-grid reveal">
+                    <article class="testi-card">
+                        <div class="testi-card-body">
+                            <div class="testi-card-stars">★★★★★</div>
+                            <p class="testi-card-quote">"¡Increíble! Desde la primera semana noté que mi ansiedad por comer bajó muchísimo. Ya bajé 6 kilos y me siento llena de energía."</p>
+                            <div class="testi-card-author">
+                                <div class="testi-card-avatar" style="--av-color: #c2185b;">MG</div>
+                                <div>
+                                    <span class="testi-card-name">María G.</span>
+                                    <span class="testi-card-location">Bogotá, Colombia</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="smartphone-button"></div>
-                    </div>
+                    </article>
+
+                    <article class="testi-card">
+                        <div class="testi-card-body">
+                            <div class="testi-card-stars">★★★★★</div>
+                            <p class="testi-card-quote">"Lo que más me gustó es que no pasé hambre. La ropa me empieza a quedar diferente y ya van 3 semanas. Totalmente recomendado."</p>
+                            <div class="testi-card-author">
+                                <div class="testi-card-avatar" style="--av-color: #7b1fa2;">CR</div>
+                                <div>
+                                    <span class="testi-card-name">Carolina R.</span>
+                                    <span class="testi-card-location">Medellín, Colombia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testi-card">
+                        <div class="testi-card-body">
+                            <div class="testi-card-stars">★★★★★</div>
+                            <p class="testi-card-quote">"El té es delicioso y se nota el efecto desde el primer día. Junto con las pastillas es una combinación perfecta. ¡Gracias StayFit!"</p>
+                            <div class="testi-card-author">
+                                <div class="testi-card-avatar" style="--av-color: #00897b;">VJ</div>
+                                <div>
+                                    <span class="testi-card-name">Valentina J.</span>
+                                    <span class="testi-card-location">Cali, Colombia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testi-card">
+                        <div class="testi-card-body">
+                            <div class="testi-card-stars">★★★★★</div>
+                            <p class="testi-card-quote">"Llevaba meses buscando algo que funcionara de verdad. Con StayFit bajé 8 kilos en 2 meses sin dieta estricta. Me cambió la vida."</p>
+                            <div class="testi-card-author">
+                                <div class="testi-card-avatar" style="--av-color: #e64a19;">DL</div>
+                                <div>
+                                    <span class="testi-card-name">Daniela L.</span>
+                                    <span class="testi-card-location">Villavicencio, Colombia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testi-card">
+                        <div class="testi-card-body">
+                            <div class="testi-card-stars">★★★★★</div>
+                            <p class="testi-card-quote">"Lo pedí desde Miami y llegó rapidísimo. Es el mejor quemador que he probado. Natural, sin efectos secundarios y muy efectivo."</p>
+                            <div class="testi-card-author">
+                                <div class="testi-card-avatar" style="--av-color: #1565c0;">AM</div>
+                                <div>
+                                    <span class="testi-card-name">Alejandra M.</span>
+                                    <span class="testi-card-location">Miami, USA 🇺🇸</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testi-card">
+                        <div class="testi-card-body">
+                            <div class="testi-card-stars">★★★★★</div>
+                            <p class="testi-card-quote">"Empecé con el té y luego continué con las pastillas. Bajé tallas sin pasarla mal. El servicio al cliente es excelente, siempre pendientes."</p>
+                            <div class="testi-card-author">
+                                <div class="testi-card-avatar" style="--av-color: #558b2f;">FP</div>
+                                <div>
+                                    <span class="testi-card-name">Fernanda P.</span>
+                                    <span class="testi-card-location">Yopal, Colombia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
 
                 <div class="text-center mt-12 reveal">
