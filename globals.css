@@ -150,11 +150,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero-desc { font-size: 1.1rem; color: rgba(255,255,255,0.8); max-width: 600px; margin-bottom: 40px; }
 .hero-actions { display: flex; gap: 16px; align-items: center; }
+.hero-catalog-btns { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
 
 @media (max-width: 768px) {
     .hero-bg { width: 100%; mask-image: linear-gradient(to bottom, transparent, black 40%); opacity: 0.4; }
     .hero-title { font-size: 2.5rem; }
     .hero-actions { flex-direction: column; width: 100%; }
+    .hero-catalog-btns { flex-direction: column; width: 100%; }
+    .hero-catalog-btns .btn { width: 100%; text-align: center; }
     .btn-full-mobile { width: 100%; }
 }
 
