@@ -4,8 +4,6 @@ import { StorageWrapper } from './storage.js';
 /**
  * billing engine: handles currency, exchange rates and price formatting.
  */
-// Expose to window for direct access if module loading has issues elsewhere
-window.Billing = Billing;
 export const Billing = {
     getCurrency() {
         return StorageWrapper.getItem('sf_currency') || CONFIG.currency.DEFAULT;
@@ -55,6 +53,10 @@ export const Billing = {
             toggleBtn.innerHTML = currency;
             toggleBtn.setAttribute('data-active-currency', currency);
         }
+    },
+
+    exposeGlobal() {
+        window.Billing = this;
     },
 
     async autoDetectCurrency() {

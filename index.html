@@ -209,8 +209,8 @@
                 </button>
             </div>
             <div class="hero-catalog-btns">
-                <a href="/usd" class="btn btn-primary btn-sm">Catálogo USA 🇺🇸</a>
-                <a href="#cat" class="btn btn-outline btn-sm" style="border-width: 2px; font-weight: 700;">Catálogo Colombia 🇨🇴</a>
+                <a href="#cat" class="btn btn-primary btn-sm" onclick="sfSetCurrency('USD')">Catálogo USA 🇺🇸</a>
+                <a href="#cat" class="btn btn-outline btn-sm" style="border-width: 2px; font-weight: 700;" onclick="sfSetCurrency('COP')">Catálogo Colombia 🇨🇴</a>
             </div>
         </article>
 
@@ -916,6 +916,27 @@
       }
 
       overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+      function sfSetCurrency(c) {
+        localStorage.setItem('sf_currency', c);
+        if (window.Billing && typeof window.Billing.setCurrency === 'function') {
+          window.Billing.setCurrency(c);
+        } else {
+          var toggle = document.getElementById('currency-toggle');
+          if (toggle) toggle.innerText = c;
+          document.querySelectorAll('[data-amount-cop]').forEach(function(el) {
+            var amt = el.getAttribute('data-amount-' + c.toLowerCase());
+            var locale = c === 'COP' ? 'es-CO' : 'en-US';
+            var f = '$' + Number(amt).toLocaleString(locale);
+            var tag = '<small>' + c + '</small>';
+            if (el.classList.contains('price-main') || el.classList.contains('combo-price') || el.classList.contains('price-strikethrough')) {
+              el.innerHTML = f + ' ' + tag;
+            } else {
+              el.innerHTML = f + ' ' + c;
+            }
+          });
+        }
+      }
     </script>
 
     <!-- Tea Flavor Autoplay Slider -->

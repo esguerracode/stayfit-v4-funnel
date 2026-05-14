@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Attribution.init();
 
     // ── 2. Currency Detection ─────────────────────────────────────────────
+    Billing.exposeGlobal();
     Billing.autoDetectCurrency();
 
     // ── 3. UI Animations & Loader ─────────────────────────────────────────
