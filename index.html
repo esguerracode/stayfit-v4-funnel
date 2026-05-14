@@ -209,9 +209,9 @@
                 </button>
                 <a href="#cat" class="btn btn-outline" style="border-width: 2px; font-weight: 700;">Ver Catálogo</a>
             </div>
-            <div class="hero-usa-badge">
-                <span class="usa-flag">🇺🇸</span>
-                <span>Envíos a <strong>Estados Unidos</strong> disponibles</span>
+            <div class="hero-catalog-btns">
+                <a href="/usd" class="btn btn-primary btn-sm">Catálogo USA 🇺🇸</a>
+                <a href="#cat" class="btn btn-outline btn-sm" style="border-width: 2px; font-weight: 700;">Catálogo Colombia 🇨🇴</a>
             </div>
         </article>
 
@@ -298,29 +298,29 @@
                     <article class="combo-card reveal delay-1 featured">
                         <div class="combo-header">
                             <span class="combo-tag accent">IDEAL PARA INICIAR</span>
-                            <span class="combo-subtitle">INICIO</span>
+                            <span class="combo-subtitle">Protocolo 45 días</span>
                         </div>
                         <h3 class="combo-name">Combo 1: Inicio Poderoso</h3>
-                        <p class="combo-desc">1 Frasco de Pastillas + 1 Caja de Té</p>
+                        <p class="combo-desc">Fácil adaptación y resultados seguros</p>
                         <div class="combo-price" data-amount-cop="340000" data-amount-usd="200">$340.000 COP</div>
                         <ul class="combo-features">
-                            <li>1 Frasco de Quemador StayFit (60 cápsulas)</li>
-                            <li>1 Caja de Té StayFit (Sabor a elección)</li>
+                            <li>1 Frasco de Quemador StayFit (30 pastillas)</li>
+                            <li>1 Caja de Té StayFit (15 sobres, Sabor a elección)</li>
                         </ul>
                         <button onclick="openModal('Combo 1 (Mix Inicial)', 340000, '🎁')" class="btn btn-primary btn-full mt-auto">¡Empezar Ahora!</button>
                     </article>
 
                     <article class="combo-card reveal delay-2">
                         <div class="combo-header">
-                            <span class="combo-tag">AHORRO PACK</span>
-                            <span class="combo-subtitle">DÚO PODER</span>
+                            <span class="combo-tag">DÚO PODER</span>
+                            <span class="combo-subtitle">Protocolo 30 días</span>
                         </div>
                         <h3 class="combo-name">Combo 2: Dúo Poder</h3>
                         <p class="combo-desc">Ideal para perder peso y mantenerse.</p>
                         <div class="combo-price" data-amount-cop="260000" data-amount-usd="160">$260.000 COP</div>
                         <ul class="combo-features">
-                            <li>2 Cajas de StayFit Tea</li>
-                            <li>✓ Control de ansiedad prolongada</li>
+                            <li>2 Cajas de StayFit Tea (cada caja contiene 15 sobres)</li>
+                            <li>Control de ansiedad prolongada</li>
                         </ul>
                         <button onclick="openModal('Combo 2 (Dúo Poder)', 260000, '🔥')" class="btn btn-secondary btn-full mt-auto">Asegurar Mi Pack</button>
                     </article>
@@ -334,7 +334,7 @@
                         <p class="combo-desc">Tratamiento intensivo para 45 días. El favorito para transformaciones reales.</p>
                         <div class="combo-price" data-amount-cop="375000" data-amount-usd="230">$375.000 COP</div>
                         <ul class="combo-features">
-                            <li style="font-weight: 700;">3 Cajas de StayFit Tea</li>
+                            <li>3 Cajas de StayFit Tea (cada caja contiene 15 sobres)</li>
                         </ul>
                         <button onclick="openModal('Combo 3 (Máximo Ahorro)', 375000, '✨')" class="btn btn-primary btn-full mt-auto">Asegurar Máximo Ahorro</button>
                     </article>
@@ -346,7 +346,15 @@
         <section class="section-bento section-padding" id="beneficios">
             <div class="container">
                 <div class="bento-grid bento-grid-3">
-                    <article class="bento-item reveal delay-1" style="--bento-bg: var(--bento-peach);">
+                    <article class="bento-item reveal delay-1" style="--bento-bg: var(--bento-lilac); border: 1px dashed var(--brand-primary);">
+                        <div class="bento-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h3 class="bento-title">Envíos a USA 🇺🇸</h3>
+                        <p>Llegamos a todo Estados Unidos. Pastillas: $130 USD | Té: $80 USD. Envío: $20 USD adicionales.</p>
+                        <a href="https://wa.me/573172691600?text=Hola,%20quiero%20hacer%20un%20pedido%20desde%20Estados%20Unidos" target="_blank" class="bento-cta">Compra Inmediata →</a>
+                    </article>
+                    <article class="bento-item reveal delay-2" style="--bento-bg: var(--bento-peach);">
                         <div class="bento-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                         </div>
@@ -354,21 +362,13 @@
                         <p>Envíos seguros a toda Colombia. Recibe en 2-4 días hábiles.</p>
                         <button onclick="openModal('Tratamiento StayFit', 210000, '🚚')" class="bento-cta">Compra Inmediata →</button>
                     </article>
-                    <article class="bento-item reveal delay-2" style="--bento-bg: var(--bento-mint);">
+                    <article class="bento-item reveal delay-3" style="--bento-bg: var(--bento-mint);">
                         <div class="bento-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                         </div>
                         <h3 class="bento-title">Pago contra entrega</h3>
                         <p>Disponible en Villavicencio y Yopal.</p>
                         <button onclick="openModal('Tratamiento StayFit', 210000, '🛒')" class="bento-cta">Compra Inmediata →</button>
-                    </article>
-                    <article class="bento-item reveal delay-4" style="--bento-bg: var(--bento-lilac); border: 1px dashed var(--brand-primary);">
-                        <div class="bento-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </div>
-                        <h3 class="bento-title">Envíos a USA 🇺🇸</h3>
-                        <p>Llegamos a todo Estados Unidos. Pastillas: $130 USD | Té: $80 USD. Envío: $20 USD adicionales.</p>
-                        <a href="https://wa.me/573172691600?text=Hola,%20quiero%20hacer%20un%20pedido%20desde%20Estados%20Unidos" target="_blank" class="bento-cta">Compra Inmediata →</a>
                     </article>
                 </div>
             </div>
@@ -489,21 +489,19 @@
                         </div>
                     </details>
                     <details class="faq-item">
-                        <summary>¿Los productos tienen efectos secundarios?</summary>
+                        <summary>¿Cuáles son los componentes?</summary>
                         <div class="faq-answer">
-                            <p>StayFit está formulado con ingredientes 100% naturales y es seguro para el consumo diario. No contiene hormonas sintéticas ni estimulantes peligrosos. Sin embargo, si estás embarazada, lactando o tienes alguna condición médica, te recomendamos consultar con tu médico antes de usar cualquier quemador.</p>
+                            <p>StayFit está formulado con ingredientes 100% naturales: L-carnitina, picolinato de cromo, extracto de frutas y saborizante. Sin hormonas sintéticas ni estimulantes peligrosos. Si estás embarazada, lactando o tienes alguna condición médica, consulta con tu médico antes de usar.</p>
                         </div>
                     </details>
                     <details class="faq-item">
                         <summary>¿Cómo realizo el pago?</summary>
                         <div class="faq-answer">
-                            <p>Para tu comodidad, manejamos diversos canales oficiales:</p>
+                            <p>El método de pago se indica una vez esté confirmada tu orden. Nuestro asesor por WhatsApp te enviará los datos en ese momento.</p>
                             <ul>
-                                <li><strong>Transferencia Bancolombia:</strong> Disponible para todo el país.</li>
-                                <li><strong>Nequi:</strong> Transferencia inmediata.</li>
-                                <li><strong>Pago contra entrega:</strong> Disponible únicamente en Villavicencio y Yopal. Resto del país previo pago.</li>
+                                <li><strong>Pago contra entrega:</strong> Disponible únicamente en Villavicencio y Yopal.</li>
+                                <li><strong>Resto del país:</strong> Previo pago por Bancolombia o Nequi.</li>
                             </ul>
-                            <p>Solicita los datos actuales de transferencia directamente con tu asesor por WhatsApp.</p>
                         </div>
                     </details>
                     <details class="faq-item">
@@ -515,14 +513,23 @@
                     <details class="faq-item">
                         <summary>¿Puedo combinar Pills y Tea?</summary>
                         <div class="faq-answer">
-                            <p>No se deben combinar. La recomendación es iniciar con el té, que es de fácil adaptación, y posterior a terminarlo se inicia con las pastillas hasta finalizar el tratamiento.</p>
+                            <p>🚫 No tomar ambos productos simultáneamente. Debes iniciar y terminar uno de los dos, para posteriormente continuar con el otro hasta finalizar el tratamiento.</p>
+                            <p><strong>Recomendaciones de uso StayFit:</strong></p>
+                            <p>Dependiendo del producto elegido (💊 1 pastilla con agua / 1 sobre de té disuelto en agua caliente 🍵):</p>
+                            <ol>
+                                <li>Ingiere 1 servicio por día en ayunas cada mañana y 15 minutos después desayuna. Te ayudará a inhibir el apetito y la ansiedad. Repite hasta finalizar tu tratamiento.</li>
+                                <li>Toma mucha agua, de 2 a 3 litros en lo posible. Nuestros productos actúan como diuréticos eliminando toxinas del cuerpo.</li>
+                                <li>Evita comidas altas en grasas (fritos, gaseosas, harinas y bebidas alcohólicas). No es necesaria una dieta estricta, pero sí un consumo moderado.</li>
+                                <li>Realizar actividades físicas te ayudará a obtener mejores resultados.</li>
+                                <li>Recuerda que StayFit es un estilo de vida saludable y no un suplemento diario para tu alimentación.</li>
+                            </ol>
                         </div>
                     </details>
 
                     <details class="faq-item">
                         <summary>¿Qué pasa si tengo dudas durante el proceso?</summary>
                         <div class="faq-answer">
-                            <p>A diferencia de otras marcas, no te dejamos sola. Al adquirir StayFit, tienes acceso a nuestro canal de WhatsApp donde resolvemos tus dudas sobre dosis, alimentación y cómo potenciar tus resultados cada vez que lo necesites.</p>
+                            <p>Al adquirir StayFit, tienes acceso a nuestro canal de WhatsApp donde resolvemos tus dudas sobre dosis, alimentación y cómo potenciar tus resultados cada vez que lo necesites.</p>
                         </div>
                     </details>
                 </div>
@@ -555,7 +562,7 @@
                         <span class="distributor-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
                         </span>
-                        <span class="distributor-text">¿Eres distribuidor? Emprende con StayFit</span>
+                        <span class="distributor-text">Emprende con StayFit</span>
                         <span class="distributor-arrow">→</span>
                     </summary>
                     <div class="wholesale-content">
